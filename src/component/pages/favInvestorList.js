@@ -20,13 +20,15 @@ const FavInvestorList = () => {
     const lastIdRef = useRef();
     const sectionRef = useRef();
     const [loaderCounts, setLoaderCounts] = useState(1);
+    const userData = JSON.parse(window.localStorage.getItem('globasity_user_data'))
 
 
     const getInvestors = (lastId) => {
         const body = new FormData()
         body.append('table_name', 'investor_favourites')
         body.append('type', 'get_data')
-        body.append('user_type', "investor")
+        // body.append('user_type', "investor")
+        body.append('user_id', userData.user_id)
         body.append('last_id', lastId === null ? "" : lastId)
         apiRequest({ body })
             .then((result) => {
@@ -43,7 +45,8 @@ const FavInvestorList = () => {
         const body = new FormData()
         body.append('table_name', 'investor_favourites')
         body.append('type', 'get_data')
-        body.append('user_type', "investor")
+        // body.append('user_type', "investor")
+        body.append('user_id', userData.user_id)
         body.append('last_id', lastId === null ? "" : lastId)
         apiRequest({ body })
             .then((result) => {
@@ -105,14 +108,14 @@ const FavInvestorList = () => {
                 <section className='mt-5'>
                     <Container fluid="lg">
                         <div className='mb-5'>
-                            <h5 className='popins_semibold text-center mb-0'>{t("Favorite_Investor_Lists")}</h5>
+                            <h5 className='popins_semibold text-center mb-0'>{t("Favorite_Investor_List")}</h5>
                             <div className='fs_08 popins_light text-center mt-1'>{t("investor_profile")}</div>
                         </div>
                         <div>
                             <div className='row contentCenter'>
                                 {investors?.length > 0 ? investors.map((items, index) => (
                                     <div key={index} className='col-xl-4 col-lg-5 col-md-6 col-sm-9  p-2'>
-                                        <InvestorCard investorId={items.id} name={items.name} profile={items.thumb} description={items.company_description} totalAmount={items.invested_amount} lastInvest={0} />
+                                        <InvestorCard investorId={items.id} name={items.name} profile={items.thumb} description={items.company_description} totalAmount={items.invested_amount} lastInvest={0} favourite={items?.status} getInvestors={getInvestors} />
                                     </div>
                                 )) :
                                     <div className='d-flex justify-content-center flex-column align-items-center'>

@@ -21,7 +21,7 @@ const InvestorList = () => {
     const lastIdRef = useRef();
     const sectionRef = useRef();
     const [loaderCounts, setLoaderCounts] = useState(1);
-
+    const userData = JSON.parse(window.localStorage.getItem('globasity_user_data'))
 
     const getInvestors = (lastId) => {
         const body = new FormData()
@@ -29,6 +29,8 @@ const InvestorList = () => {
         body.append('type', 'get_data')
         body.append('user_type', "investor")
         body.append('last_id', lastId === null ? "" : lastId)
+        body.append('user_id', userData.user_id)
+        body.append('fav', '1')
         apiRequest({ body })
             .then((result) => {
                 setInvestors(result.data)
@@ -45,6 +47,8 @@ const InvestorList = () => {
         body.append('table_name', 'users')
         body.append('type', 'get_data')
         body.append('user_type', "investor")
+        body.append('user_id', userData.user_id)
+        body.append('fav', '1')
         body.append('last_id', lastId === null ? "" : lastId)
         apiRequest({ body })
             .then((result) => {
@@ -114,7 +118,7 @@ const InvestorList = () => {
                             <div className='row contentCenter'>
                                 {investors?.length > 0 ? investors.map((items, index) => (
                                     <div key={index} className='col-xl-4 col-lg-5 col-md-6 col-sm-9  p-2'>
-                                        <InvestorCard investorId={items.id} name={items.name} profile={items.thumb} description={items.company_description} totalAmount={items.invested_amount} lastInvest={0} />
+                                        <InvestorCard investorId={items.id} name={items.name} profile={items.thumb} description={items.company_description} totalAmount={items.invested_amount} lastInvest={0} getInvestors={getInvestors} favourite={items?.favourite} />
                                     </div>
                                 )) :
                                     <div className='d-flex justify-content-center flex-column align-items-center'>
