@@ -136,11 +136,13 @@ const UserInformation = ({ onNextStep, onPrevStep, accountType, setVerifyEmail, 
                     });
             } else {
                 toast.error('Password Not match')
+                setIsLoading(false)
             }
         } else {
             setMessage('This Email is already register! please try another email')
             setMessageType('error')
             setOpen(true)
+            setIsLoading(false)
         }
     }
     const handleSubmit = () => {
