@@ -265,7 +265,7 @@ const NumberVerification = () => {
               </div>
             </form>
             <div className="popins_semibold fs_08">
-              {t("HV_ACCOUNT")}?
+              {t("HV_ACCOUNT")}?{" "}
               <Link
                 className="popins_semibold"
                 to={"/sign-up"}

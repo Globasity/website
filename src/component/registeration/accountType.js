@@ -107,7 +107,7 @@ const AccountType = ({ onNextStep, userType, setUserType, setAccountType, accoun
                                 </button>
                             </div>
                             <div className="popins_semibold mt-4 fs_08">
-                                {t("ALREAD_ACC")}?
+                                {t("ALREAD_ACC")}?{" "}
                                 <Link
                                     className="popins_semibold"
                                     to={"/login"}
