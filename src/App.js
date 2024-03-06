@@ -46,7 +46,7 @@ const MyBusiness = lazy(() => import('./component/pages/myBusiness'))
 const WaitForLogin = lazy(() => import('./component/snackbar/waitForLogin'))
 const BusinessContractView = lazy(() => import('./component/pages/businessContractView'))
 const Notification = lazy(() => import('./component/pages/notification'))
-// const FavInvestorList = lazy(() => import('./component/pages/favInvestorList'))p
+const FavInvestorList = lazy(() => import('./component/pages/favInvestorList'))
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -229,7 +229,7 @@ const App = () => {
             <Route path='/fav-business' element={!isLogin ? (<Navigate replace to="/login" />) : <FavBusiness />} ></Route>}
 
           <Route path='/investment' element={!isLogin ? (<Navigate replace to="/login" />) : <Investment />} ></Route>
-          {/* <Route path='/fav-investor' element={!isLogin ? (<Navigate replace to="/login" />) : <FavInvestorList />} ></Route> */}
+          <Route path='/fav-investor' element={!isLogin ? (<Navigate replace to="/login" />) : <FavInvestorList />} ></Route>
           <Route path='/notification' element={!isLogin ? (<Navigate replace to="/login" />) : <Notification />} ></Route>
           <Route path='/my-profile' element={!isLogin ? (<Navigate replace to="/login" />) : <UserAccount />} ></Route>
           <Route path='/investment-detail' element={!isLogin ? (<Navigate replace to="/login" />) : <InvestmentDetail />} ></Route>
