@@ -120,7 +120,7 @@ const UserInformation = ({ onNextStep, onPrevStep, accountType, setVerifyEmail, 
                         if (result.result) {
                             handleNextStep()
                             const code = encodeCode(result.code)
-                            window.localStorage.setItem('encrypted_data_of_GB', JSON.stringify(code))
+                            window.localStorage.setItem('encrypted_data_of_GB', JSON.stringify(result))
                             // dispatch(handleLogin(result));
                             // dispatch(handleUserData(Math.random()));
                             setIsLoading(false)

@@ -30,36 +30,41 @@ const SMSVerification = ({ onNextStep, verifyEmail, userType, forgotPassword, on
         const value = event.target.value;
         setInputValue(value);
     };
-    const decodeCode = (encodedString) => {
-        const encodedChars = encodedString.split(',');
-        const decodedStr = encodedChars.map((code) => String.fromCharCode(parseInt(code, 10))).join('');
-        const originalCode = parseInt(decodedStr.split('').reverse().join(''), 10);
-        return originalCode;
+
+    const verifyEmailData = async (email, code) => {
+        const body = new FormData();
+        body.append('type', 'verify_email');
+        body.append('email', email);
+        body.append('code', code);
+        const response = await apiRequest({ body });
+        return response.result;
     };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const code2 = userData ? decodeCode(userData) : ""
         if (forgotPassword === true) {
-            if (userRecover.code === parseInt(inputValue)) {
-                onNextStep()
+            const response = await verifyEmailData(userRecover.email, inputValue);
+            if (response) {
+                onNextStep();
             } else {
-                setMessage('Code not match')
-                setMessageType('error')
-                setOpen(true)
+                setMessage('Code not match');
+                setMessageType('error');
+                setOpen(true);
             }
-        } else
-            if (parseInt(code2) === parseInt(inputValue)) {
-                setIsLoading(true)
-                await onSubmitData()
-                window.localStorage.removeItem('encrypted_data_of_GB')
-                setIsLoading(false)
-                onNextStep()
+        } else {
+            const response = await verifyEmailData(userData?.email, inputValue);
+            console.log(response)
+            if (response) {
+                setIsLoading(true);
+                await onSubmitData();
+                setIsLoading(false);
+                onNextStep();
+            } else {
+                setMessage('Code not match or email verification failed');
+                setMessageType('error');
+                setOpen(true);
             }
-            else {
-                setMessage('Code not match')
-                setMessageType('error')
-                setOpen(true)
-            }
+        }
     };
 
     return (
