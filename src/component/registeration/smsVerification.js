@@ -53,7 +53,6 @@ const SMSVerification = ({ onNextStep, verifyEmail, userType, forgotPassword, on
             }
         } else {
             const response = await verifyEmailData(userData?.email, inputValue);
-            console.log(response)
             if (response) {
                 setIsLoading(true);
                 await onSubmitData();
