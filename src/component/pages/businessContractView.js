@@ -304,7 +304,7 @@ const BusinessContractView = () => {
     const checkInitiateChat = (businessUserId, investorUserId) => {
         let to_chat_id = ""
         if (businessContract[0]?.business_user?.id === userData?.user_id) {
-            console.log(true)
+            // console.log(true)
             to_chat_id = businessContract[0]?.investor_id
             setToChatId(businessContract[0]?.investor_id)
             setchatImage(businessContract[0]?.investor_user?.image)

@@ -62,7 +62,7 @@ const ViewInitialContract = () => {
         body.append('website_payment_date', "00000-00-00");
         await apiRequest({ body })
             .then((result) => {
-                console.log(result.data);
+                // console.log(result.data);
             })
             .catch((err) => {
                 console.log(err);
