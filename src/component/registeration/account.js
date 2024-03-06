@@ -97,7 +97,7 @@ const UserAccount = () => {
         body.append('id', userData?.user_id)
         await apiRequest({ body })
             .then((result) => {
-                console.log(result)
+                // console.log(result)
                 const data = result.data[0]
                 if (data) {
                     setFormData({
@@ -133,7 +133,7 @@ const UserAccount = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Access the form data in the 'formData' object
-        console.log(formData);
+        // console.log(formData);
         setIsLoading(true)
         const body = new FormData()
         body.append('type', 'update_data')
@@ -145,7 +145,7 @@ const UserAccount = () => {
         body.append('gender', formData.gender)
         body.append('address', formData.address)
         body.append('currency_type', formData.currency)
-        console.log(formData)
+        // console.log(formData)
         apiRequest({ body })
             .then(async (result) => {
                 setIsLoading(false)
