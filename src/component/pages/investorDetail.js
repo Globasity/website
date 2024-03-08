@@ -32,7 +32,7 @@ const InvestorDetail = () => {
         body.append('user_type', "investor")
         apiRequest({ body })
             .then((result) => {
-                console.log(result.data)
+                // console.log(result.data)
                 setInvestors(result.data[0])
                 setIsLoading(false)
             }).catch((err) => {

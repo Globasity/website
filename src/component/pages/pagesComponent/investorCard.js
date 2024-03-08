@@ -21,7 +21,7 @@ const InvestorCard = ({ name, totalAmount, description, profile, lastInvest, inv
         body.append('status', status)
         apiRequest({ body })
             .then((result) => {
-                console.log(result)
+                // console.log(result)
                 if (result.result) {
                     getInvestors(null, true)
                 } else {

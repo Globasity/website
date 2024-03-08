@@ -240,7 +240,7 @@ const ChatMessageList = ({ chatDetail, setShowChat, setCheckMsg, checkMsg, setRe
         setIsFileLoader(true)
         await apiRequestFile(file)
             .then(async (result) => {
-                console.log(result)
+                // console.log(result)
                 if (result.result) {
                     setIsFileLoader(false)
                     setIsDelete(false)

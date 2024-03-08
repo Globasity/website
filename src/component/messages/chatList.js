@@ -57,7 +57,7 @@ const ChatList = ({ name, discrip, img, activeId, setActiveChatId, setShowChat, 
         body.append('to_id', userData?.user_id)
         await apiRequest({ body })
             .then((result) => {
-                console.log(result)
+                // console.log(result)
             }).catch((err) => {
                 console.log(err)
             });

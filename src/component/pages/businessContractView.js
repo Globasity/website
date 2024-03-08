@@ -363,7 +363,7 @@ const BusinessContractView = () => {
             msg: message,
             msg_type: "text",
         }
-        console.log(data)
+        // console.log(data)
         setChatMsg([...chatMsg, data]);
         chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
         const scrollTimeout = setTimeout(() => {
