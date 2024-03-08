@@ -61,6 +61,10 @@ const Contact = () => {
             message: ''
           });
           setPhoneNumber('')
+        }else{
+          setMessage(result.message)
+          setOpen(true)
+          setMessageType('error')
         }
         setIsLoading(false)
       }).catch((err) => {
