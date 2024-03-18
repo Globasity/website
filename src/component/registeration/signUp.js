@@ -21,6 +21,7 @@ const SiginUp = () => {
     const [accountType, setAccountType] = useState('individual')
     const [profileImage, setProfileImage] = useState('');
     const [verifyEmail, setVerifyEmail] = useState('');
+    const [progress, setProgress] = useState(0);
     useEffect(() => {
         const userLangauge = JSON.parse(window.localStorage.getItem('globasity_language'))
         if (!userLangauge) {
@@ -42,10 +43,24 @@ const SiginUp = () => {
     const handlePrevStep = () => {
         setCurrentStep(currentStep - 1);
     };
+    useEffect(() => {
+        const calculateProgress = () => {
+            const totalSteps = userType === 'investor' ? 5 : 7;
+            const calculatedProgress = ((currentStep + 1) / totalSteps) * 100;
+            setProgress(calculatedProgress);
+        };
+
+        calculateProgress();
+    }, [currentStep, userType]);
+
     return (
         <>
             <div className='main pt-4 pb-5 display_flex2 flex-column' style={{ backgroundColor: "#F3F7F5", minHeight: "90vh" }} id="main">
-
+                <div>
+                    <div style={{ width: '200px', margin: '25px auto', backgroundColor: '#EEEEEE', borderRadius: '5px', overflow: 'hidden' }}>
+                        <div style={{ width: `${progress}%`, height: '10px', backgroundColor: '#4caf50', transition: 'width 0.5s ease-in-out' }}></div>
+                    </div>
+                </div>
                 {currentStep === 0 && <AccountType userType={userType} accountType={accountType} setAccountType={setAccountType} setUserType={setUserType} onNextStep={handleNextStep} />}
                 {currentStep === 1 && (
                     <UserInformation

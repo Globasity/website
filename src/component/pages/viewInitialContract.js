@@ -79,11 +79,11 @@ const ViewInitialContract = () => {
         setIsLoading(false)
         await apiRequest({ body })
             .then((result) => {
-                const data = JSON.parse(result.result);
-                const paymentPage = data?.data.payment_page_link;
+                // const data = JSON.parse(result.result);
+                // const paymentPage = data?.data.payment_page_link;
                 setNextBtn(true)
-                childWindow = openPaymentPage(paymentPage);
-                setNewWindow(childWindow)
+                // childWindow = openPaymentPage(true);
+                setNewWindow(true)
             }).catch((err) => {
                 console.log(err);
             });

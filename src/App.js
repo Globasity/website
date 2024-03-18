@@ -3,8 +3,8 @@
 import React, { useEffect, lazy, Suspense, useState } from 'react'
 import { Route, Routes, Navigate, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './component/styles/main.css'
-import './component/styles/main.min.css'
+import './component/styles/main.css'
+// import './component/styles/main.min.css'
 import './component/styles/font_Sizes.css'
 import { useLocation } from 'react-router-dom';
 import NavHeader from './component/header/navHeader'
@@ -207,12 +207,9 @@ const App = () => {
         <div className='w-100 vh_90 main_app d-flex justify-content-center align-items-center' >
           <div className='d-flex align-items-center position-relative' >
             <div className='position-absolute'>
-              <h5 className='popins_semibold ms-2 my-0 fs_08' >
-                Globasity
-              </h5>
             </div>
           </div>
-          <CircularProgress size={'5rem'} />
+          <CircularProgress size={'3rem'} />
         </div>}>
         <Routes>
           <Route index element={<MainPage />} ></Route>

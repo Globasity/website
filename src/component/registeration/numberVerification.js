@@ -2,6 +2,8 @@
 import { Container, Spinner } from "react-bootstrap";
 import Business from "../assests/png/business-man.png";
 import investor from "../assests/png/investor.png";
+import InvestorIcon from "../assests/svg/InvestorIcon";
+import EntrepreneurIcon from "../assests/svg/EntrepreneurIcon";
 import accept from "../assests/png/accept.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { apiRequest } from "../api/apiRequest";
@@ -17,31 +19,33 @@ import NotifySnackbar from "../snackbar/notiySnackbar";
 const NumberVerification = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState('');
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
   const handleClose = (reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpen(false);
   };
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [checked, setChecked] = useState(false);
   const [checked2, setChecked2] = useState(true);
-  const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('investor');
+  const [password, setPassword] = useState("");
+  const [userType, setUserType] = useState("investor");
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
   const handleSubmit = (event) => {
-    const userLangauge = JSON.parse(window.localStorage.getItem('globasity_language'))
+    const userLangauge = JSON.parse(
+      window.localStorage.getItem("globasity_language")
+    );
 
     if (!userLangauge) {
-      const lan = 'en';
-      localStorage.setItem('globasity_language', JSON.stringify(lan));
+      const lan = "en";
+      localStorage.setItem("globasity_language", JSON.stringify(lan));
     }
     event.preventDefault();
     const e_mail = event.target.Email.value;
@@ -59,11 +63,11 @@ const NumberVerification = () => {
     apiRequest({ body })
       .then((res) => {
         if (res.result) {
-          const data2 = res
+          const data2 = res;
           setIsLoading(false);
           if (data2.user_type === userType) {
             if (data2.is_active === "true") {
-              toast.success(res.message)
+              toast.success(res.message);
               dispatch(setLogin(true));
               dispatch(handleLogin(res));
               dispatch(handleUserData(Math.random()));
@@ -72,62 +76,90 @@ const NumberVerification = () => {
               dispatch(handleLogin(res));
               dispatch(handleUserData(Math.random()));
               dispatch(setLogin(false));
-              navigate('/wait-for-login')
+              navigate("/wait-for-login");
             }
           } else {
-            setMessage(`This is an ${data2.user_type === "business" ? "Entrepreneur" : data2.user_type} account. Kindly choose the '${data2.user_type === "business" ? "Entrepreneur" : data2.user_type}' option when logging in.`)
-            setMessageType('warning')
-            setOpen(true)
+            setMessage(
+              `This is an ${
+                data2.user_type === "business"
+                  ? "Entrepreneur"
+                  : data2.user_type
+              } account. Kindly choose the '${
+                data2.user_type === "business"
+                  ? "Entrepreneur"
+                  : data2.user_type
+              }' option when logging in.`
+            );
+            setMessageType("warning");
+            setOpen(true);
           }
         } else {
-          setMessage('Invalid email and password. Kindly sign up to create a new account.')
-          setMessageType('error')
-          setOpen(true)
+          setMessage(
+            "Invalid email and password. Kindly sign up to create a new account."
+          );
+          setMessageType("error");
+          setOpen(true);
           setIsLoading(false);
         }
       })
       .catch(() => {
         setIsLoading(false);
-
-      })
+      });
   };
   const handleAccount = () => {
     setChecked(true);
     setChecked2(false);
-    setUserType("business")
+    setUserType("business");
   };
   const handleAccount2 = () => {
-    setUserType('investor')
+    setUserType("investor");
     setChecked2(true);
     setChecked(false);
   };
   return (
     <>
-      <NotifySnackbar handleClose={handleClose} open={open} message={message} messageType={messageType} />
+      <NotifySnackbar
+        handleClose={handleClose}
+        open={open}
+        message={message}
+        messageType={messageType}
+      />
 
       <Container fluid="xxl" className="px-0">
         <section className="px-sm-3 d-flex align-items-center justify-content-center">
           <div className="login_card">
-            <span className="heading">{t("CHOOSE_TYPE")}</span>
+            <span className="heading">{t("LOGIN_BTN_TXT")}</span>
             <div className="account_type pb-4 pt-4 ">
               <div
-                className={`card_account d-flex align-items-center justify-content-center rounded-4 ${checked2 ? "border border-dark" : "border"}`}
+                className={`card_account d-flex align-items-center justify-content-center rounded-4 ${
+                  checked2 ? "custom-yellow-border bg-light-yellow" : "border"
+                }`}
                 onClick={handleAccount2}
-                style={{ cursor: "pointer" }}>
-                <div>
-                  <img src={investor} className="width3" alt="" />
+                style={{ cursor: "pointer" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "10px",
+                    alignItems: "center",
+                  }}
+                >
+                  <InvestorIcon color={checked2 ? "#FFBE16" : "#212529"} />
+    
                   <div
                     className="text-center popins_medium"
-                    style={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                    }}>
+                    // style={{
+                    //   position: "absolute",
+                    //   bottom: 0,
+                    //   left: 0,
+                    //   right: 0,
+                    // }}
+                  >
                     {t("BTN_INVESTOR")}
                   </div>
                 </div>
-                {checked2 ? (
+                {/* {checked2 ? (
                   <>
                     <img
                       src={accept}
@@ -137,29 +169,37 @@ const NumberVerification = () => {
                   </>
                 ) : (
                   ""
-                )}
+                )} */}
               </div>
               <div
-                className={`card_account d-flex align-items-center justify-content-center  rounded-4 ${checked ? "border border-dark" : "border"
-                  }`}
+                className={`card_account d-flex align-items-center justify-content-center  rounded-4 ${
+                  checked ? "custom-yellow-border bg-light-yellow" : "border"
+                }`}
                 onClick={handleAccount}
                 style={{ cursor: "pointer" }}
               >
-                <div>
-                  <img src={Business} className="width4" alt="" />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "10px",
+                    alignItems: "center",
+                  }}
+                >
+                  <EntrepreneurIcon color={checked ? "#FFBE16" : "#212529"} />
                   <div
                     className="text-center popins_medium"
-                    style={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                    }}
+                    // style={{
+                    //   position: "absolute",
+                    //   bottom: 0,
+                    //   left: 0,
+                    //   right: 0,
+                    // }}
                   >
                     {t("Entrepreneur")}
                   </div>
                 </div>
-                {checked ? (
+                {/* {checked ? (
                   <img
                     src={accept}
                     alt="checked"
@@ -167,25 +207,23 @@ const NumberVerification = () => {
                   />
                 ) : (
                   ""
-                )}
+                )} */}
               </div>
             </div>
             <div className="login_section d-flex mt-3 flex-column align-items-center justify-content-center">
               {checked2 ? (
-                <p className="m-0">{t("HELLO")} {t("BTN_INVESTOR")} !</p>
+                <p className="m-0">
+                  {t("HELLO")} {t("BTN_INVESTOR")} !
+                </p>
               ) : (
                 <p className="m-0">{`${t("HELLO")} ${t("Entrepreneur")} !`}</p>
               )}
-              <p className="m-0 pb-2 fs_08 text-center">
-                {t("FILL_FORM")}
-              </p>
+              <p className="m-0 pb-2 fs_08 text-center">{t("FILL_FORM")}</p>
             </div>
             <form className="w-100 mt-3" onSubmit={handleSubmit}>
               <div className="d-flex flex-column contact_inputs gap-1 register">
                 <Form.Group>
-                  <Form.Label className="">
-                    {t("EMAIL")}
-                  </Form.Label>
+                  <Form.Label className="">{t("EMAIL")}</Form.Label>
                   <Form.Control
                     type="email"
                     name="Email"
@@ -195,39 +233,55 @@ const NumberVerification = () => {
                 </Form.Group>
 
                 <Form.Group>
-                  <Form.Label className="">
-                    {t("PASS")}
-                  </Form.Label>
+                  <Form.Label className="">{t("PASS")}</Form.Label>
                   <div className="position-relative">
                     <Form.Control
                       className="mb-0"
-                      type={showPassword ? 'text' : 'password'}
+                      type={showPassword ? "text" : "password"}
                       name="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      style={{ fontSize: '14px' }}
+                      style={{ fontSize: "14px" }}
                     />
-                    {password &&
+                    {password && (
                       <div className="position-absolute eyeOff">
-                        {showPassword && <EyeOff className="eyeShow" onClick={handleTogglePassword} />}
-                        {!showPassword && <Eye className="eyeShow" onClick={handleTogglePassword} />}
-                      </div>}
+                        {showPassword && (
+                          <EyeOff
+                            className="eyeShow"
+                            onClick={handleTogglePassword}
+                          />
+                        )}
+                        {!showPassword && (
+                          <Eye
+                            className="eyeShow"
+                            onClick={handleTogglePassword}
+                          />
+                        )}
+                      </div>
+                    )}
                   </div>
                 </Form.Group>
                 <div className="forgot_pass mt-2 d-flex justify-content-end">
-                  <Link to='/forgot' >
-                    <p className="m-0" style={{ fontSize: "12px", color: "red" }}> {t("FORGOT_PASS")} </p>
+                  <Link to="/forgot">
+                    <p
+                      className="m-0"
+                      style={{ fontSize: "12px", color: "red" }}
+                    >
+                      {" "}
+                      {t("FORGOT_PASS")}{" "}
+                    </p>
                   </Link>
                 </div>
               </div>
 
               <div className="mb-4 mt-3">
-                {checked === false &&
+                {/* {checked === false &&
                   ["radio"].map((type) => (
                     <div
                       key={`inline-${type}`}
-                      className="mb-3  display_flex2 gap-2">
+                      className="mb-3  display_flex2 gap-2"
+                    >
                       <Form.Check
                         style={{ fontSize: "14px" }}
                         inline
@@ -245,10 +299,9 @@ const NumberVerification = () => {
                         id={`inline-${type}-2`}
                       />
                     </div>
-                  ))}
+                  ))} */}
 
                 <div className="mt-4">
-
                   <button
                     disabled={isLoading ? true : false}
                     type="submit"
@@ -269,7 +322,7 @@ const NumberVerification = () => {
               <Link
                 className="popins_semibold"
                 to={"/sign-up"}
-                style={{ color: "#9cd161" }}
+                style={{ color: "#4caf50" }}
               >
                 {t("SIGN_UP")}
               </Link>

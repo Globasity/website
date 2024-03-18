@@ -26,13 +26,10 @@ root.render(
         {/* <img src={logo} alt=''style={{position:"absolute"}} /> */}
         <div className='' style={{ position: "absolute" }}>
           <div className='d-flex align-items-center' >
-            <h5 className='popins_semibold my-0 fs_08' >
-              Globasity
-            </h5>
           </div>
         </div>
         {/* <img src={logo} alt='' className='position-absolute' /> */}
-        <CircularProgress size={'5rem'} />
+        <CircularProgress size={'3rem'} />
       </div>}>
       <React.StrictMode>
         <I18nextProvider i18n={i18n}>

@@ -2835,8 +2835,9 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid #f3f7f5 !important;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 1px solid rgb(218,220,224);
+  border-radius: 15px;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 }
 
 .subcription_width {
@@ -2848,9 +2849,9 @@ footer {
 }
 
 .login_card .heading {
-  color: #9cd161;
+  color: #212529;
   font-family: "Popins_medium";
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .account_type {
@@ -2862,8 +2863,16 @@ footer {
 
 .card_account {
   position: relative;
-  height: 13rem;
+  height: 5rem;
   width: 12rem;
+}
+
+.bg-light-yellow{
+  background-color: #FFF9E5;
+}
+
+.custom-yellow-border{
+  border: 1px solid #FFC100; 
 }
 
 .verify_image .form-control:disabled {
@@ -3120,7 +3129,7 @@ footer {
     min-width: 8rem;
     height: auto;
     padding: 1rem;
-    width: auto;
+    width: 12rem;
   }
 
   .front_end {
