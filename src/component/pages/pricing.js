@@ -34,6 +34,7 @@ const Pricing = () => {
 
           </section>
           <section className='pt-5'>
+          <h3 className="main-headings display-center popins_semibold">Subscription Plans</h3>
             <div className='d-flex align-items-center justify-content-center gap-5  flex-md-row flex-sm-column  flex-wrap  mt-4'>
               <PricingCard amount="$49.99" content={t("Professional_Plan")} bg="#FFBE16" subcription={t("Month_sub")} />
               {/* <PricingCard amount="$5" content={t("BTN_INVESTOR")} bg="#9CD161" subcription={t("Per_contract")} /> */}
