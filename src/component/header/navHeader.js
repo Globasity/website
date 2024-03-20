@@ -57,9 +57,11 @@ const NavHeader = () => {
 
     const navItems = [
         { id: "1", items: t("Home"), path: '/' },
-        { id: "2", items: t("About_us"), path: '/about-us' },
+        { id: "6", items: "Startups", path: '/startups' },
+        { id: "7", items: "investors", path: '/invesotors' },
         { id: "3", items: t("Pricing"), path: "/pricing" },
         { id: "5", items: t("Contact"), path: "/contact" },
+        { id: "2", items: t("About_us"), path: '/about-us' },
     ]
     const [hoveredItemId, setHoveredItemId] = useState(null);
     const [show, setShow] = useState(false);
@@ -88,9 +90,9 @@ const NavHeader = () => {
                             <img src={logo} alt='' className='' style={{ width: "7.7rem" }} />
                         </Link>
                     </Navbar.Brand>
-                    <Nav className='order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1'>
+                    <Nav className='order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1' style={{gap:'10px'}}>
                         <span className='xs_none'> <Language login={false} /></span>
-                        <button onClick={handleLoginClick} className='loginBtn popins_medium fs_09' >{t("LOGIN_BTN_TXT")}</button>
+                        <button onClick={handleLoginClick} className='loginBtn Popins_regular ' >{t("LOGIN_BTN_TXT")}</button>
                         {/* <button onClick={handleRegisterClick} className='register popins_medium fs_09 ms-3 d-sm-flex d-none' >Register</button> */}
                     </Nav>
                     <Navbar.Toggle onClick={handleShow} className='ms-2 border-0 p-0 mb-1' style={{
@@ -107,10 +109,10 @@ const NavHeader = () => {
                                     <div key={items.id} className={`mt-1 ${hoveredItemId === items.id ? 'visible1' : 'visible1'}`} >
                                         <span className='border1'>
                                             <span></span>
+                                            {/* <span></span>
                                             <span></span>
                                             <span></span>
-                                            <span></span>
-                                            <span></span>
+                                            <span></span> */}
                                         </span>
                                     </div>
                                 </span>
@@ -130,10 +132,10 @@ const NavHeader = () => {
                                         <div key={items.id} className={`${hoveredItemId === items.id ? 'visible1' : 'visible1'}`} >
                                             <span className='border1'>
                                                 <span></span>
+                                                {/* <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <span></span>
-                                                <span></span>
+                                                <span></span> */}
                                             </span>
                                         </div>
                                     </NavLink>

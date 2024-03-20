@@ -277,9 +277,16 @@ ol>li::marker {
 }
 
 .banner_main {
-  background-color: var(--light);
+  /* background-color: var(--light); */
+  background-image: linear-gradient(#FFEBAB, #FFFFFF);
   border-radius: 1.5rem;
   height: 100%;
+}
+
+.light_gray_bg{
+  background: var(--light);
+  padding: 3rem 0rem 0rem 0rem;
+  border-radius: 15px;
 }
 
 .width1 {
@@ -298,7 +305,9 @@ ol>li::marker {
 
 .banner_col_1>h6 {
   line-height: 1.5;
-  font-size: 2.3rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-align: center;
   font-family: "popins_semibold";
 }
 
@@ -472,8 +481,8 @@ ol>li::marker {
   text-align: center;
   color: #000;
   font-family: "Popins_semibold";
-  font-size: 39px;
-  line-height: 44px;
+  font-size: 1.8rem;
+  line-height: 1.2;
 }
 
 .mainCards {
@@ -1102,7 +1111,7 @@ ol>li::marker {
 }
 
 .work2 {
-  font-size: 3.2rem;
+  font-size: 2.2rem;
 }
 
 .lines {
@@ -2005,6 +2014,7 @@ ol>li::marker {
 #footer {
   background: var(--light);
   padding: 3rem 0rem 0rem 0rem;
+  border-radius: 15px 15px 0px 0px;
 }
 
 body,

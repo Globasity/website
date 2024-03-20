@@ -19,8 +19,8 @@
 .main_nav .nav_link a span:hover {
 
     /* color: var(--secondary); */
-    font-family: 'popins_bold';
-    font-size: 14px;
+    /* font-family: 'popins_bold'; */
+    /* font-size: 14px; */
 }
 
 .main_nav .nav_link a {
@@ -134,14 +134,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    border: none;
+    background-color: var(--primary);
+    color: #f6f6f6 !important;
+    border-radius: 200px;
+    padding: 5px 20px;
 }
 
 .main_nav .border1 {
     display: grid;
-    grid-template-columns: 1fr 2fr 3fr 4fr 6fr;
-    column-gap: 0.1rem;
+    /* grid-template-columns: 1fr 2fr 3fr 4fr 6fr;
+    column-gap: 0.1rem; */
 }
 
 .main_nav .border1>span {

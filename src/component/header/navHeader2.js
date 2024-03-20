@@ -102,10 +102,10 @@ const NavHeader2 = () => {
                 console.log(err)
             });
     }
-
+    //Dependency removed : userData,
     useEffect(() => {
         getNotification()
-    }, [userData, hoveredItemId, show])
+    }, [hoveredItemId, show])
 
     return (
         <>
