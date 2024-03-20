@@ -37,6 +37,8 @@ import InsightsIcon from "../assests/svg/InsightsIcon";
 import HeroMain from "../assests/svg/HeroMain";
 import VerifiedIcon from "../assests/svg/VerifiedIcon";
 import LogoSlider from "./pagesComponent/LogoSlider";
+import SmartInvestIcon from "../assests/svg/SmartInvestIcon";
+import InvestEcoIcon from "../assests/svg/InvestEcoIcon";
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -288,18 +290,9 @@ const MainPage = () => {
                   </p>
                 </div>
               </div>
-              <div className="col-lg-6">
-                <div className="px-sm-5 px-2 py-4 portfolio_image h-100 w-100">
-                  <img
-                    src={Investment_eco}
-                    style={{
-                      width: "30rem",
-                      borderRadius: "22px",
-                      objectFit: "cover",
-                    }}
-                    className="PI h-100"
-                    alt=""
-                  />
+              <div className="col-lg-6 image-styling-center">
+                 <InvestEcoIcon/>
+                {/* <div className="px-sm-5 px-2 py-4 portfolio_image h-100 w-100"> */}
                   {/* <div className="front_end">
                                         <div
                                             style={{ display: "inline-block" }}
@@ -343,7 +336,7 @@ const MainPage = () => {
                                             </div>
                                         </div>
                                     </div> */}
-                </div>
+                {/* </div> */}
               </div>
             </div>
           </div>
@@ -395,15 +388,16 @@ const MainPage = () => {
               {/* </div> */}
             </div>
           </section>
-          <section className="px-md-5 px-sm-5 px-3">
-            <div className="row align-items-center justify-content-center">
-              <div className="col-xl-6 col-lg-5 py-5">
-                <img
+          <section className="">
+            <div className="row align-items-center justify-content-center mb-5 mt-5">
+              <div className="col-lg-6 image-styling-center">
+                <SmartInvestIcon/>
+                {/* <img
                   src={smart_investment}
                   className="client_img"
                   style={{}}
                   alt=""
-                />
+                /> */}
               </div>
               <div className="col-xl-6 col-lg-7 client_col_2 py-5 pe-4">
                 <p>{t("Smarter")}</p>
