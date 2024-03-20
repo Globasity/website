@@ -42,15 +42,9 @@ const Pricing = () => {
             </div>
           </section>
 
-          <section className=' py-5 my-4 ' id='queries' style={{ width: "100%" }}>
-            <div className='d-flex flex-column align-items-center justify-content-center queries_header'>
-              <span >
-                {t("FAQ")}
-              </span>
-            </div>
-
-          </section>
-          <section className='d-flex justify-content-center align-items-center flex-column px-md-0 px-3'>
+          
+          <section className='d-flex justify-content-center align-items-center flex-column px-md-0 px-3 mt-5'>
+          <h3 className="main-headings display-center popins_semibold">{t("FAQ")}</h3>
             <Accordion className='text-center col-md-7 col-sm-10'>
               <Accordion.Item eventKey="0" className='mb-2'>
                 <Accordion.Header>{t("Q1")}</Accordion.Header>
