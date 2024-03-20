@@ -588,6 +588,25 @@ ol>li::marker {
   margin-top: 35px;
 }
 
+.image-styling-center {
+  background: var(--light);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:3rem 3rem;
+}
+
+.image-styling-bottom {
+  background: var(--light);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding:3rem 3rem 0.1rem 3rem;
+}
+
+
 .hey {
   padding-right: 7rem;
   color: var(--primary);

@@ -22,6 +22,8 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import AboutIcon from "../assests/svg/AboutIcon";
+import OurMissionIcon from "../assests/svg/OurMissionIcon";
+import TeamIcon from "../assests/svg/TeamIcon";
 
 const About = () => {
   const { t } = useTranslation();
@@ -69,6 +71,36 @@ const About = () => {
                 <p style={{ textWrap: "balance", width: "100%" }}>
                   {t("corporate")}
                 </p>
+                {isLogin === false && (
+                    <div
+                      style={{
+                        textAlign: "left",
+                        display: "flex",
+                        gap: "15px",
+                        justifyContent: "left",
+                      }}
+                    >
+                      <Link to={"/login"}>
+                        <Button
+                          padding=".84rem 1.7rem"
+                          fs="0.9rem"
+                          content={t("Get_Started")}
+                        />
+                      </Link>
+                      <Link to={"/pricing"}>
+                        <Button
+                          color="#161925"
+                          bg="transparent"
+                          border="1px solid #161925"
+                          ff="Popins_medium"
+                          padding="14px 30px"
+                          br="40px"
+                          fs="0.9rem"
+                          content={t("View_Pricing")}
+                        />
+                      </Link>
+                    </div>
+                  )}
               </div>
               <div className="col-md-6 col-sm-12">
                 <div
@@ -85,7 +117,7 @@ const About = () => {
           </div>
         </section>
         <section className="px-3">
-          <div className="px-sm-4 px-2 mb-4">
+          <div className="px-2 mb-4">
             <div className="story row justify-content-center align-items-center pt-lg-5 pt-3  mt-lg-5 m-0 ">
               <div className="story_col_1">
                 <h3 className="main-headings display-center popins_semibold">
@@ -107,7 +139,7 @@ const About = () => {
                     <div className="col-md-6">
                   <div className="research_main">
                     <div className="d-flex gap-3 align-items-baseline research">
-                      <span style={{ fontSize: "1.1rem" }}>
+                      <span style={{ fontSize: "1.1rem", marginLeft:"50px" }}>
                         {t("For_Businesses")}
                       </span>
                     </div>
@@ -121,7 +153,7 @@ const About = () => {
                   <div className="col-md-6">
                   <div className="research_main">
                     <div className="d-flex gap-3 align-items-baseline research">
-                      <span style={{ fontSize: "1.1rem" }}>
+                      <span style={{ fontSize: "1.1rem", paddingLeft:"50px" }}>
                         {t("For_Investors")}
                       </span>
                     </div>
@@ -145,13 +177,14 @@ const About = () => {
                     <p className="">{t("About_Paragraph3")}</p>
                   </div>
                 </div>
-                <div className="col-md-6 mission_img">
-                  <img
+                <div className="col-md-6 mission_img image-styling-center">
+                  {/* <img
                     className="img-fluid rounded-5 h-100"
                     style={{ objectFit: "cover" }}
                     src={manCooking}
                     alt="ourMission"
-                  />
+                  /> */}
+                  <OurMissionIcon/>
                 </div>
               </div>
             </section>
@@ -193,13 +226,14 @@ const About = () => {
             </section> */}
             <section id="mission">
               <div className="row align-items-stretch mt-4 responsive_mission ">
-                <div className="col-md-6 mission_img">
-                  <img
+              <div className="col-md-6 mission_img image-styling-bottom">
+                  {/* <img
                     className="img-fluid rounded-5 h-100"
                     style={{ objectFit: "cover" }}
-                    src={our_team}
+                    src={manCooking}
                     alt="ourMission"
-                  />
+                  /> */}
+                  <TeamIcon/>
                 </div>
                 <div className="col-md-6  mission_col_1">
                   <div className="d-flex flex-column  gap-2 mission_col_1_data">
