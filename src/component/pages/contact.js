@@ -110,6 +110,7 @@ const Contact = () => {
             </div>
           </section>
           <section className='px-1 mx-3 py-5'>
+          <h3 className="main-headings display-center popins_semibold">Contact Us</h3>
             <div id="contact_form">
               <form onSubmit={handleSubmit}>
                 <div className="row justify-content-center">

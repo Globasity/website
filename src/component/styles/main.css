@@ -1114,6 +1114,17 @@ ol>li::marker {
   font-size: 2.2rem;
 }
 
+.main-headings{
+  font-size: 1.8em;
+  margin: 2rem 0px;
+}
+
+.display-center{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .lines {
   width: 19.5rem;
 }
