@@ -58,7 +58,7 @@ const NavHeader = () => {
     const navItems = [
         { id: "1", items: t("Home"), path: '/' },
         { id: "6", items: "Startups", path: '/startups' },
-        { id: "7", items: "investors", path: '/invesotors' },
+        { id: "7", items: "investors", path: '/investors' },
         { id: "3", items: t("Pricing"), path: "/pricing" },
         { id: "5", items: t("Contact"), path: "/contact" },
         { id: "2", items: t("About_us"), path: '/about-us' },
