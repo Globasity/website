@@ -9,27 +9,31 @@ import PricingCard from './pagesComponent/pricingCard'
 import Accordion from 'react-bootstrap/Accordion';
 import Register from './pagesComponent/register'
 import { useTranslation } from 'react-i18next'
+import DollarIcon from '../assests/svg/DollarIcon'
+
 const Pricing = () => {
   const { t } = useTranslation()
   return (
     <div>
       <div className='main' id="pricing">
-        <Container fluid="xxl" className="px-0 mb-3"  >
+        <Container fluid="xxl" className="px-0 mb-3">
           <section className='px-3'>
-            <div className='pt-4 banner_main px-3 ' >
+            <div className='pt-5 banner_main px-3'>
               <div className='row ps-md-5 ps-1' >
-                <div className='col-md-6 pricing_col_1 ' >
+                <div className='col-md-8 pricing_col_1 ' >
                   <h4 className='m-0 p-0'>{t("Pick_Plan")} </h4>
                   <p className=''>{t("Pricing_plan")}</p>
                 </div>
-                <div className='col-md-6'>
-                  <img src={invest_img2} alt='pricing' className='pricing_banner' />
+                <div className='col-md-4' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '-webkit-fill-available', maxWidth: '100px' }}>
+                      <DollarIcon />
+                    </div>
                 </div>
               </div>
             </div>
 
           </section>
-          <section className=''>
+          <section className='pt-5'>
             <div className='d-flex align-items-center justify-content-center gap-5  flex-md-row flex-sm-column  flex-wrap  mt-4'>
               <PricingCard amount="$49.99" content={t("Professional_Plan")} bg="#FFBE16" subcription={t("Month_sub")} />
               {/* <PricingCard amount="$5" content={t("BTN_INVESTOR")} bg="#9CD161" subcription={t("Per_contract")} /> */}
@@ -46,7 +50,7 @@ const Pricing = () => {
 
           </section>
           <section className='d-flex justify-content-center align-items-center flex-column px-md-0 px-3'>
-            <Accordion className='text-center col-md-7 col-sm-10 'defaultActiveKey="0" >
+            <Accordion className='text-center col-md-7 col-sm-10'>
               <Accordion.Item eventKey="0" className='mb-2'>
                 <Accordion.Header>{t("Q1")}</Accordion.Header>
                 <Accordion.Body>
@@ -55,7 +59,7 @@ const Pricing = () => {
               </Accordion.Item>
 
             </Accordion>
-            <Accordion className='text-center col-md-7 col-sm-10' defaultActiveKey="1">
+            <Accordion className='text-center col-md-7 col-sm-10'>
               <Accordion.Item eventKey="1"  className='mb-2'>
                 <Accordion.Header>{t("Q2")}</Accordion.Header>
                 <Accordion.Body>
@@ -64,7 +68,7 @@ const Pricing = () => {
               </Accordion.Item>
 
             </Accordion>
-            <Accordion className='text-center col-md-7 col-sm-10' defaultActiveKey="2" >
+            <Accordion className='text-center col-md-7 col-sm-10'>
               <Accordion.Item eventKey="2" className='mb-2'>
                 <Accordion.Header >{t("Q3")}</Accordion.Header>
                 <Accordion.Body>
@@ -73,7 +77,7 @@ const Pricing = () => {
               </Accordion.Item>
 
             </Accordion>
-            <Accordion className='text-center col-md-7 col-sm-10' defaultActiveKey="3">
+            <Accordion className='text-center col-md-7 col-sm-10'>
               <Accordion.Item eventKey="3" className='mb-2'>
                 <Accordion.Header>{t("Q4")}</Accordion.Header>
                 <Accordion.Body>
