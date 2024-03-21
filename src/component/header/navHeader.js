@@ -34,7 +34,7 @@ function ScrollHandler() {
             const navbar = document.getElementById('navbar');
             const scrollPosition = window.scrollY;
             if (scrollPosition > prevScrollY.current) {
-                navbar.style.top = '-80px';
+                // navbar.style.top = '-80px';
             } else {
                 navbar.style.top = '0';
             }
@@ -92,7 +92,7 @@ const NavHeader = () => {
                     </Navbar.Brand>
                     <Nav className='order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1' style={{gap:'10px'}}>
                         <span className='xs_none'> <Language login={false} /></span>
-                        <button onClick={handleLoginClick} className='loginBtn Popins_regular ' >{t("LOGIN_BTN_TXT")}</button>
+                        <button onClick={handleLoginClick} className='loginBtn'>{t("LOGIN_BTN_TXT")}</button>
                         {/* <button onClick={handleRegisterClick} className='register popins_medium fs_09 ms-3 d-sm-flex d-none' >Register</button> */}
                     </Nav>
                     <Navbar.Toggle onClick={handleShow} className='ms-2 border-0 p-0 mb-1' style={{

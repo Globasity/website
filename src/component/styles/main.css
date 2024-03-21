@@ -173,7 +173,8 @@
 .form-select:focus,
 .form-control:focus {
   background-color: #f9f9f9;
-  box-shadow: 7px 9px 74.313px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 7px 9px 74.313px rgba(255, 255, 255, 0.2); */
+  box-shadow: 0px 0px 0.313px rgba(255, 255, 255, 0.2);
   border-color: rgba(0, 0, 0, 0.49);
 }
 
@@ -2782,7 +2783,7 @@ footer {
   color: var(--primary);
   font-family: "Popins_light";
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .contact_inputs select:focus {
@@ -2798,9 +2799,10 @@ footer {
 }
 
 .contact_inputs label {
-  font-family: "Popins_medium";
+  font-family: "Popins_regular";
   color: var(--primary);
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .react-tel-input .flag-dropdown.open,
@@ -2975,7 +2977,16 @@ footer {
 }
 
 .shadow3 {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: 1px solid var(--light);
+  cursor: pointer;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+.shadow3:focus,
+.shadow3:hover {
+  outline: none;
+  border: 1px solid var(--light);
+  background-color: #e9ecef;
 }
 
 .lang:focus,

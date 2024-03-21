@@ -250,7 +250,7 @@ export default {
     Our_Mission: "Our Mission",
     Our_Vission: "Our Vission",
     View_Pricing: "View Pricing",
-    OUR_STORY: "OUR STORY",
+    OUR_STORY: "Our Story",
 
     About_Paragraph1: "Globasity was founded to transform how small businesses get the funding they need to grow and thrive. Our revolutionary fintech platform connects businesses with investors in a streamlined, transparent process.",
     About_Paragraph2: "Our mission is to level the playing field so that all small businesses have equal access to financing, regardless of their credit rating or stage of growth. Traditional lenders reject countless viable businesses every year. Meanwhile, individual investors struggle to find promising private investment opportunities.",

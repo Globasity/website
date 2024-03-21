@@ -200,7 +200,7 @@ const Contact = () => {
                             <Spinner animation="border" variant="light" size="sm" />
                             : t("message")
                         }
-                      </>} padding="15px 47px" fs="12px" />
+                      </>} padding="15px 47px" fs="14px" />
                   </div>
                 </div>
               </form>

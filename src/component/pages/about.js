@@ -171,8 +171,10 @@ const About = () => {
             <section id="mission">
               <div className="row align-items-stretch mt-4 responsive_mission ">
                 <div className="col-md-6  mission_col_1">
+                <h3 className="main-headings popins_semibold">
+                  {t("Our_Mission")}
+                </h3>
                   <div className="d-flex flex-column  gap-2 mission_col_1_data">
-                    <h6>{t("Our_Mission")}</h6>
                     <p>{t("About_Paragraph2")}</p>
                     <p className="">{t("About_Paragraph3")}</p>
                   </div>
@@ -236,8 +238,10 @@ const About = () => {
                   <TeamIcon/>
                 </div>
                 <div className="col-md-6  mission_col_1">
+                <h3 className="main-headings popins_semibold">
+                  {t("Meet_Our_Team")}
+                </h3>
                   <div className="d-flex flex-column  gap-2 mission_col_1_data">
-                    <h6>{t("Meet_Our_Team")}</h6>
                     <p>{t("meet_team_content1")}</p>
                     <p className="">{t("meet_team_content2")}</p>
                   </div>

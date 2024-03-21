@@ -10,6 +10,8 @@ import StartupsIcon from "../assests/svg/startupsIcon";
 import ResearchIcon from "../assests/svg/ResearchIcon";
 import IdentityIcon from "../assests/svg/IdentityIcon";
 import InsightsIcon from "../assests/svg/InsightsIcon";
+import VerifiedIcon from "../assests/svg/VerifiedIcon";
+
 const Startups = () => {
   const headings = [
     { title: "Insights", icon: <InsightsIcon color={"#212529"} /> },
@@ -47,25 +49,36 @@ const Startups = () => {
             </div>
           </section>
           <section className="px-1 mx-3 py-5">
-            <h3 className="main-headings display-center popins_semibold">
-              Startups
-            </h3>
+          <div>
+              <h3
+                className="main-headings popins_semibold"
+                style={{
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "10px",
+                }}
+              >
+                Company Portfolio <VerifiedIcon />
+              </h3>
+            </div>
             <div className="border p-4 rounded-4 my-5">
               <h6 className="popins_medium mb-3">{t("ADVANCE_SEARCH")}</h6>
               {/* <Form onSubmit={handleFormSubmit}> */}
               <Form>
                 <div className="display_flex gap-md-4 flex_wrap">
                 <Form.Group className="w-100">
-                    <Form.Label className="fs_08 ps-2 mb-2">
-                      {t("TITLE_B_TYPE")}
-                    </Form.Label>
-                    <Form.Control
-                      name="businessType"
-                      className="d-flex flex-column contact_inputs gap-2"
-                      // value={formData.businessType}
-                      // onChange={handleInputChange}
-                    >
-                    </Form.Control>
+                <div className="d-flex flex-column contact_inputs gap-2">
+                      <label>{t("Name")}</label>
+                      <input
+                        type="text"
+                        name="fullName"
+                        placeholder={t("Name")}
+                        // value={formData.fullName}
+                        // required
+                        // onChange={handleChange}
+                      />
+                    </div>
                   </Form.Group>
                   <Form.Group className="w-100">
                     <Form.Label className="fs_08 ps-2 mb-2">
