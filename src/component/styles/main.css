@@ -1195,10 +1195,21 @@ ol>li::marker {
   margin: 2rem 0px;
 }
 
+.secondary-headings{
+  font-size: 1.8em;
+  margin: 1rem 0px;
+}
+
 .display-center{
   display: flex;
   justify-content: center;
   text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.margin-bottom-content{
+  margin-bottom: 75px;
 }
 
 .lines {

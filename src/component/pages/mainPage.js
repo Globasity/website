@@ -58,7 +58,7 @@ const MainPage = () => {
           <section className="px-0 position-relative">
             {/* <Carousel fade  slide> */}
             {/* <Carousel.Item> */}
-            <section className="px-3">
+            <section className="px-3 mb-5">
               <div className="pt-5 banner_main px-xl-5 px-lg-4 px-3">
                 <div
                   className="banner_grid"
@@ -167,7 +167,7 @@ const MainPage = () => {
           </section>
           <section>
             <div className="py-5 mb-5 px-sm-5 px-3">
-              <h3 className="work2 popins_semibold">About Us</h3>
+              <h3 className="secondary-headings popins_semibold">About Us</h3>
               <div className="grid2">
                 <div className="text_width w-100">{t("Paragraph1")}</div>
                 <div className="justify-content-center d-lg-flex d-none">
@@ -203,21 +203,14 @@ const MainPage = () => {
               </div>
             </div>
           </section>
-          <div style={{ marginBottom: "100px" }}>
-            <h3
-              className="work2 popins_semibold"
-              style={{
-                alignItems: "center",
-                marginBottom: "50px",
-                display: "flex",
-                justifyContent: "center",
-                gap: "10px",
-              }}
-            >
-              Confirmed Companies <VerifiedIcon />
-            </h3>
-            <LogoSlider logos={logos} />
-          </div>
+          <section style={{ marginBottom: "7rem" }}>
+            <div>
+              <h3 className="main-headings display-center popins_semibold">
+                Confirmed Companies <VerifiedIcon />
+              </h3>
+              <LogoSlider logos={logos} />
+            </div>
+          </section>
           <section className="mb-5 pb-5">
             <div className="row mx-0" style={{ flexWrap: "wrap-reverse" }}>
               <div className="col-lg-6 position-relative">
@@ -259,16 +252,13 @@ const MainPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-6 m-auto">
                 <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
-                  <h3 className="work2 popins_semibold">{t("How_Works")}</h3>
+                  <h3 className="secondary-headings popins_semibold">
+                    {t("How_Works")}
+                  </h3>
                   <div className="work mb-4 mt-4">
-                    <p
-                      className="font_size_inherit"
-                      style={{ lineHeight: "2" }}
-                    >
-                      {t("Paragraph2")}
-                    </p>
+                    <p className="text_width w-100">{t("Paragraph2")}</p>
                   </div>
                   {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
                 </div>
@@ -291,9 +281,9 @@ const MainPage = () => {
                 </div>
               </div>
               <div className="col-lg-6 image-styling-center">
-                 <InvestEcoIcon/>
+                <InvestEcoIcon />
                 {/* <div className="px-sm-5 px-2 py-4 portfolio_image h-100 w-100"> */}
-                  {/* <div className="front_end">
+                {/* <div className="front_end">
                                         <div
                                             style={{ display: "inline-block" }}
                                             className="parent_google_bg" >
@@ -391,7 +381,7 @@ const MainPage = () => {
           <section className="">
             <div className="row align-items-center justify-content-center mb-5 mt-5">
               <div className="col-lg-6 image-styling-center">
-                <SmartInvestIcon/>
+                <SmartInvestIcon />
                 {/* <img
                   src={smart_investment}
                   className="client_img"
@@ -495,7 +485,11 @@ const MainPage = () => {
               </div>
             </div>
           </section> */}
-          <OurValues headings={headings} paragraphs={paragraphs} topHeader={t("Revolutionizing_Financing")} />
+          <OurValues
+            headings={headings}
+            paragraphs={paragraphs}
+            topHeader={t("Revolutionizing_Financing")}
+          />
         </Container>
         <Footer />
       </div>
