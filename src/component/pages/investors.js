@@ -11,6 +11,8 @@ import ResearchIcon from "../assests/svg/ResearchIcon";
 import IdentityIcon from "../assests/svg/IdentityIcon";
 import InsightsIcon from "../assests/svg/InsightsIcon";
 import VerifiedIcon from "../assests/svg/VerifiedIcon.js";
+import CustomCard from "./pagesComponent/customCard.js";
+import InvestorsData from "./pagesComponent/investorsData.js";
 
 const Investors = () => {
   const headings = [
@@ -18,8 +20,12 @@ const Investors = () => {
     { title: "Research", icon: <ResearchIcon color={"#212529"} /> },
     { title: "Identity", icon: <IdentityIcon color={"#212529"} /> },
   ];
-
   const paragraphs = ["Insights_detail", "Research_detail", "Identity_detail"];
+  const [visibleCards, setVisibleCards] = useState(6);
+
+  const handleLoadMore = () => {
+    setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
+  };
   const { t } = useTranslation();
   return (
     <div>
@@ -29,7 +35,7 @@ const Investors = () => {
             <div className="pt-5 banner_main px-3">
               <div className="row ps-md-5 ps-1">
                 <div className="col-md-6 pricing_col_1 ">
-                  <h4 className="m-0 p-0">{t("work_together")}</h4>
+                  <h4 className="m-0 p-0">{t("Pick_Plan")}</h4>
                   <p style={{ textWrap: "balance", width: "100%" }}>
                     {t("corporate")}
                   </p>
@@ -49,12 +55,11 @@ const Investors = () => {
             </div>
           </section>
           <section className="px-1 mx-3 py-5">
-            <div style={{ marginBottom: "100px" }}>
+            <div className="mb-5">
               <h3
                 className="main-headings popins_semibold"
                 style={{
                   alignItems: "center",
-                  marginBottom: "50px",
                   display: "flex",
                   justifyContent: "center",
                   gap: "10px",
@@ -63,10 +68,45 @@ const Investors = () => {
                 Verified Investors <VerifiedIcon />
               </h3>
             </div>
-          </section>
-          <OurValues headings={headings} paragraphs={paragraphs} />
-        </Container>
 
+            <div className="row">
+              {/* Mapping over only the visible cards */}
+              {InvestorsData.slice(0, visibleCards).map((card) => (
+                <div
+                  key={card.id}
+                  className="col-lg-4 col-md-4 col-sm-4 col-12 mb-3"
+                >
+                  <CustomCard
+                    image={card.image}
+                    href={card.href}
+                    title={card.title}
+                    description={card.description}
+                  />
+                </div>
+              ))}
+            </div>
+            <div
+              style={{
+                alignItems: "center",
+                display: "flex",
+                justifyContent: "center",
+                gap: "10px",
+              }}
+            >
+              {visibleCards < InvestorsData.length && (
+                // eslint-disable-next-line
+                <a onClick={handleLoadMore}>
+                  <Button
+                    padding=".84rem 1.7rem"
+                    fs="0.9rem"
+                    content={t("Load_More")}
+                  />
+                </a>
+              )}
+            </div>
+          </section>
+          <OurValues headings={headings} paragraphs={paragraphs} topHeader={"Why You Should Register?"} />
+        </Container>
         <Footer />
       </div>
     </div>

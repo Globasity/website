@@ -2,13 +2,13 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 
-const OurValues = ({ headings, paragraphs }) => {
+const OurValues = ({ headings, paragraphs, topHeader}) => {
   const { t } = useTranslation();
 
   return (
-    <section id="craft" className="px-md-5 px-4 light_gray_bg mb-5">
+    <section id="craft" className="px-md-5 px-4 light_gray_bg mb-5 mx-3">
       <div className="d-flex align-items-center justify-content-center craft">
-        <span>{t("Revolutionizing_Financing")}</span>
+        <span>{topHeader}</span>
       </div>
       <div className="row py-5 justify-content-between px-2">
         {headings.map((heading, index) => (

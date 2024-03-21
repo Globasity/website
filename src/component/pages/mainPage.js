@@ -340,7 +340,7 @@ const MainPage = () => {
               </div>
             </div>
           </div>
-          <section className="px-md-5 px-3 text-center mb-3">
+          <section className="px-3 text-center mb-3">
             <div className="banner_main py-5">
               <div className="best_product d-flex justify-content-center  ">
                 <p className="">
@@ -495,7 +495,7 @@ const MainPage = () => {
               </div>
             </div>
           </section> */}
-          <OurValues headings={headings} paragraphs={paragraphs} />
+          <OurValues headings={headings} paragraphs={paragraphs} topHeader={t("Revolutionizing_Financing")} />
         </Container>
         <Footer />
       </div>

@@ -598,6 +598,41 @@ ol>li::marker {
   padding:3rem 3rem;
 }
 
+.custom-card {
+  border: 2px solid var(--light);
+  border-radius: 15px;
+  width: 100%;
+  box-shadow: none !important;
+  background-color: var(--white);
+}
+
+.custom-card > img{
+  border-radius: 14px 14px 0px 0px;
+}
+
+.custom-card:hover{
+  border: 2px solid var(--yellow);
+  background-color: rgba(255, 190, 22, 0.15);
+  transition: 1s;
+}
+.text-dec-none{
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.text-dec-none:hover{
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.card-body{
+  padding: 20px 15px 15px 15px;
+}
+
+.card-body > h5{
+  margin-bottom: 10px;
+}
+
 .image-styling-bottom {
   background: var(--light);
   border-radius: 15px;
