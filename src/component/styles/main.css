@@ -1209,12 +1209,59 @@ ol>li::marker {
 }
 
 .margin-bottom-content{
-  margin-bottom: 75px;
+  margin-bottom: 5rem;
+}
+
+.margin-bottom-content-more{
+  margin-bottom: 7rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .font-custom-heading {
+    font-size: 1.5rem !important;
+  }
+  .custom-resp-margin{
+    margin-left: 50px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .custom-resp-margin{
+    margin-left: 50px;
+  }
+  .resp-margin-bottom{
+    margin-bottom: 2rem;
+  }
+  .margin-bottom-content-more{
+    margin-bottom: 5rem;
+  }
+  .resp-img-width{
+    max-width: 750px;
+    margin: auto;
+  }
+  .custom-pad-top{
+    padding-top: 2rem;
+  }
+}
+
+@media only screen and (min-width: 897px) {
+ .custom-pad-left{
+  padding-left: 50px ;
+ }
 }
 
 .lines {
   width: 19.5rem;
 }
+
+.margin-s-b{
+  margin-bottom: -15px !important;
+}
+
+.margin-s-t{
+  margin-top: 80px !important;
+}
+
 
 .rec1 {
   background-color: #eafff2;

@@ -55,10 +55,10 @@ const MainPage = () => {
     <div>
       <div className="main" id="main">
         <Container fluid="xxl" className="px-0 position-relative">
-          <section className="px-0 position-relative">
+          <section className="px-0 position-relative margin-bottom-content">
             {/* <Carousel fade  slide> */}
             {/* <Carousel.Item> */}
-            <section className="px-3 mb-5">
+            <section className="px-3">
               <div className="pt-5 banner_main px-xl-5 px-lg-4 px-3">
                 <div
                   className="banner_grid"
@@ -165,20 +165,19 @@ const MainPage = () => {
                         </div>
                     </div> */}
           </section>
-          <section>
-            <div className="py-5 mb-5 px-sm-5 px-3">
-              <h3 className="secondary-headings popins_semibold">About Us</h3>
+          <section className="margin-bottom-content">
+            <div className="px-sm-5 px-3">
               <div className="grid2">
-                <div className="text_width w-100">{t("Paragraph1")}</div>
-                <div className="justify-content-center d-lg-flex d-none">
+                <div className="text_width w-100 resp-margin-bottom"><div className="secondary-headings popins_semibold margin-s-b">About Us</div><br/>{t("Paragraph1")}</div>
+                <div className="justify-content-center d-lg-flex d-none margin-s-t">
                   <img
                     src={line}
                     alt=""
                     className=""
-                    style={{ height: "90%" }}
+                    style={{ height: "80%" }}
                   />
                 </div>
-                <div className="d-flex align-items-sm-start flex-sm-row flex-column align-items-center justify-content-md-around justify-content-sm-between  justify-content-center gap-sm-3 gap-5 px-lg-0 pe-3">
+                <div className="d-flex align-items-sm-start resp-margin-bottom flex-sm-row flex-column align-items-center justify-content-md-around justify-content-sm-between  justify-content-center gap-sm-3 gap-5 px-lg-0 pe-3 margin-s-t">
                   <div className="position-relative">
                     <img src={ellipse1} alt="" className="ellipse1" />
                     <div className="content1">
@@ -203,7 +202,7 @@ const MainPage = () => {
               </div>
             </div>
           </section>
-          <section style={{ marginBottom: "7rem" }}>
+          <section className="margin-bottom-content-more">
             <div>
               <h3 className="main-headings display-center popins_semibold">
                 Confirmed Companies <VerifiedIcon />
@@ -211,7 +210,7 @@ const MainPage = () => {
               <LogoSlider logos={logos} />
             </div>
           </section>
-          <section className="mb-5 pb-5">
+          <section className="margin-bottom-content-more">
             <div className="row mx-0" style={{ flexWrap: "wrap-reverse" }}>
               <div className="col-lg-6 position-relative">
                 <div className=" display_flex2 mt-lg-0 mt-5 gap-3 flex-wrap">
@@ -265,75 +264,32 @@ const MainPage = () => {
               </div>
             </div>
           </section>
-
-          <div className="business_interest px-md-5 px-sm-5 px-3">
-            <div className="row pb-5">
-              <div className="col-lg-6 business_interest_col_1 ">
-                <h3 className="work2 popins_semibold">Investment Ecosystem</h3>
-                <div className="my-3 d-flex flex-column gap-3">
-                  {/* <p className="m-0 p-0">{t("Para3_Point1")}</p> */}
-                  <p className="font_size_inherit" style={{ lineHeight: "2" }}>
-                    {t("Para3_Point3")}
-                  </p>
-                  <p className="font_size_inherit" style={{ lineHeight: "2" }}>
-                    {t("Para3_Point3")}
-                  </p>
+          <section className="margin-bottom-content">
+          <div className="business_interest">
+            <div className="row mx-3">
+            <div className="col-lg-6 m-auto">
+                <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
+                  <h3 className="secondary-headings popins_semibold">
+                    Investment Ecosystem
+                  </h3>
+                  <div className="work mb-4 mt-4">
+                    <p className="text_width w-100 resp-margin-bottom">{t("Paragraph2")}</p>
+                  </div>
+                  {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
                 </div>
               </div>
-              <div className="col-lg-6 image-styling-center">
+              <div className="col-lg-6 image-styling-center resp-img-width">
+                <div className="mx-3">
                 <InvestEcoIcon />
-                {/* <div className="px-sm-5 px-2 py-4 portfolio_image h-100 w-100"> */}
-                {/* <div className="front_end">
-                                        <div
-                                            style={{ display: "inline-block" }}
-                                            className="parent_google_bg" >
-                                            <div
-                                                className="google_bg"
-                                                style={{ display: "inline-block" }} >
-                                                <img src={google} style={{ width: "20px" }} alt="" />
-                                            </div>
-                                        </div>
-
-                                        <span className="pt-2">Front-end</span>
-                                        <p className="m-0">Google</p>
-                                    </div>
-                                    <div className="apple">
-                                        <img src={apple} style={{ width: "6rem" }} alt="" />
-                                    </div>
-                                    <div
-                                        className="notification noti2"
-                                        style={{ position: "absolute", top: "60%", left: "-48%" }}
-                                    >
-                                        <div className="display_flex2 h-100">
-                                            <div className="content position-relative display_flex2">
-                                                <img
-                                                    src={check}
-                                                    style={{ maxWidth: "63px" }}
-                                                    alt="notification"
-                                                    className="bg_avatar_orange"
-                                                />
-
-                                                <p className="m-0 ps-3 font_inherit">
-                                                    <span className="popins_semibold">Domey </span>
-                                                    has liked this community
-                                                </p>
-                                                <img
-                                                    className="heart mt-2"
-                                                    style={{ maxWidth: "65px" }}
-                                                    src={liked}
-                                                    alt="like"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div> */}
-                {/* </div> */}
+                </div>
               </div>
             </div>
           </div>
-          <section className="px-3 text-center mb-3">
+          </section>
+          <section className="px-3 text-center margin-bottom-content">
             <div className="banner_main py-5">
               <div className="best_product d-flex justify-content-center  ">
-                <p className="mb-4">
+                <p className="mb-4 font-custom-heading">
                   "Empower Your Investment Journey with Globasity - Where Dreams
                   Meet Capital"
                 </p>
@@ -378,118 +334,35 @@ const MainPage = () => {
               {/* </div> */}
             </div>
           </section>
-          <section className="">
-            <div className="row align-items-center justify-content-center mb-5 mt-5">
-              <div className="col-lg-6 image-styling-center">
+          <section className="margin-bottom-content">
+          <div className="business_interest">
+            <div className="row mx-3">
+            <div className="col-lg-6 image-styling-center resp-margin-bottom resp-img-width">
+                <div className="mx-3 ">
                 <SmartInvestIcon />
-                {/* <img
-                  src={smart_investment}
-                  className="client_img"
-                  style={{}}
-                  alt=""
-                /> */}
+                </div>
               </div>
-              <div className="col-xl-6 col-lg-7 client_col_2 py-5 pe-4">
-                <p>{t("Smarter")}</p>
-                <div className="d-flex flex-column gap-4">
-                  {t("Paragraph4")}
+              <div className="col-lg-6 m-auto custom-pad-left custom-pad-top">
+                <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
+                  <h3 className="secondary-headings popins_semibold">
+                  {t("Smarter")}
+                  </h3>
+                  <div className="work mb-4 mt-4">
+                    <p className="text_width w-100">{t("Paragraph4")}</p>
+                  </div>
+                  {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
                 </div>
               </div>
             </div>
+          </div>
           </section>
-          {/* <section className="px-md-5 px-4 " >
-
-                        <div className="row  justify-content-center ">
-                            <div className="col-xl-6 order-2 col-lg-5 py-5 ">
-                                <img src={brands} className="client_img" style={{}} alt="" />
-                            </div>
-                            <div className="col-xl-6 col-lg-7 research_col_2  d-flex flex-column gap-4 ps-5 pt-5 mt-5 ">
-                                <p>
-                                    We work with brands world wide
-                                </p>
-                                <div className="hey">
-                                    Only companies you apply to will see you’re looking for a job. Your current boss won’t know. Compare jobs using our salary tool
-                                </div>
-
-                                <div className="d-flex flex-md-row flex-column gap-4">
-                                    <div className="research_main">
-                                        <div className="research d-flex  align-items-start gap-2 mb-3">
-                                            <h6 className="m-0" style={{ fontSize: "1.6rem" }}>01.</h6>
-                                            <p className="m-0" style={{ lineHeight: "25px" }}>
-                                                We research and <br />
-                                                analyze the market
-                                            </p>
-
-                                        </div>
-                                        <p>
-                                            Turpis maecenas facilisis ultricies ut id. Pellentesque diam dui id ac cras suspendisse enim egestas arcu.
-                                        </p>
-                                    </div>
-                                    <div className="research_main">
-                                        <div className="research d-flex align-items-start gap-2 mb-3">
-                                            <h6 className="m-0" style={{ fontSize: "1.6rem" }}>02.</h6>
-                                            <p className="m-0" style={{ lineHeight: "25px" }}>
-                                                We research and <br />
-                                                analyze the market
-                                            </p>
-
-                                        </div>
-                                        <p>
-                                            Turpis maecenas facilisis ultricies ut id. Pellentesque diam dui id ac cras suspendisse enim egestas arcu.
-                                        </p>
-                                    </div>
-
-
-                                    <div>
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </section> */}
-          {/* <section id="craft" className="px-md-5 px-4 ">
-            <div className="d-flex align-items-center justify-content-center craft">
-              <span>{t("Revolutionizing_Financing")}</span>
-            </div>
-            <div className="row py-5 align-items-center justify-content-between px-2">
-              <div className="col-lg-8 ">
-                <img
-                  src={invest_img8}
-                  alt=""
-                  style={{
-                    width: "100%",
-                    maxHeight: "28rem",
-                    objectFit: "cover",
-                    borderRadius: "20px",
-                  }}
-                />
-              </div>
-              <div className="col-lg-4 offset-0  px-2 py-4">
-                <div className="d-flex flex-column gap-2 pt-lg-0 pt-md-0 ">
-                  <div className="insight d-flex flex-column gap-1">
-                    <h5 className="fw-bold">{t("Insights")}</h5>
-                    <p>{t("Insights_detail")}</p>
-                  </div>
-                  <div className="insight d-flex flex-column gap-1">
-                    <h5 className="fw-bold">{t("Research")}</h5>
-                    <p>{t("Research_detail")}</p>
-                  </div>
-                  <div className="insight d-flex flex-column gap-1">
-                    <h5 className="fw-bold">{t("Identity")}</h5>
-                    <p>{t("Identity_detail")} </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section> */}
+          <section className="margin-bottom-content">
           <OurValues
             headings={headings}
             paragraphs={paragraphs}
             topHeader={t("Revolutionizing_Financing")}
           />
+          </section>
         </Container>
         <Footer />
       </div>

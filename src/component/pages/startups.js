@@ -9,6 +9,7 @@ import InsightsIcon from "../assests/svg/InsightsIcon";
 import VerifiedIcon from "../assests/svg/VerifiedIcon";
 import CustomCard from "./pagesComponent/customCard";
 import Button from "./pagesComponent/button";
+import Footer from "./pagesComponent/footer";
 import StartupsData from "./pagesComponent/startupsData";
 
 const Startups = () => {
@@ -196,13 +197,15 @@ const Startups = () => {
                 )}
             </div>
           </section>
-
+          <section className="margin-bottom-content">
           <OurValues
             headings={headings}
             paragraphs={paragraphs}
             topHeader={"Why You Should Register?"}
           />
+          </section>
         </Container>
+        <Footer />
       </div>
     </div>
   );

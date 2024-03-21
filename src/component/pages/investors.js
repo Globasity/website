@@ -105,7 +105,9 @@ const Investors = () => {
               )}
             </div>
           </section>
+          <section className="margin-bottom-content">
           <OurValues headings={headings} paragraphs={paragraphs} topHeader={"Why You Should Register?"} />
+          </section>
         </Container>
         <Footer />
       </div>
