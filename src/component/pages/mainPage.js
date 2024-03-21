@@ -66,8 +66,8 @@ const MainPage = () => {
                 >
                   <div className="width5">
                     <div className="d-flex gap-2 ">
-                      <div className="banner_col_1 px-lg-3 px-xl-0 px-md-4 px-sm-5 px-2">
-                        <h6 style={{ marginBottom: "20px" }}>
+                      <div className="banner_col_1">
+                        <h6>
                           A New World of Connecting Small Businesses &
                           Investors.
                         </h6>
@@ -343,7 +343,7 @@ const MainPage = () => {
           <section className="px-3 text-center mb-3">
             <div className="banner_main py-5">
               <div className="best_product d-flex justify-content-center  ">
-                <p className="">
+                <p className="mb-4">
                   "Empower Your Investment Journey with Globasity - Where Dreams
                   Meet Capital"
                 </p>

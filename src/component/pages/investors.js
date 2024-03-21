@@ -34,13 +34,13 @@ const Investors = () => {
           <section className="px-3">
             <div className="pt-5 banner_main px-3">
               <div className="row ps-md-5 ps-1">
-                <div className="col-md-6 pricing_col_1 ">
-                  <h4 className="m-0 p-0">{t("Pick_Plan")}</h4>
-                  <p style={{ textWrap: "balance", width: "100%" }}>
+              <div className="col-md-8 mb-5">
+                  <p className="hero-heading">Empowering Futures - Globasity Impactful Investors Showcase</p>
+                  <p className="hero-detail">
                     {t("corporate")}
                   </p>
                 </div>
-                <div className="col-md-6 col-sm-12">
+                <div className="col-md-4 col-sm-12">
                   <div
                     style={{
                       width: "-webkit-fill-available",

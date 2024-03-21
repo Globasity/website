@@ -20,9 +20,11 @@ const Pricing = () => {
           <section className='px-3'>
             <div className='pt-5 banner_main px-3'>
               <div className='row ps-md-5 ps-1' >
-                <div className='col-md-8 pricing_col_1 ' >
-                  <h4 className='m-0 p-0'>{t("Pick_Plan")} </h4>
-                  <p className=''>{t("Pricing_plan")}</p>
+              <div className="col-md-8 mb-5">
+                  <p className="hero-heading">{t("Pick_Plan")}</p>
+                  <p className="hero-detail">
+                  {t("Pricing_plan")}
+                  </p>
                 </div>
                 <div className='col-md-4' style={{ display: 'flex', justifyContent: 'center' }}>
                     <div style={{ width: '-webkit-fill-available', maxWidth: '100px' }}>

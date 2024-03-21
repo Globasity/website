@@ -66,12 +66,12 @@ const About = () => {
         <section className="px-3">
           <div className="pt-5 banner_main px-3">
             <div className="row ps-md-5 ps-1">
-              <div className="col-md-6 pricing_col_1 ">
-                <h4 className="m-0 p-0">{t("About_Headline")}</h4>
-                <p style={{ textWrap: "balance", width: "100%" }}>
-                  {t("corporate")}
-                </p>
-                {isLogin === false && (
+              <div className="col-md-8 mb-5">
+                  <p className="hero-heading">{t("About_Headline")}</p>
+                  <p className="hero-detail">
+                    {t("corporate")}
+                  </p>
+                  {isLogin === false && (
                     <div
                       style={{
                         textAlign: "left",
@@ -101,8 +101,8 @@ const About = () => {
                       </Link>
                     </div>
                   )}
-              </div>
-              <div className="col-md-6 col-sm-12">
+                </div>
+              <div className="col-md-4 col-sm-12">
                 <div
                   style={{
                     width: "-webkit-fill-available",
