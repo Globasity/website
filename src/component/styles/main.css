@@ -1341,7 +1341,12 @@ ol>li::marker {
   justify-content: center;
   align-items: center;
   height: 15rem;
+  max-width: 220px;
   font-size: 3.8rem;
+}
+
+.custom-spin{
+  color: var(--yellow);
 }
 
 .rec_height {
@@ -1349,6 +1354,10 @@ ol>li::marker {
   top: 0;
   left: 5.5rem;
   bottom: 0;
+}
+
+.margin-bottom-s{
+  margin-bottom: 7px;
 }
 
 .rec2 {
@@ -1360,6 +1369,7 @@ ol>li::marker {
   align-items: center;
   height: 18rem;
   font-size: 4rem;
+  max-width: 220px;
 }
 
 .rec3 {
@@ -1374,6 +1384,7 @@ ol>li::marker {
   display: flex;
   font-size: 3.3rem;
   align-items: center;
+  max-width: 150px;
 }
 
 .font_size_inherit {
@@ -1565,7 +1576,7 @@ ol>li::marker {
   }
 
   .rec_height h6 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 

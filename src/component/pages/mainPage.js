@@ -39,6 +39,9 @@ import VerifiedIcon from "../assests/svg/VerifiedIcon";
 import LogoSlider from "./pagesComponent/LogoSlider";
 import SmartInvestIcon from "../assests/svg/SmartInvestIcon";
 import InvestEcoIcon from "../assests/svg/InvestEcoIcon";
+import DollarSpIcon from "../assests/svg/dollarSpIcon";
+import AnalyticsSpIcon from "../assests/svg/analyticsSpIcon";
+import ResearchSpIcon from "../assests/svg/researchSpIcon";
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -168,7 +171,13 @@ const MainPage = () => {
           <section className="margin-bottom-content">
             <div className="px-sm-5 px-3">
               <div className="grid2">
-                <div className="text_width w-100 resp-margin-bottom"><div className="secondary-headings popins_semibold margin-s-b">About Us</div><br/>{t("Paragraph1")}</div>
+                <div className="text_width w-100 resp-margin-bottom">
+                  <div className="secondary-headings popins_semibold margin-s-b">
+                    About Us
+                  </div>
+                  <br />
+                  {t("Paragraph1")}
+                </div>
                 <div className="justify-content-center d-lg-flex d-none margin-s-t">
                   <img
                     src={line}
@@ -224,29 +233,31 @@ const MainPage = () => {
                   <div className="rec_height display_flex2">
                     <div className="rec2">
                       <div className="text-center" style={{ color: "#FFBE16" }}>
-                        <h1 className=" m-0 font_size_inherit  popins_bold">
-                          125+
+                        <h1 className="font_size_inherit  popins_bold margin-bottom-s">
+                        <ResearchSpIcon color={"#FFBE16"}/>
                         </h1>
-                        <h6 className="popins_bold">{t("Business_Man")}</h6>
+                        <h6 className="popins_bold">
+                          Traction Strategy Sprint
+                        </h6>
                       </div>
                     </div>
                   </div>
                   <div className="rec1">
                     <div className="text-center" style={{ color: "#9CD161" }}>
-                      <h1 className=" m-0 font_size_inherit popins_semibold">
-                        10K+
+                      <h1 className=" font_size_inherit popins_semibold margin-bottom-s">
+                        <DollarSpIcon color={"#9ED265"}/>
                       </h1>
                       <h6 className="popins_semibold">
-                        {t("Investment_Ideas")}
+                      Fundraising Support
                       </h6>
                     </div>
                   </div>
                   <div className="rec3">
                     <div className="text-center" style={{ color: "#6EBECE" }}>
-                      <h1 className=" m-0 font_size_inherit popins_semibold">
-                        450
+                      <h1 className="font_size_inherit popins_semibold margin-bottom-s">
+                        <AnalyticsSpIcon color={"#6EBECE"}/>
                       </h1>
-                      <h6 className="popins_semibold">{t("Business_Ideas")}</h6>
+                      <h6 className="popins_semibold">Market Validation</h6>
                     </div>
                   </div>
                 </div>
@@ -265,26 +276,28 @@ const MainPage = () => {
             </div>
           </section>
           <section className="margin-bottom-content">
-          <div className="business_interest">
-            <div className="row mx-3">
-            <div className="col-lg-6 m-auto">
-                <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
-                  <h3 className="secondary-headings popins_semibold">
-                    Investment Ecosystem
-                  </h3>
-                  <div className="work mb-4 mt-4">
-                    <p className="text_width w-100 resp-margin-bottom">{t("Paragraph2")}</p>
+            <div className="business_interest">
+              <div className="row mx-3">
+                <div className="col-lg-6 m-auto">
+                  <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
+                    <h3 className="secondary-headings popins_semibold">
+                      Investment Ecosystem
+                    </h3>
+                    <div className="work mb-4 mt-4">
+                      <p className="text_width w-100 resp-margin-bottom">
+                        {t("Paragraph2")}
+                      </p>
+                    </div>
+                    {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
                   </div>
-                  {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
                 </div>
-              </div>
-              <div className="col-lg-6 image-styling-center resp-img-width">
-                <div className="mx-3">
-                <InvestEcoIcon />
+                <div className="col-lg-6 image-styling-center resp-img-width">
+                  <div className="mx-3">
+                    <InvestEcoIcon />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </section>
           <section className="px-3 text-center margin-bottom-content">
             <div className="banner_main py-5">
@@ -331,33 +344,33 @@ const MainPage = () => {
             </div>
           </section>
           <section className="margin-bottom-content">
-          <div className="business_interest">
-            <div className="row mx-3 reverse-flow">
-            <div className="col-lg-6 image-styling-center resp-margin-bottom resp-img-width">
-                <div className="mx-3 ">
-                <SmartInvestIcon />
-                </div>
-              </div>
-              <div className="col-lg-6 m-auto custom-pad-left custom-pad-top">
-                <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
-                  <h3 className="secondary-headings popins_semibold">
-                  {t("Smarter")}
-                  </h3>
-                  <div className="work mb-4 mt-4">
-                    <p className="text_width w-100">{t("Paragraph4")}</p>
+            <div className="business_interest">
+              <div className="row mx-3 reverse-flow">
+                <div className="col-lg-6 image-styling-center resp-margin-bottom resp-img-width">
+                  <div className="mx-3 ">
+                    <SmartInvestIcon />
                   </div>
-                  {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
+                </div>
+                <div className="col-lg-6 m-auto custom-pad-left custom-pad-top">
+                  <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
+                    <h3 className="secondary-headings popins_semibold">
+                      {t("Smarter")}
+                    </h3>
+                    <div className="work mb-4 mt-4">
+                      <p className="text_width w-100">{t("Paragraph4")}</p>
+                    </div>
+                    {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </section>
           <section className="margin-bottom-content">
-          <OurValues
-            headings={headings}
-            paragraphs={paragraphs}
-            topHeader={t("Revolutionizing_Financing")}
-          />
+            <OurValues
+              headings={headings}
+              paragraphs={paragraphs}
+              topHeader={t("Revolutionizing_Financing")}
+            />
           </section>
         </Container>
         <Footer />
