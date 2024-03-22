@@ -123,8 +123,8 @@ const About = () => {
                 <h3 className="main-headings display-center popins_semibold">
                   {t("OUR_STORY")}
                 </h3>
-                <div className="display-center">
-                  <p>{t("About_Paragraph1")}</p>
+                <div className="mb-4 mt-4 display-center">
+                    <p className="text_width w-100">{t("About_Paragraph1")}</p>
                 </div>
               </div>
               <div className=" pt-2">

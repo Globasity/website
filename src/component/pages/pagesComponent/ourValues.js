@@ -29,7 +29,9 @@ const OurValues = ({ headings, paragraphs, topHeader}) => {
                     </div>
                   </div>
                 </div>
-                <p>{t(paragraphs[index])}</p>
+                <div className="mb-4">
+                    <p className="text_width w-100">{t(paragraphs[index])}</p>
+                </div>
               </div>
             </div>
           </div>
