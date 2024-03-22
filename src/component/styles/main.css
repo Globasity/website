@@ -143,8 +143,22 @@
   border: 1px dashed black;
 }
 
-.rounded_3 {
-  border-radius: 10px;
+
+.rounded_3{
+  border-radius: 1.7rem;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-family: "popins_regular";
+  border: 1px solid var(--primary);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.rounded_3:hover {
+  border: 1px solid var(--yellow);
+  color: var(--primary);
+  font-weight: 600;
+  background-color: rgba(255, 190, 22, 0.15);
 }
 
 .rounded_6 {
@@ -266,6 +280,20 @@ ol>li::marker {
   font-family: 'Popins_medium';
 }
 
+.reuse_heading {
+  white-space: nowrap;
+  border: none;
+  border-radius: 1.7rem;
+  background-color: var(--primary);
+  display: inline-block !important;
+  color: var(--white);
+  font-size: 0.7rem;
+  font-family: "popins_regular";
+  cursor: auto;
+  border: 1px solid var(--primary);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
 .reuse_button {
   white-space: nowrap;
   border: none;
@@ -275,7 +303,37 @@ ol>li::marker {
   color: var(--white);
   font-size: 0.7rem;
   font-family: "popins_regular";
+  border: 1px solid var(--primary);
+  transition: border-color 0.3s, background-color 0.3s;
 }
+
+.reuse_button:hover {
+  border: 1px solid var(--yellow);
+  color: var(--primary);
+  font-weight: 600;
+  background-color: rgba(255, 190, 22, 0.15);
+}
+
+.reuse_button_inverse {
+  white-space: nowrap;
+  border: none;
+  border-radius: 1.7rem;
+  background-color: transparent;
+  display: inline-block !important;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-family: "popins_regular";
+  border: 1px solid var(--primary);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.reuse_button_inverse:hover {
+  border: 1px solid var(--yellow);
+  color: var(--primary);
+  font-weight: 600;
+  background-color: rgba(255, 190, 22, 0.15);
+}
+
 
 .banner_main {
   /* background-color: var(--light); */
@@ -287,6 +345,13 @@ ol>li::marker {
 .light_gray_bg{
   background: var(--light);
   padding: 3rem 0rem 0rem 0rem;
+  border-radius: 15px;
+}
+
+.light_gray_bg_border{
+  border: 2px solid var(--light);
+  background: var(--white);
+  padding: 2rem;
   border-radius: 15px;
 }
 
@@ -615,16 +680,16 @@ ol>li::marker {
   width: 100%;
   box-shadow: none !important;
   background-color: var(--white);
+  transition: border-color 0.5s, background-color 0.5s;
 }
 
-.custom-card > img{
+.custom-card > img {
   border-radius: 14px 14px 0px 0px;
 }
 
-.custom-card:hover{
+.custom-card:hover {
   border: 2px solid var(--yellow);
   background-color: rgba(255, 190, 22, 0.15);
-  transition: 1s;
 }
 .text-dec-none{
   text-decoration: none;

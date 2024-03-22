@@ -89,12 +89,8 @@ const About = () => {
                       </Link>
                       <Link to={"/pricing"}>
                         <Button
-                          color="#161925"
-                          bg="transparent"
-                          border="1px solid #161925"
-                          ff="Popins_medium"
-                          padding="14px 30px"
-                          br="40px"
+                          type="inverse"
+                          padding=".84rem 1.7rem"
                           fs="0.9rem"
                           content={t("View_Pricing")}
                         />

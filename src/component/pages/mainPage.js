@@ -306,19 +306,15 @@ const MainPage = () => {
                   <Link to={"/login"}>
                     <Button
                       padding=".84rem 1.7rem"
-                      fs="0.9rem"
+                      fs="14px"
                       content={t("Get_Started")}
                     />
                   </Link>
                   <Link to={"/pricing"}>
                     <Button
-                      color="#161925"
-                      bg="transparent"
-                      border="1px solid #161925"
-                      ff="Popins_medium"
-                      padding="14px 30px"
-                      br="40px"
-                      fs="0.9rem"
+                      type="inverse"
+                      padding=".84rem 1.7rem"
+                      fs="14px"
                       content={t("View_Pricing")}
                     />
                   </Link>

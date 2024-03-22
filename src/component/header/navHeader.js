@@ -8,6 +8,7 @@ import icon2 from '../assests/svg/icon2.svg'
 import logo from '../assests/logo2.png'
 import Language from './language';
 import { useTranslation } from 'react-i18next';
+import Button from '../pages/pagesComponent/button';
 // function ScrollHandler() {
 
 //     useEffect(() => {
@@ -92,8 +93,9 @@ const NavHeader = () => {
                     </Navbar.Brand>
                     <Nav className='order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1' style={{gap:'10px'}}>
                         <span className='xs_none'> <Language login={false} /></span>
-                        <button onClick={handleLoginClick} className='loginBtn'>{t("LOGIN_BTN_TXT")}</button>
-                        {/* <button onClick={handleRegisterClick} className='register popins_medium fs_09 ms-3 d-sm-flex d-none' >Register</button> */}
+                        <Link to={"/login"}>
+                        <Button padding=".5rem 1.7rem" fs="14px" content={t("LOGIN_BTN_TXT")} />
+                        </Link>
                     </Nav>
                     <Navbar.Toggle onClick={handleShow} className='ms-2 border-0 p-0 mb-1' style={{
                         fontSize: "13px",
