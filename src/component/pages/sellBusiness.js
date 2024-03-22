@@ -70,45 +70,76 @@ const SellBusiness = () => {
                 console.log(err)
             });
     }
+    // const getBusinessOnScroll = (lastId) => {
+    //     setIsLoading(true)
+    //     const body = new FormData()
+    //     body.append('table_name', 'business')
+    //     body.append('type', 'get_data')
+    //     body.append('user_id', userData.user_id)
+    //     body.append('last_id', lastId)
+    //     body.append('fav', '1')
+    //     apiRequest({ body })
+    //         .then((result) => {
+    //             const count = result?.data?.length
+    //             const data = result.data
+    //             setLoaderCounts(data.length)
+    //             if (lastId !== result?.data[count - 1].id) {
+    //                 if (data.length > 0) {
+    //                     setArray(data)
+    //                     updateLastId(result?.data[count - 1].id)
+    //                 }
+    //             }
+    //             setIsLoading(false)
+
+    //         }).catch((err) => {
+    //             setLoaderCounts(0)
+    //             setIsLoading(false)
+    //             console.log(err)
+    //         });
+    // }
+
     const getBusinessOnScroll = (lastId) => {
-        setIsLoading(true)
-        const body = new FormData()
-        body.append('table_name', 'business')
-        body.append('type', 'get_data')
-        body.append('user_id', userData.user_id)
-        body.append('last_id', lastId)
-        body.append('fav', '1')
+        setIsLoading(true);
+        const body = new FormData();
+        body.append('table_name', 'business');
+        body.append('type', 'get_data');
+        body.append('user_id', userData.user_id);
+        body.append('last_id', lastId);
+        body.append('fav', '1');
+        
         apiRequest({ body })
             .then((result) => {
-                const count = result?.data?.length
-                const data = result.data
-                setLoaderCounts(data.length)
+                const count = result?.data?.length;
+                const data = result.data;
+                setLoaderCounts(data.length);
                 if (lastId !== result?.data[count - 1].id) {
                     if (data.length > 0) {
-                        setArray(data)
-                        updateLastId(result?.data[count - 1].id)
+                        setArray((prevArray) => [...prevArray, ...data]);
+                        setLastId(result?.data[count - 1].id);
+                        setAllBusinessType((prevData) => [...prevData, ...data]);
                     }
                 }
-                setIsLoading(false)
-
-            }).catch((err) => {
-                setLoaderCounts(0)
-                setIsLoading(false)
-                console.log(err)
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                setLoaderCounts(0);
+                setIsLoading(false);
+                console.log(err);
             });
-    }
+    };
+    
     useEffect(() => {
         getStatusType()
         getBusinessType()
         getAllBusiness(lastId)
     }, [])
-    useEffect(() => {
-        if (array.length !== counts) {
-            setCounts(array.length)
-            setAllBusinessType((prevData) => [...prevData, ...array]);
-            setAllBusinessType2((prevData) => [...prevData, ...array]);
-        }
-    }, [array])
+    // useEffect(() => {
+    //     if (array.length !== counts) {
+    //         setCounts(array.length)
+    //         setAllBusinessType((prevData) => [...prevData, ...array]);
+    //         setAllBusinessType2((prevData) => [...prevData, ...array]);
+    //     }
+    // }, [array])
     const [formData, setFormData] = useState({
         businessStatus: '',
         businessType: '',
