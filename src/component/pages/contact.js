@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom'
 import NotifySnackbar from '../snackbar/notiySnackbar'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import ContactIcon from '../assests/svg/ContactIcon'
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -92,27 +94,25 @@ const Contact = () => {
 
       <div className='main' id="main">
         <Container fluid="xxl" className="px-0" >
-          <section className='px-3'>
-            <div className='pt-5 banner_main d-flex flex-column align-items-center justify-content-center contact_banner' >
-              <span style={{ color: "#9CD161" }}>{t("Contact")}</span>
-              <h5 className=' text-center'>
-                {t("work_together")}
-              </h5>
-              <p className='text-center px-sm-5 px-3 width1'>
-                {t("corporate")}
-              </p>
-              {isLogin === false &&
-                <div className='d-flex align-items-center gap-4 mt-3 about_page_btns'>
-                  <Link to={'/login'}>
-                    <Button ff="Popins_semibold" padding="14px 30px" br="40px" fs="0.75rem" content={t("Get_in_Touch")} />
-                  </Link>
-                  {/* <Link to={'/pricing'}>
-                    <Button color="#161925" bg="#F3F7F5" border="1px solid #161925" ff="Popins_bold" padding="14px 30px" br="40px" fs="0.75rem" content={t("View_Pricing")} />
-                  </Link> */}
-                </div>}
+        <section className='mx-3 margin-bottom-content'>
+            <div className='pt-5 banner_main px-3'>
+              <div className='row ps-md-5 ps-1' >
+              <div className="col-md-8 mb-5">
+                  <p className="hero-heading">{t("work_together")}</p>
+                  <p className="hero-detail">
+                    {t("corporate")}
+                  </p>
+                </div>
+                <div className='col-md-4 col-sm-12'>
+                    <div style={{ width: '-webkit-fill-available',  display: 'flex', justifyContent: 'center' }}>
+                      <ContactIcon />
+                    </div>
+                </div>
+              </div>
             </div>
           </section>
-          <section className='px-md-5 px-1 mx-3 py-5'>
+          <section className='mx-3 margin-bottom-content'>
+          <h3 className="main-headings display-center popins_semibold">Contact Us</h3>
             <div id="contact_form">
               <form onSubmit={handleSubmit}>
                 <div className="row justify-content-center">
@@ -202,7 +202,7 @@ const Contact = () => {
                             <Spinner animation="border" variant="light" size="sm" />
                             : t("message")
                         }
-                      </>} padding="15px 47px" fs="12px" />
+                      </>} padding="15px 47px" fs="14px" />
                   </div>
                 </div>
               </form>

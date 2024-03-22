@@ -250,7 +250,7 @@ export default {
     Our_Mission: "Our Mission",
     Our_Vission: "Our Vission",
     View_Pricing: "View Pricing",
-    OUR_STORY: "OUR STORY",
+    OUR_STORY: "Our Story",
 
     About_Paragraph1: "Globasity was founded to transform how small businesses get the funding they need to grow and thrive. Our revolutionary fintech platform connects businesses with investors in a streamlined, transparent process.",
     About_Paragraph2: "Our mission is to level the playing field so that all small businesses have equal access to financing, regardless of their credit rating or stage of growth. Traditional lenders reject countless viable businesses every year. Meanwhile, individual investors struggle to find promising private investment opportunities.",
@@ -270,7 +270,7 @@ export default {
     b2: "Request funding and go through Globasity’s vetting process",
     b3: "Get matched with interested investors based on your criteria",
     b4: "Receive support in handling due diligence and closing the funding round",
-    For_Investors: "For Investors:",
+    For_Investors: "For Investors",
     In1: "Browse pre-vetted small business investment opportunities",
     In2: "Evaluate and shortlist businesses using tools like search and filtering",
     In3: "Perform due diligence with materials prepared by Globasity",

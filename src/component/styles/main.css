@@ -143,8 +143,22 @@
   border: 1px dashed black;
 }
 
-.rounded_3 {
-  border-radius: 10px;
+
+.rounded_3{
+  border-radius: 1.7rem;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-family: "popins_regular";
+  border: 1px solid var(--primary);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.rounded_3:hover {
+  border: 1px solid var(--yellow);
+  color: var(--primary);
+  font-weight: 600;
+  background-color: rgba(255, 190, 22, 0.15);
 }
 
 .rounded_6 {
@@ -173,7 +187,8 @@
 .form-select:focus,
 .form-control:focus {
   background-color: #f9f9f9;
-  box-shadow: 7px 9px 74.313px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 7px 9px 74.313px rgba(255, 255, 255, 0.2); */
+  box-shadow: 0px 0px 0.313px rgba(255, 255, 255, 0.2);
   border-color: rgba(0, 0, 0, 0.49);
 }
 
@@ -265,6 +280,20 @@ ol>li::marker {
   font-family: 'Popins_medium';
 }
 
+.reuse_heading {
+  white-space: nowrap;
+  border: none;
+  border-radius: 1.7rem;
+  background-color: var(--primary);
+  display: inline-block !important;
+  color: var(--white);
+  font-size: 0.7rem;
+  font-family: "popins_regular";
+  cursor: auto;
+  border: 1px solid var(--primary);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
 .reuse_button {
   white-space: nowrap;
   border: none;
@@ -274,12 +303,56 @@ ol>li::marker {
   color: var(--white);
   font-size: 0.7rem;
   font-family: "popins_regular";
+  border: 1px solid var(--primary);
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
+.reuse_button:hover {
+  border: 1px solid var(--yellow);
+  color: var(--primary);
+  font-weight: 600;
+  background-color: rgba(255, 190, 22, 0.15);
+}
+
+.reuse_button_inverse {
+  white-space: nowrap;
+  border: none;
+  border-radius: 1.7rem;
+  background-color: transparent;
+  display: inline-block !important;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-family: "popins_regular";
+  border: 1px solid var(--primary);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.reuse_button_inverse:hover {
+  border: 1px solid var(--yellow);
+  color: var(--primary);
+  font-weight: 600;
+  background-color: rgba(255, 190, 22, 0.15);
+}
+
+
 .banner_main {
-  background-color: var(--light);
+  /* background-color: var(--light); */
+  background-image: linear-gradient(#FFEBAB, #FFFFFF);
   border-radius: 1.5rem;
   height: 100%;
+}
+
+.light_gray_bg{
+  background: var(--light);
+  padding: 3rem 0rem 0rem 0rem;
+  border-radius: 15px;
+}
+
+.light_gray_bg_border{
+  border: 2px solid var(--light);
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
 }
 
 .width1 {
@@ -298,8 +371,11 @@ ol>li::marker {
 
 .banner_col_1>h6 {
   line-height: 1.5;
-  font-size: 2.3rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-align: center;
   font-family: "popins_semibold";
+  margin-bottom: 25px;
 }
 
 .banner_col_1>p {
@@ -472,8 +548,20 @@ ol>li::marker {
   text-align: center;
   color: #000;
   font-family: "Popins_semibold";
-  font-size: 39px;
-  line-height: 44px;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.hero-heading{
+  font-size: 2rem;
+  font-family: "Popins_semibold";
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.hero-detail{
+  text-wrap: balance;
+  line-height: 1.4;
 }
 
 .mainCards {
@@ -570,6 +658,66 @@ ol>li::marker {
   font-size: 13px;
   color: var(--primary);
 }
+
+.research_main {
+  background: var(--light);
+  padding: 3rem 1rem;
+  border-radius: 15px;
+}
+
+.image-styling-center {
+  background: var(--light);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:3rem 3rem;
+}
+
+.custom-card {
+  border: 2px solid var(--light);
+  border-radius: 15px;
+  width: 100%;
+  box-shadow: none !important;
+  background-color: var(--white);
+  transition: border-color 0.5s, background-color 0.5s;
+}
+
+.custom-card > img {
+  border-radius: 14px 14px 0px 0px;
+}
+
+.custom-card:hover {
+  border: 2px solid var(--yellow);
+  background-color: rgba(255, 190, 22, 0.15);
+}
+.text-dec-none{
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.text-dec-none:hover{
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.card-body{
+  padding: 20px 15px 15px 15px;
+}
+
+.card-body > h5{
+  margin-bottom: 10px;
+}
+
+.image-styling-bottom {
+  background: var(--light);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding:3rem 3rem 0.1rem 3rem;
+}
+
 
 .hey {
   padding-right: 7rem;
@@ -910,8 +1058,8 @@ ol>li::marker {
   line-height: 29px;
 }
 
-#mission {
-  padding-top: 7rem;
+.hori-s-mar{
+  margin: 0px -10px 0px 0px;
 }
 
 .accordion-button:not(.collapsed) {
@@ -954,6 +1102,10 @@ ol>li::marker {
 
 .chat_profile_btn {
   font-size: 0.7rem;
+}
+
+.reverse-flow{
+  flex-flow: wrap-reverse;
 }
 
 @media (max-width:500px) {
@@ -1102,12 +1254,81 @@ ol>li::marker {
 }
 
 .work2 {
-  font-size: 3.2rem;
+  font-size: 2.2rem;
+}
+
+.main-headings{
+  font-size: 1.8em;
+  margin: 2rem 0px;
+}
+
+.secondary-headings{
+  font-size: 1.8em;
+  margin: 1rem 0px;
+}
+
+.display-center{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.margin-bottom-content{
+  margin-bottom: 5rem;
+}
+
+.margin-bottom-content-more{
+  margin-bottom: 7rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .font-custom-heading {
+    font-size: 1.5rem !important;
+  }
+  .custom-resp-margin{
+    margin-left: 50px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .custom-resp-margin{
+    margin-left: 50px;
+  }
+  .resp-margin-bottom{
+    margin-bottom: 2rem;
+  }
+  .margin-bottom-content-more{
+    margin-bottom: 5rem;
+  }
+  .resp-img-width{
+    max-width: 750px;
+    margin: auto;
+  }
+  .custom-pad-top{
+    padding-top: 2rem;
+  }
+}
+
+@media only screen and (min-width: 897px) {
+ .custom-pad-left{
+  padding-left: 50px ;
+ }
 }
 
 .lines {
   width: 19.5rem;
 }
+
+.margin-s-b{
+  margin-bottom: -15px !important;
+}
+
+.margin-s-t{
+  margin-top: 80px !important;
+}
+
 
 .rec1 {
   background-color: #eafff2;
@@ -1120,7 +1341,12 @@ ol>li::marker {
   justify-content: center;
   align-items: center;
   height: 15rem;
+  max-width: 220px;
   font-size: 3.8rem;
+}
+
+.custom-spin{
+  color: var(--yellow);
 }
 
 .rec_height {
@@ -1128,6 +1354,10 @@ ol>li::marker {
   top: 0;
   left: 5.5rem;
   bottom: 0;
+}
+
+.margin-bottom-s{
+  margin-bottom: 7px;
 }
 
 .rec2 {
@@ -1139,6 +1369,7 @@ ol>li::marker {
   align-items: center;
   height: 18rem;
   font-size: 4rem;
+  max-width: 220px;
 }
 
 .rec3 {
@@ -1153,6 +1384,7 @@ ol>li::marker {
   display: flex;
   font-size: 3.3rem;
   align-items: center;
+  max-width: 150px;
 }
 
 .font_size_inherit {
@@ -1344,7 +1576,7 @@ ol>li::marker {
   }
 
   .rec_height h6 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
@@ -2005,6 +2237,7 @@ ol>li::marker {
 #footer {
   background: var(--light);
   padding: 3rem 0rem 0rem 0rem;
+  border-radius: 15px 15px 0px 0px;
 }
 
 body,
@@ -2539,10 +2772,9 @@ footer {
 #contact_form {
   padding: 2rem;
   border-radius: 20px;
-
   border: 2px solid #f3f7f5;
   background: #fff;
-  box-shadow: 0px 3px 6px 0px rgba(140, 149, 159, 0.15);
+  /* box-shadow: 0px 3px 6px 0px rgba(140, 149, 159, 0.15); */
 }
 
 .form-select,
@@ -2735,7 +2967,7 @@ footer {
   color: var(--primary);
   font-family: "Popins_light";
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .contact_inputs select:focus {
@@ -2751,9 +2983,10 @@ footer {
 }
 
 .contact_inputs label {
-  font-family: "Popins_medium";
+  font-family: "Popins_regular";
   color: var(--primary);
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .react-tel-input .flag-dropdown.open,
@@ -2928,7 +3161,16 @@ footer {
 }
 
 .shadow3 {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: 1px solid var(--light);
+  cursor: pointer;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+.shadow3:focus,
+.shadow3:hover {
+  outline: none;
+  border: 1px solid var(--light);
+  background-color: #e9ecef;
 }
 
 .lang:focus,

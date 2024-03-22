@@ -102,10 +102,10 @@ const NavHeader2 = () => {
                 console.log(err)
             });
     }
-
+    //Dependency removed : userData,
     useEffect(() => {
         getNotification()
-    }, [userData, hoveredItemId, show])
+    }, [hoveredItemId, show])
 
     return (
         <>
@@ -153,10 +153,10 @@ const NavHeader2 = () => {
                                     <div key={items.id} className={`mt-1 ${hoveredItemId === items.id ? 'visible1' : 'visible1'}`} >
                                         <span className='border1'>
                                             <span></span>
+                                            {/* <span></span>
                                             <span></span>
                                             <span></span>
-                                            <span></span>
-                                            <span></span>
+                                            <span></span> */}
                                         </span>
                                     </div>
                                 </span>

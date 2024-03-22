@@ -10,6 +10,8 @@ import { useLocation } from 'react-router-dom';
 import NavHeader from './component/header/navHeader'
 import Pricing from './component/pages/pricing';
 import Contact from './component/pages/contact';
+import Startups from './component/pages/startups';
+import Investors from './component/pages/investors';
 import Login from './component/registeration/login';
 import CircularProgress from '@mui/material/CircularProgress';
 import NavHeader2 from './component/header/navHeader2';
@@ -217,6 +219,8 @@ const App = () => {
           <Route path='/about-us' element={<About />} ></Route>
           <Route path='/pricing' element={<Pricing />} ></Route>
           <Route path='/contact' element={<Contact />} ></Route>
+          <Route path='/startups' element={<Startups />} ></Route>
+          <Route path='/investors' element={<Investors />} ></Route>
           <Route path='/login' element={isLogin ? (<Navigate replace to="/" />) : <Login />} ></Route>
           <Route path='/sign-up' element={isLogin ? (<Navigate replace to="/" />) : <SignUp />} ></Route>
           <Route path='/wait-for-login' element={isLogin ? (<Navigate replace to="/" />) : <WaitForLogin />} ></Route>

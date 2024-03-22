@@ -122,9 +122,42 @@ const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
         setIsLoading(false)
         console.log(err)
       });
-
   }
-  const handleSkip = () => {
+  
+  // const handleSkip = () => {
+  //   setIsLoading(true)
+  //   const formData = {
+  //     image: profileImage,
+  //     id_front: id_front,
+  //     id_back: id_back,
+  //     id_number: id_Number,
+  //   }
+  //   const body = new FormData()
+  //   body.append('table_name', 'users')
+  //   body.append('type', 'update_data')
+  //   body.append('id', userData?.user_id)
+  //   body.append('image', formData.image)
+  //   body.append('id_front', formData.id_front)
+  //   body.append('id_back', formData.id_back)
+  //   body.append('id_number', formData.id_number)
+  //   apiRequest({ body })
+  //     .then((result) => {
+  //       if (result.result) {
+  //         toast.success(result.message)
+  //         dispatch(setLogin(true));
+  //         navigate('/')
+  //         setIsLoading(false)
+  //       } else {
+  //         setIsLoading(false)
+  //       }
+  //     }).catch((err) => {
+  //       setIsLoading(false)
+  //       console.log(err)
+  //     });
+
+  // }
+
+  const handleSkip = (e) => {
     setIsLoading(true)
     const formData = {
       image: profileImage,
@@ -143,10 +176,14 @@ const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
     apiRequest({ body })
       .then((result) => {
         if (result.result) {
-          toast.success(result.message)
-          dispatch(setLogin(true));
-          navigate('/')
+          toast.success('Please be patient, as the activation process may require up to 24 hours.')
           setIsLoading(false)
+          if (userData?.is_active === "true") {
+            dispatch(setLogin(true));
+            navigate('/')
+          } else {
+            navigate('/wait-for-login')
+          }
         } else {
           setIsLoading(false)
         }
@@ -154,7 +191,6 @@ const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
         setIsLoading(false)
         console.log(err)
       });
-
   }
   return (
     <>

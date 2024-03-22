@@ -58,7 +58,7 @@ const Footer = () => {
             <BackToTop />
             <TermConditionModal show={show} setShow={setShow} data={terms} title={t("TERM_AND_COND")} />
             <TermConditionModal show={show2} setShow={setShow2} data={condition} title={t("Commercial_Terms")} />
-            <section className='main ' id='footer'>
+            <section className='main mx-3' id='footer'>
                 <footer className='px-3'>
                     <div className="footer-container align-items-center flex-column">
 
@@ -103,7 +103,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="footer-right-column fs_08">
-                            Copiright © 2023, Globasity
+                            Copiright © 2024, Globasity
                         </div>
                     </div>
                 </footer>

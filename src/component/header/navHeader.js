@@ -8,6 +8,7 @@ import icon2 from '../assests/svg/icon2.svg'
 import logo from '../assests/logo2.png'
 import Language from './language';
 import { useTranslation } from 'react-i18next';
+import Button from '../pages/pagesComponent/button';
 // function ScrollHandler() {
 
 //     useEffect(() => {
@@ -34,7 +35,7 @@ function ScrollHandler() {
             const navbar = document.getElementById('navbar');
             const scrollPosition = window.scrollY;
             if (scrollPosition > prevScrollY.current) {
-                navbar.style.top = '-80px';
+                // navbar.style.top = '-80px';
             } else {
                 navbar.style.top = '0';
             }
@@ -57,9 +58,11 @@ const NavHeader = () => {
 
     const navItems = [
         { id: "1", items: t("Home"), path: '/' },
-        { id: "2", items: t("About_us"), path: '/about-us' },
+        { id: "6", items: "Startups", path: '/startups' },
+        { id: "7", items: "investors", path: '/investors' },
         { id: "3", items: t("Pricing"), path: "/pricing" },
         { id: "5", items: t("Contact"), path: "/contact" },
+        { id: "2", items: t("About_us"), path: '/about-us' },
     ]
     const [hoveredItemId, setHoveredItemId] = useState(null);
     const [show, setShow] = useState(false);
@@ -88,10 +91,11 @@ const NavHeader = () => {
                             <img src={logo} alt='' className='' style={{ width: "7.7rem" }} />
                         </Link>
                     </Navbar.Brand>
-                    <Nav className='order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1'>
+                    <Nav className='order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1' style={{gap:'10px'}}>
                         <span className='xs_none'> <Language login={false} /></span>
-                        <button onClick={handleLoginClick} className='loginBtn popins_medium fs_09' >{t("LOGIN_BTN_TXT")}</button>
-                        {/* <button onClick={handleRegisterClick} className='register popins_medium fs_09 ms-3 d-sm-flex d-none' >Register</button> */}
+                        <Link to={"/login"}>
+                        <Button padding=".5rem 1.7rem" fs="14px" content={t("LOGIN_BTN_TXT")} />
+                        </Link>
                     </Nav>
                     <Navbar.Toggle onClick={handleShow} className='ms-2 border-0 p-0 mb-1' style={{
                         fontSize: "13px",
@@ -107,10 +111,10 @@ const NavHeader = () => {
                                     <div key={items.id} className={`mt-1 ${hoveredItemId === items.id ? 'visible1' : 'visible1'}`} >
                                         <span className='border1'>
                                             <span></span>
+                                            {/* <span></span>
                                             <span></span>
                                             <span></span>
-                                            <span></span>
-                                            <span></span>
+                                            <span></span> */}
                                         </span>
                                     </div>
                                 </span>
@@ -130,10 +134,10 @@ const NavHeader = () => {
                                         <div key={items.id} className={`${hoveredItemId === items.id ? 'visible1' : 'visible1'}`} >
                                             <span className='border1'>
                                                 <span></span>
+                                                {/* <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <span></span>
-                                                <span></span>
+                                                <span></span> */}
                                             </span>
                                         </div>
                                     </NavLink>
