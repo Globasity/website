@@ -336,7 +336,7 @@ const MainPage = () => {
           </section>
           <section className="margin-bottom-content">
           <div className="business_interest">
-            <div className="row mx-3">
+            <div className="row mx-3 reverse-flow">
             <div className="col-lg-6 image-styling-center resp-margin-bottom resp-img-width">
                 <div className="mx-3 ">
                 <SmartInvestIcon />

@@ -94,7 +94,7 @@ const Contact = () => {
 
       <div className='main' id="main">
         <Container fluid="xxl" className="px-0" >
-        <section className='px-3'>
+        <section className='mx-3 margin-bottom-content'>
             <div className='pt-5 banner_main px-3'>
               <div className='row ps-md-5 ps-1' >
               <div className="col-md-8 mb-5">
@@ -111,7 +111,7 @@ const Contact = () => {
               </div>
             </div>
           </section>
-          <section className='px-1 mx-3 py-5'>
+          <section className='mx-3 margin-bottom-content'>
           <h3 className="main-headings display-center popins_semibold">Contact Us</h3>
             <div id="contact_form">
               <form onSubmit={handleSubmit}>

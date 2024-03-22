@@ -63,10 +63,10 @@ const About = () => {
   return (
     <div className="main" id="about">
       <Container fluid="xxl" className="px-0">
-        <section className="px-3">
+        <section className="mx-3 margin-bottom-content">
           <div className="pt-5 banner_main px-3">
             <div className="row ps-md-5 ps-1">
-              <div className="col-md-8 mb-5">
+              <div className="col-md-8 resp-margin-bottom">
                   <p className="hero-heading">{t("About_Headline")}</p>
                   <p className="hero-detail">
                     {t("corporate")}
@@ -116,10 +116,10 @@ const About = () => {
             </div>
           </div>
         </section>
-        <section className="px-3">
-          <div className="px-2 mb-4">
-            <div className="story row justify-content-center align-items-center pt-lg-5 pt-3  mt-lg-5 m-0 ">
-              <div className="story_col_1">
+        <section className="mx-3 margin-bottom-content">
+          <div className="px-2">
+            <div className="story row justify-content-center align-items-center margin-bottom-content">
+              <div className="story_col_1 mb-5">
                 <h3 className="main-headings display-center popins_semibold">
                   {t("OUR_STORY")}
                 </h3>
@@ -136,8 +136,8 @@ const About = () => {
                   <p className="mt-2  text-center">{t("how_content")}</p>
                 </div> */}
                 <div className="row">
-                    <div className="col-md-6">
-                  <div className="research_main">
+                    <div className="col-md-6 resp-margin-bottom">
+                  <div className="research_main hori-s-mar">
                     <div className="d-flex gap-3 align-items-baseline research">
                       <span style={{ fontSize: "1.1rem", marginLeft:"50px" }}>
                         {t("For_Businesses")}
@@ -151,7 +151,7 @@ const About = () => {
                   </div>
                   </div>
                   <div className="col-md-6">
-                  <div className="research_main">
+                  <div className="research_main hori-s-mar">
                     <div className="d-flex gap-3 align-items-baseline research">
                       <span style={{ fontSize: "1.1rem", paddingLeft:"50px" }}>
                         {t("For_Investors")}
@@ -168,25 +168,24 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <section id="mission">
-              <div className="row align-items-stretch mt-4 responsive_mission ">
-                <div className="col-md-6  mission_col_1">
-                <h3 className="main-headings popins_semibold">
+            <section id="mission" className="margin-bottom-content">
+              <div className="row ">
+                <div className="col-lg-6 m-auto">
+                <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
+                  <h3 className="secondary-headings popins_semibold">
                   {t("Our_Mission")}
-                </h3>
-                  <div className="d-flex flex-column  gap-2 mission_col_1_data">
-                    <p>{t("About_Paragraph2")}</p>
-                    <p className="">{t("About_Paragraph3")}</p>
+                  </h3>
+                  <div className="work mb-4 mt-4">
+                    <p className="text_width w-100">{t("About_Paragraph2")}</p>
+                    <p className="text_width w-100">{t("About_Paragraph3")}</p>
                   </div>
+                  {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
                 </div>
-                <div className="col-md-6 mission_img image-styling-center">
-                  {/* <img
-                    className="img-fluid rounded-5 h-100"
-                    style={{ objectFit: "cover" }}
-                    src={manCooking}
-                    alt="ourMission"
-                  /> */}
+              </div>
+                <div className="col-lg-6 image-styling-center resp-img-width">
+                  <div className="mx-3">
                   <OurMissionIcon/>
+                  </div>
                 </div>
               </div>
             </section>
@@ -227,25 +226,24 @@ const About = () => {
               </div>
             </section> */}
             <section id="mission">
-              <div className="row align-items-stretch mt-4 responsive_mission ">
-              <div className="col-md-6 mission_img image-styling-bottom">
-                  {/* <img
-                    className="img-fluid rounded-5 h-100"
-                    style={{ objectFit: "cover" }}
-                    src={manCooking}
-                    alt="ourMission"
-                  /> */}
+              <div className="row align-items-stretch mt-4 responsive_mission reverse-flow">
+              <div className="col-lg-6 image-styling-bottom resp-img-width">
+                  <div className="mx-3">
                   <TeamIcon/>
-                </div>
-                <div className="col-md-6  mission_col_1">
-                <h3 className="main-headings popins_semibold">
-                  {t("Meet_Our_Team")}
-                </h3>
-                  <div className="d-flex flex-column  gap-2 mission_col_1_data">
-                    <p>{t("meet_team_content1")}</p>
-                    <p className="">{t("meet_team_content2")}</p>
                   </div>
                 </div>
+                <div className="col-lg-6 m-auto custom-pad-left custom-pad-top">
+                <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
+                  <h3 className="secondary-headings popins_semibold">
+                  {t("Meet_Our_Team")}
+                  </h3>
+                  <div className="work mb-4 mt-4">
+                    <p className="text_width w-100">{t("meet_team_content1")}</p>
+                    <p className="text_width w-100">{t("meet_team_content2")}</p>
+                  </div>
+                  {/* <Button padding=".84rem 1.7rem" content={t("Read_more")} /> */}
+                </div>
+              </div>
               </div>
             </section>
             {/*

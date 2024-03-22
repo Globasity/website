@@ -17,7 +17,7 @@ const Pricing = () => {
     <div>
       <div className='main' id="pricing">
         <Container fluid="xxl" className="px-0 mb-3">
-          <section className='px-3'>
+          <section className='px-3 margin-bottom-content'>
             <div className='pt-5 banner_main px-3'>
               <div className='row ps-md-5 ps-1' >
               <div className="col-md-8 mb-5">
@@ -35,7 +35,7 @@ const Pricing = () => {
             </div>
 
           </section>
-          <section className='pt-5'>
+          <section className='margin-bottom-content'>
           <h3 className="main-headings display-center popins_semibold">Subscription Plans</h3>
             <div className='d-flex align-items-center justify-content-center gap-5  flex-md-row flex-sm-column  flex-wrap  mt-4'>
               <PricingCard amount="$49.99" content={t("Professional_Plan")} bg="#FFBE16" subcription={t("Month_sub")} />
@@ -43,9 +43,7 @@ const Pricing = () => {
 
             </div>
           </section>
-
-          
-          <section className='d-flex justify-content-center align-items-center flex-column px-md-0 px-3 mt-5'>
+          <section className='d-flex justify-content-center align-items-center flex-column px-md-0 px-3 margin-bottom-content'>
           <h3 className="main-headings display-center popins_semibold">{t("FAQ")}</h3>
             <Accordion className='text-center col-md-7 col-sm-10'>
               <Accordion.Item eventKey="0" className='mb-2'>

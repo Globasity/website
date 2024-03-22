@@ -598,8 +598,6 @@ ol>li::marker {
   background: var(--light);
   padding: 3rem 1rem;
   border-radius: 15px;
-  min-height: 300px;
-  margin-top: 35px;
 }
 
 .image-styling-center {
@@ -995,8 +993,8 @@ ol>li::marker {
   line-height: 29px;
 }
 
-#mission {
-  padding-top: 7rem;
+.hori-s-mar{
+  margin: 0px -10px 0px 0px;
 }
 
 .accordion-button:not(.collapsed) {
@@ -1039,6 +1037,10 @@ ol>li::marker {
 
 .chat_profile_btn {
   font-size: 0.7rem;
+}
+
+.reverse-flow{
+  flex-flow: wrap-reverse;
 }
 
 @media (max-width:500px) {
