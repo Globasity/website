@@ -103,7 +103,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="footer-right-column fs_08">
-                            Copiright © 2023, Globasity
+                            Copiright © 2024, Globasity
                         </div>
                     </div>
                 </footer>
