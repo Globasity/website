@@ -12,7 +12,7 @@ function CustomCard({ image, href, title, description }) {
       <div className="custom-card">
         <img src={image} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="fw-bold">{title}</h5>
+          <h5 className="popins_semibold">{title}</h5>
           <p className="poppins_regular">
             {description}
           </p>

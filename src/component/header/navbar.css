@@ -13,7 +13,8 @@
 .main_nav .nav_link a {
 
     color: var(--secondary);
-    font-family: 'popins_medium';
+    font-family: "poppins";
+    font-weight: 500;
 }
 
 .main_nav .nav_link a span:hover {
@@ -26,14 +27,16 @@
 .main_nav .nav_link a {
 
     color: var(--secondary);
-    font-family: 'popins_medium';
+    font-family: "poppins";
+    font-weight: 500;
 }
 
 .main_nav .main_nav2 .nav_link a {
 
     color: var(--secondary);
     padding-inline: 1.9rem !important;
-    font-family: 'popins_medium';
+    font-family: "poppins";
+    font-weight: 500;
 }
 
 .main_nav .bell .dropdown-toggle::after {
@@ -76,12 +79,14 @@
 
 .main_nav .nav_link a span {
     color: var(--secondary);
-    font-family: 'popins_medium';
+    font-family: "poppins";
+    font-weight: 500;
 }
 
 .main_nav .nav_link .active span {
     color: var(--primary);
-    font-family: 'popins_semibold';
+    font-family: 'poppins';
+    font-weight: 600;
 }
 
 .profile {

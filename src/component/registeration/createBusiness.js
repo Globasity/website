@@ -294,7 +294,7 @@ const CreateBusiness = ({ onNextStep }) => {
                 <Container fluid="xxl" className="px-0" >
                     <section className='px-sm-3 d-flex align-items-center justify-content-center'  >
                         <div className='login_card' >
-                            <div className='fs_09 ms-auto popins_medium' onClick={() => navigate('/')} style={{ color: "#9cd161", cursor: "pointer" }} >{t("SKIP")}</div>
+                            <div className='fs_09 ms-auto popins_medium' onClick={() => navigate('/wait-for-login')} style={{ color: "#9cd161", cursor: "pointer" }} >{t("SKIP")}</div>
                             <div>
                                 <div className='heading text-center'>
                                     {t("HEAD_C_BUSINESS")}

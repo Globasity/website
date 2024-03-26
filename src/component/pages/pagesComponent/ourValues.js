@@ -8,7 +8,7 @@ const OurValues = ({ headings, paragraphs, topHeader}) => {
   return (
     <section id="craft" className="px-md-5 px-4 light_gray_bg mx-3">
       <div className="d-flex align-items-center justify-content-center craft">
-        <span className="font-custom-heading">{topHeader}</span>
+        <span className="font-custom-heading popins_semibold">{topHeader}</span>
       </div>
       <div className="row py-5 justify-content-between px-2">
         {headings.map((heading, index) => (
@@ -25,7 +25,7 @@ const OurValues = ({ headings, paragraphs, topHeader}) => {
                   {heading.icon}
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
-                      <h5 className="fw-bold" style={{ margin: "auto" }}>{t(heading.title)}</h5>
+                      <h5 className="popins_semibold" style={{ margin: "auto" }}>{t(heading.title)}</h5>
                     </div>
                   </div>
                 </div>
