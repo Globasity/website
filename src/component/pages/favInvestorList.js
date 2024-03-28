@@ -115,7 +115,7 @@ const FavInvestorList = () => {
                             <div className='row contentCenter'>
                                 {investors?.length > 0 ? investors.map((items, index) => (
                                     <div key={index} className='col-xl-4 col-lg-5 col-md-6 col-sm-9  p-2'>
-                                        <InvestorCard investorId={items.id} name={items.name} profile={items.thumb} description={items.company_description} totalAmount={items.invested_amount} lastInvest={0} favourite={items?.status} getInvestors={getInvestors} />
+                                        <InvestorCard investorId={items?.investor?.id} name={items?.investor?.name} profile={items?.url + items?.investor?.image} description={items?.investor?.company_description} totalAmount={items?.investor?.invested_amount} lastInvest={0} favourite={items?.status} getInvestors={getInvestors} />
                                     </div>
                                 )) :
                                     <div className='d-flex justify-content-center flex-column align-items-center'>

@@ -8,19 +8,26 @@ import { useNavigate } from 'react-router-dom'
 const NotifyList = ({ to_id, description, title, seen, setCheck }) => {
     const navigate = useNavigate()
     const updateNotification = (data) => {
-        setCheck(true)
-        const body = new FormData()
-        body.append('type', 'noti_seen')
-        body.append('to_id', data)
+        setCheck(true);
+        const body = new FormData();
+        body.append('type', 'noti_seen');
+        body.append('to_id', data);
         apiRequest({ body })
             .then((result) => {
-                navigate('/notification')
-                // console.log(result)
-
-            }).catch((err) => {
-                console.log(err)
+                if (title === 'New Message') {
+                    navigate('/chat');
+                } else if (title === 'NDA Contract') {
+                    navigate('/Initial-contract');
+                } else if (title === 'Business Contract') {
+                    navigate('/business-contract');
+                } else {
+                    navigate('/notification');
+                }
+            })
+            .catch((err) => {
+                console.log(err);
             });
-    }
+    };
 
 
 

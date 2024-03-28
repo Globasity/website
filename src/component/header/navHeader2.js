@@ -177,10 +177,10 @@ const NavHeader2 = () => {
                                         <div key={items.id} className={`${hoveredItemId === items.id ? 'visible1' : 'visible1'}`} >
                                             <span className='border1'>
                                                 <span></span>
+                                                {/* <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <span></span>
-                                                <span></span>
+                                                <span></span> */}
                                             </span>
                                         </div>
                                     </NavLink>
