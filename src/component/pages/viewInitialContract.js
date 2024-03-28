@@ -667,7 +667,9 @@ const ViewInitialContract = () => {
                     </Container>
                     <Container>
                         <div className='display_flex2 gap-3 my-5'>
-                            <button disabled={isLoading} type='button' onClick={userData?.user_type === "investor" ? checkPayement : creatContract} className='btn1 btn2 btn2 fs_09 btn_primary rounded_3 px-4 py-2'>
+                            {/* payment_fix */}
+                            {/* <button disabled={isLoading} type='button' onClick={userData?.user_type === "investor" ? checkPayement : creatContract} className='btn1 btn2 btn2 fs_09 btn_primary rounded_3 px-4 py-2'> */}
+                            <button disabled={isLoading} type='button' onClick={creatContract} className='btn1 btn2 btn2 fs_09 btn_primary rounded_3 px-4 py-2'>
                                 {
                                     isLoading ?
                                         <Spinner animation="border" variant="light" size="sm" />

@@ -650,7 +650,9 @@ const ViewContract = () => {
                                     }
                                 </button>) :
                                 (<>
-                                    <button disabled={isLoading ? true : false} type='button' onClick={userData?.user_type === "investor" ? checkPayement : signatureData} className='btn1 btn2 btn2 fs_09 btn_primary rounded_3 px-4 py-2'>
+                                    {/* payment_fix */}
+                                    {/* <button disabled={isLoading ? true : false} type='button' onClick={userData?.user_type === "investor" ? checkPayement : signatureData} className='btn1 btn2 btn2 fs_09 btn_primary rounded_3 px-4 py-2'> */}
+                                    <button disabled={isLoading ? true : false} type='button' onClick={signatureData} className='btn1 btn2 btn2 fs_09 btn_primary rounded_3 px-4 py-2'>
                                         {
                                             isLoading ?
                                                 <Spinner animation="border" variant="light" size="sm" />

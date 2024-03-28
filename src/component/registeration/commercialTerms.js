@@ -149,18 +149,29 @@ const CommercialTerms = ({ onNextStep, onPrevStep }) => {
                 console.log(err)
             });
     }
-    // Function to handle form submission
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        if (isChecked) {
-            // onNextStep()
-            await payment()
-        } else {
-            toast.warn('Please Accept the Commercial Subscription')
-        }
+    // Function to handle form submission payment_fix
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     if (isChecked) {
+    //         // onNextStep()
+    //         await payment()
+    //     } else {
+    //         toast.warn('Please Accept the Commercial Subscription')
+    //     }
 
-        // Add code to handle the checkbox data as needed
-    };
+    //     // Add code to handle the checkbox data as needed
+    // };
+    // Function to handle form submission
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (isChecked) {
+        await updateSteps(); // Assuming this function updates some steps in your process
+        onNextStep(); // Directly proceed to the next step without initiating payment
+    } else {
+        toast.warn('Please Accept the Commercial Subscription');
+    }
+};
+
 
 
     return (
