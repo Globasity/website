@@ -22,13 +22,13 @@ const SiginUp = () => {
     const [profileImage, setProfileImage] = useState('');
     const [verifyEmail, setVerifyEmail] = useState('');
     const [progress, setProgress] = useState(0);
-    useEffect(() => {
-        const userLangauge = JSON.parse(window.localStorage.getItem('globasity_language'))
-        if (!userLangauge) {
-            const lan = 'en';
-            localStorage.setItem('globasity_language', JSON.stringify(lan));
-        }
-    }, [])
+    // Language_removed useEffect(() => {
+    //     const userLangauge = JSON.parse(window.localStorage.getItem('globasity_language'))
+    //     if (!userLangauge) {
+    //         const lan = 'en';
+    //         localStorage.setItem('globasity_language', JSON.stringify(lan));
+    //     }
+    // }, [])
     useEffect(() => {
         setProfileImage(profileImage)
         setId_Number(id_Number)

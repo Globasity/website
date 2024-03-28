@@ -39,14 +39,14 @@ const NumberVerification = () => {
     setShowPassword(!showPassword);
   };
   const handleSubmit = (event) => {
-    const userLangauge = JSON.parse(
-      window.localStorage.getItem("globasity_language")
-    );
+    // Language_removed const userLangauge = JSON.parse(
+    //   window.localStorage.getItem("globasity_language")
+    // );
 
-    if (!userLangauge) {
-      const lan = "en";
-      localStorage.setItem("globasity_language", JSON.stringify(lan));
-    }
+    // if (!userLangauge) {
+    //   const lan = "en";
+    //   localStorage.setItem("globasity_language", JSON.stringify(lan));
+    // }
     event.preventDefault();
     const e_mail = event.target.Email.value;
     // const p_assord = event.target.Password.value;

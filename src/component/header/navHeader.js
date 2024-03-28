@@ -92,7 +92,7 @@ const NavHeader = () => {
                         </Link>
                     </Navbar.Brand>
                     <Nav className='order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1' style={{gap:'10px'}}>
-                        <span className='xs_none'> <Language login={false} /></span>
+                        {/* Language_removed <span className='xs_none'> <Language login={false} /></span> */}
                         <Link to={"/login"}>
                         <Button padding=".5rem 1.7rem" fs="14px" content={t("LOGIN_BTN_TXT")} />
                         </Link>
@@ -142,9 +142,9 @@ const NavHeader = () => {
                                         </div>
                                     </NavLink>
                                 ))}
-                                <div className='xs_none_show'>
+                                {/* Language_removed <div className='xs_none_show'> 
                                     <Language login={false} />
-                                </div>
+                                </div> */}
                             </Nav>
                         </Offcanvas>
                     </Nav>

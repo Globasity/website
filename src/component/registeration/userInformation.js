@@ -146,11 +146,11 @@ const UserInformation = ({ onNextStep, onPrevStep, accountType, setVerifyEmail, 
         }
     }
     const handleSubmit = () => {
-        // e.preventDefault();
-        if (!localStorage.getItem('globasity_language')) {
-            const lan = 'en';
-            localStorage.setItem('globasity_language', JSON.stringify(lan));
-        }
+        // e.preventDefault(); 
+        //  Language_removed if (!localStorage.getItem('globasity_language')) {
+        //     const lan = 'en';
+        //     localStorage.setItem('globasity_language', JSON.stringify(lan));
+        // }
         setIsLoading(true)
         const body = new FormData()
         body.append('type', 'register')
