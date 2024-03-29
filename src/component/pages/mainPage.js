@@ -77,7 +77,7 @@ const MainPage = () => {
                         {/* <p> {t("Subheadline")} </p> */}
                         {isLogin === false && (
                           <div style={{ textAlign: "center" }}>
-                            <Link to={"/login"}>
+                            <Link to={"/sign-up"}>
                               <Button
                                 padding=".84rem 1.7rem"
                                 fs="0.9rem"
@@ -169,6 +169,14 @@ const MainPage = () => {
                     </div> */}
           </section>
           <section className="margin-bottom-content">
+            <div>
+              {/* <h3 className="main-headings display-center popins_semibold">
+                Confirmed Companies <VerifiedIcon />
+              </h3> */}
+              <LogoSlider logos={logos} />
+            </div>
+          </section>
+          <section className="margin-bottom-content-more">
             <div className="px-sm-5 px-3">
               <div className="grid2">
                 <div className="text_width w-100 resp-margin-bottom">
@@ -209,14 +217,6 @@ const MainPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section className="margin-bottom-content-more">
-            <div>
-              <h3 className="main-headings display-center popins_semibold">
-                Confirmed Companies <VerifiedIcon />
-              </h3>
-              <LogoSlider logos={logos} />
             </div>
           </section>
           <section className="margin-bottom-content-more">
@@ -299,7 +299,7 @@ const MainPage = () => {
               </div>
             </div>
           </section>
-          <section className="px-3 text-center margin-bottom-content">
+          {/* <section className="px-3 text-center margin-bottom-content">?
             <div className="banner_main py-5">
               <div className="best_product d-flex justify-content-center  ">
                 <p className="mb-4 font-custom-heading">
@@ -323,26 +323,10 @@ const MainPage = () => {
                       content={t("Get_Started")}
                     />
                   </Link>
-                  <Link to={"/pricing"}>
-                    <Button
-                      type="inverse"
-                      padding=".84rem 1.7rem"
-                      fs="14px"
-                      content={t("View_Pricing")}
-                    />
-                  </Link>
                 </div>
               )}
-              {/* <div className=" d-flex gap-3 justify-content-center flex-row flex-wrap px-3">
-                <MainPageCards
-                  amount="$49.00"
-                  img={businessman}
-                  name={t("Business_Man_Subcription")}
-                /> */}
-              {/* <MainPageCards amount={`$5.00/${t("Contract")}`} img={investor} name={t("Investor_Payment")} /> */}
-              {/* </div> */}
             </div>
-          </section>
+          </section> */}
           <section className="margin-bottom-content">
             <div className="business_interest">
               <div className="row mx-3 reverse-flow">

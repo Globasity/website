@@ -38,9 +38,9 @@ const UserAccount = () => {
         image: "",
         url: "",
         name: '',
-        address: '',
-        gender: '',
-        currency: '',
+        // address: '',
+        // gender: '',
+        // currency: '',
     });
 
     const handleChange = (e) => {
@@ -104,9 +104,9 @@ const UserAccount = () => {
                         image: data.image,
                         url: data.url,
                         name: data.name,
-                        address: data.address,
-                        gender: data.gender,
-                        currency: data.currency_type,
+                        // address: data.address,
+                        // gender: data.gender,
+                        // currency: data.currency_type,
                     });
                     setEmail(data.email)
                     setPhoneNumber(data.phone)
@@ -142,9 +142,9 @@ const UserAccount = () => {
         body.append('image', profileImage ? profileImage : formData.image)
         body.append('phone', phoneNumber)
         body.append('name', formData.name)
-        body.append('gender', formData.gender)
-        body.append('address', formData.address)
-        body.append('currency_type', formData.currency)
+        // body.append('gender', formData.gender)
+        // body.append('address', formData.address)
+        // body.append('currency_type', formData.currency)
         // console.log(formData)
         apiRequest({ body })
             .then(async (result) => {
@@ -192,7 +192,7 @@ const UserAccount = () => {
                             <div className='d-flex flex-column contact_inputs gap-1 register'>
                                 <Form.Group>
                                     <div className='d-flex flex-column gap-1 register'>
-                                        <Form.Label className='ps-2'>{t("ADD_PHOTO")}</Form.Label>
+                                        <Form.Label className='ps-2'>Image</Form.Label>
                                         <div className='profile_image mx-auto'>
                                             {(selectedImage || formData.image !== '') ? (<img src={selectedImage ? selectedImage : formData.url + formData.image} alt="Selected" className='display_flex2' />) :
                                                 (<div>
@@ -243,7 +243,7 @@ const UserAccount = () => {
                                             style={{ fontSize: "14px" }} disabled />
                                     </div>
                                 </Form.Group>
-                                <Form.Group controlId='address' >
+                                {/* <Form.Group controlId='address' >
                                     <Form.Label className=''>{t("Address")}</Form.Label>
                                     <Form.Control required value={formData.address}
                                         onChange={handleChange} type='text' disabled={userForm === false ? true : false} placeholder={t("Address")} style={{ fontSize: "14px" }} />
@@ -268,7 +268,7 @@ const UserAccount = () => {
                                         <option value="$usd">$USD</option>
                                         <option value="₪shekel">₪Shekel</option>
                                     </Form.Select>
-                                </Form.Group>
+                                </Form.Group> */}
                                 <Form.Group className='my-3'>
                                     <div className='d-flex gap-3'>
                                         <button disabled={userForm === false ? true : (isLoading ? true : false)} type='submit' className='btn1 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2' >

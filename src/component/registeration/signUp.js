@@ -20,6 +20,9 @@ const SiginUp = () => {
     const [userType, setUserType] = useState('investor');
     const [accountType, setAccountType] = useState('individual')
     const [profileImage, setProfileImage] = useState('');
+    const [profileBanner, setProfileBanner] = useState('');
+    const [shortDescription, setShortDescription] = useState('');
+    const [socialMediaLink, setSocialMediaLink] = useState('');
     const [verifyEmail, setVerifyEmail] = useState('');
     const [progress, setProgress] = useState(0);
     // Language_removed useEffect(() => {
@@ -31,12 +34,15 @@ const SiginUp = () => {
     // }, [])
     useEffect(() => {
         setProfileImage(profileImage)
+        setProfileBanner(profileBanner)
         setId_Number(id_Number)
         setId_front(id_front)
         setId_back(id_back)
         setAccountType(accountType)
         setUserType(userType)
-    }, [accountType, id_Number, id_back, id_front, profileImage, userType])
+        setSocialMediaLink(socialMediaLink)
+        setShortDescription(shortDescription)
+    }, [accountType, id_Number, id_back, id_front, profileImage, userType, profileBanner, socialMediaLink, shortDescription])
     const handleNextStep = () => {
         setCurrentStep(currentStep + 1);
     };
@@ -45,7 +51,7 @@ const SiginUp = () => {
     };
     useEffect(() => {
         const calculateProgress = () => {
-            const totalSteps = userType === 'investor' ? 5 : 7;
+            const totalSteps = userType === 'investor' ? 4 : 3;
             const calculatedProgress = ((currentStep + 1) / totalSteps) * 100;
             setProgress(calculatedProgress);
         };
@@ -72,26 +78,26 @@ const SiginUp = () => {
                     />
                 )}
                 {/* {currentStep === 2 && <SMSVerification forgotPassword={false} verifyEmail={verifyEmail} onPrevStep={handlePrevStep} onNextStep={handleNextStep} />} */}
-                {currentStep === 2 && <Verification setProfileImage={setProfileImage} onNextStep={handleNextStep} onPrevStep={handlePrevStep} />}
+                {currentStep === 2  && <Verification setProfileImage={setProfileImage} setProfileBanner={setProfileBanner} setSocialMediaLink={setSocialMediaLink} setShortDescription={setShortDescription} onNextStep={handleNextStep} onPrevStep={handlePrevStep} />}
                 {userType === "investor" &&
                     (<>
-                        {currentStep === 3 && <VerfyById userType={userType} onPrevStep={handlePrevStep} setId_front={setId_front} setId_back={setId_back} setId_Number={setId_Number} onNextStep={handleNextStep} />}
-                        {currentStep === 4 &&
+                        {/* {currentStep === 3 && <VerfyById userType={userType} onPrevStep={handlePrevStep} setId_front={setId_front} setId_back={setId_back} setId_Number={setId_Number} onNextStep={handleNextStep} />} */}
+                        {currentStep === 3 &&
                             <InvestmentInfo
                                 profileImage={profileImage}
-                                id_front={id_front}
-                                id_back={id_back}
-                                id_Number={id_Number}
+                                profileBanner={profileBanner}
+                                socialMediaLink={socialMediaLink}
+                                shortDescription={shortDescription}
                             />
                         }
                     </>)
                 }
                 {userType === "business" &&
                     (<>
-                        {currentStep === 3 && <VerfyById profileImage={profileImage} userType={userType} onPrevStep={handlePrevStep} setId_front={setId_front} setId_back={setId_back} setId_Number={setId_Number} onNextStep={handleNextStep} />}
-                        {currentStep === 4 && <Subscription onNextStep={handleNextStep} onPrevStep={handlePrevStep} />}
-                        {currentStep === 5 && <CommercialTerms onNextStep={handleNextStep} onPrevStep={handlePrevStep} />}
-                        {currentStep === 6 && <CreateBusiness />}
+                        {/* {currentStep === 3 && <VerfyById profileImage={profileImage} userType={userType} onPrevStep={handlePrevStep} setId_front={setId_front} setId_back={setId_back} setId_Number={setId_Number} onNextStep={handleNextStep} />} */}
+                        {/* {currentStep === 4 && <Subscription onNextStep={handleNextStep} onPrevStep={handlePrevStep} />} */}
+                        {/* {currentStep === 5 && <CommercialTerms onNextStep={handleNextStep} onPrevStep={handlePrevStep} />} */}
+                        {currentStep === 2 && <CreateBusiness />}
                     </>)
                 }
             </div>

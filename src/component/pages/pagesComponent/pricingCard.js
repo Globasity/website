@@ -12,7 +12,7 @@ const PricingCard = (props) => {
                 <div className='card_'>
                     <div className='card_header ' style={{ paddingBottom: "2.1rem" }}>
                         <div className='mt-2 mb-2'>
-                            <Button fs=".89rem" ff="Popins_semibold" content={props.content} padding="10px 40px" type="heading"/>
+                            <Button fs=".89rem" content={props.content} padding="10px 40px" type="heading"/>
                         </div>
                         <h4 className='pb-2 pt-4 mb-0' >
                             {props.amount}

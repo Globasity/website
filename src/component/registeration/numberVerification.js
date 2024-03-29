@@ -82,11 +82,11 @@ const NumberVerification = () => {
             setMessage(
               `This is an ${
                 data2.user_type === "business"
-                  ? "Entrepreneur"
+                  ? "Startup"
                   : data2.user_type
               } account. Kindly choose the '${
                 data2.user_type === "business"
-                  ? "Entrepreneur"
+                  ? "Startup"
                   : data2.user_type
               }' option when logging in.`
             );
@@ -128,7 +128,8 @@ const NumberVerification = () => {
       <Container fluid="xxl" className="px-0">
         <section className="px-sm-3 d-flex align-items-center justify-content-center">
           <div className="login_card">
-            <span className="heading">{t("LOGIN_BTN_TXT")}</span>
+            <span className="heading">Login</span>
+            <p className="m-0 pb-2 fs_08 text-center">Choose Your Account Type</p>
             <div className="account_type pb-4 pt-4 ">
               <div
                 className={`card_account d-flex align-items-center justify-content-center rounded-4 ${
@@ -196,7 +197,7 @@ const NumberVerification = () => {
                     //   right: 0,
                     // }}
                   >
-                    {t("Entrepreneur")}
+                    Startup
                   </div>
                 </div>
                 {/* {checked ? (
@@ -213,10 +214,10 @@ const NumberVerification = () => {
             <div className="login_section d-flex mt-3 flex-column align-items-center justify-content-center">
               {checked2 ? (
                 <p className="m-0">
-                  {t("HELLO")} {t("BTN_INVESTOR")} !
+                  Hello Investor!
                 </p>
               ) : (
-                <p className="m-0">{`${t("HELLO")} ${t("Entrepreneur")} !`}</p>
+                <p className="m-0">{`${t("HELLO")} Startup!`}</p>
               )}
               <p className="m-0 pb-2 fs_08 text-center">{t("FILL_FORM")}</p>
             </div>

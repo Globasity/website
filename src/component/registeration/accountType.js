@@ -55,7 +55,8 @@ const AccountType = ({
       <Container fluid="xxl" className="px-0 h-100">
         <section className="px-sm-3 d-flex align-items-center h-100 justify-content-center rounded-4">
           <div className="login_card">
-            <span className="heading ">{t("CHOOSE_TYPE")}</span>
+            <span className="heading ">Signup</span>
+            <p className="m-0 pb-2 fs_08 text-center">Choose Your Account Type</p>
             <div className="account_type pb-4 pt-4 ">
               <div
                 className={`card_account d-flex align-items-center justify-content-center rounded-4 ${
@@ -99,7 +100,7 @@ const AccountType = ({
                     <EntrepreneurIcon color={checked ? "#FFBE16" : "#212529"} />
                   </div>
                   <div className="text-center popins_medium">
-                    {t("Entrepreneur")}
+                    Startup
                   </div>
                 </div>
                 {/* {checked ? <img src={accept} alt='checked' className='bg-white checked_account' /> : ''} */}
@@ -108,10 +109,10 @@ const AccountType = ({
             <div className="login_section d-flex mt-3 flex-column align-items-center justify-content-center">
               {checked2 ? (
                 <p className="m-0">
-                  {t("HELLO")} {t("BTN_INVESTOR")} !
+                  Hello Investor!
                 </p>
               ) : (
-                ` ${t("HELLO")} ${t("Entrepreneur")} !`
+                `Hello Startup!`
               )}
               {checked === false && <p className="m-0 pb-2 fs_08 text-center">{t("FILL_FORM")}</p>}
             </div>

@@ -80,21 +80,21 @@ const About = () => {
                         justifyContent: "left",
                       }}
                     >
-                      <Link to={"/login"}>
+                      <Link to={"/sign-up"}>
                         <Button
                           padding=".84rem 1.7rem"
                           fs="0.9rem"
-                          content={t("Get_Started")}
+                          content="Sign Up"
                         />
                       </Link>
-                      <Link to={"/pricing"}>
+                      {/* <Link to={"/pricing"}>
                         <Button
                           type="inverse"
                           padding=".84rem 1.7rem"
                           fs="0.9rem"
                           content={t("View_Pricing")}
                         />
-                      </Link>
+                      </Link> */}
                     </div>
                   )}
                 </div>

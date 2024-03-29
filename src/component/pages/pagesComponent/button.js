@@ -21,6 +21,10 @@ const Button = (props) => {
         <button disabled={props.disabled} type="button" style={buttonStyle} className='reuse_heading'>
           {props.content}
         </button>
+      ) : props.type === "header" ? (
+        <button disabled={props.disabled} type="button" style={buttonStyle} className='reuse_header'>
+          {props.content}
+        </button>
       ) : (
         <button disabled={props.disabled} type="button" style={buttonStyle} className='reuse_button'>
           {props.content}

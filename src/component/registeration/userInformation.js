@@ -92,20 +92,20 @@ const UserInformation = ({ onNextStep, onPrevStep, accountType, setVerifyEmail, 
         const firstName = form.elements.firstName.value;
         const lastName = form.elements.lastName.value;
         const passwords = password;
-        const gender = form.elements.gender.value;
+        // const gender = form.elements.gender.value;
         const conPassword = password2;
-        const address = form.elements.address.value;
-        const currency = form.elements.currency.value;
+        // const address = form.elements.address.value;
+        // const currency = form.elements.currency.value;
         const formData1 = {
             phone: phoneNumber,
             name: `${firstName} ${lastName}`,
             email: email,
             password: passwords,
-            gender: gender,
+            // gender: gender,
             userType: userType,
             accountType: accountType,
-            currency_type: currency,
-            address: address
+            // currency_type: currency,
+            // address: address
         }
         setformData(formData1)
         setIsLoading(true)
@@ -158,11 +158,11 @@ const UserInformation = ({ onNextStep, onPrevStep, accountType, setVerifyEmail, 
         body.append('name', formData.name)
         body.append('email', formData.email)
         body.append('password', formData.password)
-        body.append('gender', formData.gender)
-        body.append('address', formData.address)
+        // body.append('gender', formData.gender)
+        // body.append('address', formData.address)
         body.append('user_type', formData.userType)
         body.append('account_type', formData.accountType)
-        body.append('currency_type', formData.currency_type)
+        // body.append('currency_type', formData.currency_type)
         // body.append('platform', 2)
         apiRequest({ body })
             .then((result) => {
@@ -276,7 +276,7 @@ const UserInformation = ({ onNextStep, onPrevStep, accountType, setVerifyEmail, 
                                                 </div>}
                                         </div>
                                     </Form.Group>
-                                    <Form.Group controlId='address' >
+                                    {/* <Form.Group controlId='address' >
                                         <Form.Label className=''>{t("Address")}</Form.Label>
                                         <Form.Control required type='text' placeholder={t("Address")} style={{ fontSize: "14px" }} />
                                     </Form.Group>
@@ -298,7 +298,7 @@ const UserInformation = ({ onNextStep, onPrevStep, accountType, setVerifyEmail, 
                                             <option value="$usd">$USD</option>
                                             <option value="₪shekel">₪Shekel</option>
                                         </Form.Select>
-                                    </Form.Group>
+                                    </Form.Group> */}
                                     <Form.Group className='my-3'>
                                         <div className='d-flex gap-3'>
                                             <button disabled={isLoading ? true : false} type='submit' className='btn1 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2' >

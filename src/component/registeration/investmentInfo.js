@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { setLogin } from "../redux/loginForm";
 import { useTranslation } from "react-i18next";
 
-const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
+const InvestmentInfo = ({ profileImage, profileBanner, socialMediaLink, shortDescription }) => {
   const [isLoading, setIsLoading] = useState(false);
   const userData = JSON.parse(window.localStorage.getItem('globasity_user_data'))
   const dispatch = useDispatch()
@@ -81,9 +81,9 @@ const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
     const maxAmount = formData.maxAmount
     const formData2 = {
       image: profileImage,
-      id_front: id_front,
-      id_back: id_back,
-      id_number: id_Number,
+      social_media: socialMediaLink,
+      banner: profileBanner,
+      short_description: shortDescription,
       company_name: company ? company : "",
       company_description: desc ? desc : "",
       invested_amount: investAmount ? investAmount : "",
@@ -94,10 +94,13 @@ const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
     body.append('type', 'update_data')
     body.append('table_name', 'users')
     body.append('id', userData?.user_id)
-    body.append('image', formData2.image)
-    body.append('id_front', formData2.id_front)
-    body.append('id_back', formData2.id_back)
-    body.append('id_number', formData2.id_number)
+    body.append('image', formData2?.image)
+    body.append('social_media', formData2?.social_media)
+    body.append('banner', formData2?.banner)
+    body.append('short_description', formData2?.short_description)
+    // body.append('id_front', formData2.id_front)
+    // body.append('id_back', formData2.id_back)
+    // body.append('id_number', formData2.id_number)
     body.append('company_name', formData2.company_name)
     body.append('company_description', formData2.company_description)
     body.append('invested_amount', formData2.invested_amount)
@@ -161,18 +164,24 @@ const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
     setIsLoading(true)
     const formData = {
       image: profileImage,
-      id_front: id_front,
-      id_back: id_back,
-      id_number: id_Number,
+      // id_front: id_front,
+      // id_back: id_back,
+      // id_number: id_Number,
+      social_media: socialMediaLink,
+      banner: profileBanner,
+      short_description: shortDescription
     }
     const body = new FormData()
     body.append('table_name', 'users')
     body.append('type', 'update_data')
     body.append('id', userData?.user_id)
-    body.append('image', formData.image)
-    body.append('id_front', formData.id_front)
-    body.append('id_back', formData.id_back)
-    body.append('id_number', formData.id_number)
+    body.append('image', formData?.image)
+    body.append('banner', formData?.banner)
+    body.append('social_media', formData?.social_media)
+    body.append('short_description', formData?.short_description)
+    // body.append('id_front', formData.id_front)
+    // body.append('id_back', formData.id_back)
+    // body.append('id_number', formData.id_number)
     apiRequest({ body })
       .then((result) => {
         if (result.result) {
@@ -199,9 +208,9 @@ const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
           <div className="login_card">
             <button className="fs_09 ms-auto btn bg-white text-danger" onClick={handleSkip}>{t("SKIP")}</button>
             <div>
-              <div className="heading text-center">{t("Investment_Information")}</div>
-              <div className="fs_06 text-center">
-                {t("enter_investment")}
+            <div className="heading text-center">Your Information</div>
+              <div className="fs_07 text-center">
+                Please fill the following form
               </div>
               <div className="fs_07 text-center"></div>
             </div>
@@ -230,7 +239,7 @@ const InvestmentInfo = ({ profileImage, id_front, id_back, id_Number }) => {
                   cols={50}
                 />
               </div>
-              <div className="d-flex flex-column contact_inputs gap-1 register">
+              <div className="d-flex flex-column contact_inputs gap-1 register mb-2-rem">
                 <Form.Label className="ps-2">{t("already_invested")}</Form.Label>
                 <Form.Control
                   name="investAmount"

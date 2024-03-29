@@ -346,6 +346,27 @@ ol > li::marker {
   background-color: rgba(255, 190, 22, 0.15);
 }
 
+.reuse_header {
+  white-space: nowrap;
+  border: none;
+  border-radius: 1.7rem;
+  background-color: var(--yellow);
+  display: inline-block !important;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-family: "poppins";
+  font-weight: 500;
+  border: 1px solid var(--yellow);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.reuse_header:hover {
+  border: 1px solid var(--yellow);
+  color: var(--primary);
+  font-weight: 500;
+  background-color: rgba(255, 190, 22, 0.15);
+}
+
 .reuse_button_inverse {
   white-space: nowrap;
   border: none;
@@ -366,6 +387,11 @@ ol > li::marker {
   font-weight: 500;
   background-color: rgba(255, 190, 22, 0.15);
 }
+
+.mb-2-rem{
+  margin-bottom: 2rem;
+}
+
 
 .banner_main {
   /* background-color: var(--light); */
@@ -3060,6 +3086,35 @@ footer {
   font-weight: 500;
   color: var(--primary);
   font-size: 14px;
+}
+
+.custom-label {
+  font-family: "poppins";
+  font-weight: 500;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.custom-input::placeholder {
+  color: var(--primary);
+  font-family: "poppins";
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.custom-input:focus {
+  border: transparent !important;
+  outline: none;
+}
+
+.custom-input {
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0.7rem 0rem;
+  padding-left: 1.2rem;
+  font-size: 14px;
+  border-radius: 7px;
+  background: #f9f9f9;
 }
 
 .react-tel-input .flag-dropdown.open,

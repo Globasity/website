@@ -60,7 +60,7 @@ const NavHeader = () => {
         { id: "1", items: t("Home"), path: '/' },
         { id: "6", items: "Startups", path: '/startups' },
         { id: "7", items: "investors", path: '/investors' },
-        { id: "3", items: t("Pricing"), path: "/pricing" },
+        // { id: "3", items: t("Pricing"), path: "/pricing" },
         { id: "5", items: t("Contact"), path: "/contact" },
         { id: "2", items: t("About_us"), path: '/about-us' },
     ]
@@ -92,9 +92,9 @@ const NavHeader = () => {
                         </Link>
                     </Navbar.Brand>
                     <Nav className='order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1' style={{gap:'10px'}}>
-                        {/* Language_removed <span className='xs_none'> <Language login={false} /></span> */}
+                        {/*<span className='xs_none'> <Language login={false} /></span> */}
                         <Link to={"/login"}>
-                        <Button padding=".5rem 1.7rem" fs="14px" content={t("LOGIN_BTN_TXT")} />
+                        <Button type="header" padding=".5rem 1.7rem" fs="14px" content={t("LOGIN_BTN_TXT")} />
                         </Link>
                     </Nav>
                     <Navbar.Toggle onClick={handleShow} className='ms-2 border-0 p-0 mb-1' style={{
