@@ -94,7 +94,7 @@ const Contact = () => {
 
       <div className='main' id="main">
         <Container fluid="xxl" className="px-0" >
-        <section className='mx-3 margin-bottom-content'>
+        <section className='mx-3 mb-3'>
             <div className='pt-5 banner_main px-3'>
               <div className='row ps-md-5 ps-1' >
               <div className="col-md-8 mb-5">

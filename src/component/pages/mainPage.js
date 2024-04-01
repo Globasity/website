@@ -170,9 +170,9 @@ const MainPage = () => {
           </section>
           <section className="margin-bottom-content">
             <div>
-              {/* <h3 className="main-headings display-center popins_semibold">
+              <h3 className="main-headings display-center popins_semibold">
                 Confirmed Companies <VerifiedIcon />
-              </h3> */}
+              </h3>
               <LogoSlider logos={logos} />
             </div>
           </section>

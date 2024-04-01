@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import OurValues from "./pagesComponent/ourValues";
@@ -11,6 +11,7 @@ import CustomCard from "./pagesComponent/customCard";
 import Button from "./pagesComponent/button";
 import Footer from "./pagesComponent/footer";
 import StartupsData from "./pagesComponent/startupsData";
+import { useLocation } from "react-router-dom";
 
 const Startups = () => {
   const [formData, setFormData] = useState({ fullName: "", businessType: "" });
@@ -19,7 +20,9 @@ const Startups = () => {
   const [filteredCards, setFilteredCards] = useState([]);
   const [searchMessage, setSearchMessage] = useState("");
   const [searchPerformed, setSearchPerformed] = useState(false); // Track if search has been performed
-
+  const ourValuesRef = useRef(null);
+  const mainRef = useRef(null);
+  const location = useLocation();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -63,19 +66,37 @@ const Startups = () => {
   ];
 
   const paragraphs = ["Insights_detail", "Research_detail", "Identity_detail"];
-
+  useEffect(() => {
+    if (location.hash === "#ourValues") {
+      scrollToOurValues();
+    }
+    if (location.hash === "#main") {
+      scrollToMain();
+    }
+  }, [location.hash]);
+  const scrollToOurValues = () => {
+    if (ourValuesRef.current) {
+      ourValuesRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollToMain = () => {
+    if (mainRef.current) {
+      mainRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
-    <div>
-      <div className="main" id="main">
+    <div >
+      <div style={{position:'absolute', top:'0px'}} id="main" ref={mainRef}></div>
+      <div className="main">
         <Container fluid="xxl" className="px-0">
           <section className="px-3">
             <div className="pt-5 banner_main px-3">
               <div className="row ps-md-5 ps-1">
                 <div className="col-md-8 mb-5">
-                  <p className="hero-heading">Empowering Futures - Globasity Impactful Portfolio Showcase</p>
-                  <p className="hero-detail">
-                    {t("corporate")}
+                  <p className="hero-heading">
+                    Empowering Futures - Globasity Impactful Portfolio Showcase
                   </p>
+                  <p className="hero-detail">{t("corporate")}</p>
                 </div>
                 <div className="col-md-4 col-sm-12">
                   <div
@@ -91,7 +112,7 @@ const Startups = () => {
               </div>
             </div>
           </section>
-          <section className="px-1 mx-3 py-5">
+          <section className="px-1 mx-3 pb-5">
             <div>
               <h3
                 className="main-headings popins_semibold"
@@ -184,25 +205,24 @@ const Startups = () => {
                 gap: "10px",
               }}
             >
-              {visibleCards < StartupsData.length &&
-                !searchPerformed && ( 
-                  // eslint-disable-next-line
-                  <a onClick={handleLoadMore}>
-                    <Button
-                      padding=".84rem 1.7rem"
-                      fs="0.9rem"
-                      content={t("Load_More")}
-                    />
-                  </a>
-                )}
+              {visibleCards < StartupsData.length && !searchPerformed && (
+                // eslint-disable-next-line
+                <a onClick={handleLoadMore}>
+                  <Button
+                    padding=".84rem 1.7rem"
+                    fs="0.9rem"
+                    content={t("Load_More")}
+                  />
+                </a>
+              )}
             </div>
           </section>
-          <section className="margin-bottom-content">
-          <OurValues
-            headings={headings}
-            paragraphs={paragraphs}
-            topHeader={"Why You Should Register?"}
-          />
+          <section className="margin-bottom-content" ref={ourValuesRef} id="our-values">
+              <OurValues
+                headings={headings}
+                paragraphs={paragraphs}
+                topHeader={"Why You Should Register?"}
+              />
           </section>
         </Container>
         <Footer />

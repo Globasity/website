@@ -158,6 +158,10 @@
     height: 2px;
 }
 
+.nav-link-2{
+    padding:'10px'
+}
+
 .main_nav .navbar-toggler-icon {
     display: inline-block;
     width: 1.5em;
@@ -165,6 +169,20 @@
     background-image: none;
 }
 
+.nav-default{
+    padding: 1rem 1rem;
+    /* margin: 1rem; */
+}
+
+.nav-default:hover {
+    color: var(--primary) !important;
+    background: var(--light);
+ }
+ 
+ .nav-default:active {
+    color: var(--primary) !important;
+    background: var(--light);
+ }
 .main_nav .navbar-toggler:focus {
     box-shadow: none;
 }
@@ -208,7 +226,7 @@
 }
 
 .main_nav .nav-link {
-    padding: 0;
+    padding: 10px;
 }
 
 @media (min-width:992px) {

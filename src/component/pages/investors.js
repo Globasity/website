@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container, Form, Spinner } from "react-bootstrap";
 import Button from "./pagesComponent/button";
 import Footer from "./pagesComponent/footer";
@@ -13,6 +13,7 @@ import InsightsIcon from "../assests/svg/InsightsIcon";
 import VerifiedIcon from "../assests/svg/VerifiedIcon.js";
 import CustomCard from "./pagesComponent/customCard.js";
 import InvestorsData from "./pagesComponent/investorsData.js";
+import { useLocation } from "react-router-dom";
 
 const Investors = () => {
   const headings = [
@@ -20,6 +21,9 @@ const Investors = () => {
     { title: "Research", icon: <ResearchIcon color={"#212529"} /> },
     { title: "Identity", icon: <IdentityIcon color={"#212529"} /> },
   ];
+  const ourValuesRef = useRef(null);
+  const mainRef = useRef(null);
+  const location = useLocation();
   const paragraphs = ["Insights_detail", "Research_detail", "Identity_detail"];
   const [visibleCards, setVisibleCards] = useState(6);
 
@@ -27,9 +31,28 @@ const Investors = () => {
     setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
   };
   const { t } = useTranslation();
+  useEffect(() => {
+    if (location.hash === "#ourValues") {
+      scrollToOurValues();
+    }
+    if (location.hash === "#main") {
+      scrollToMain();
+    }
+  }, [location.hash]);
+  const scrollToOurValues = () => {
+    if (ourValuesRef.current) {
+      ourValuesRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollToMain = () => {
+    if (mainRef.current) {
+      mainRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div>
-      <div className="main" id="main">
+      <div style={{position:'absolute', top:'0px'}} id="main" ref={mainRef}></div>
+      <div className="main">
         <Container fluid="xxl" className="px-0">
           <section className="px-3">
             <div className="pt-5 banner_main px-3">
@@ -54,7 +77,7 @@ const Investors = () => {
               </div>
             </div>
           </section>
-          <section className="px-1 mx-3 py-5">
+          <section className="px-1 mx-3 pb-5">
             <div className="mb-5">
               <h3
                 className="main-headings popins_semibold"
@@ -105,7 +128,7 @@ const Investors = () => {
               )}
             </div>
           </section>
-          <section className="margin-bottom-content">
+          <section className="margin-bottom-content" ref={ourValuesRef} id="our-values">
           <OurValues headings={headings} paragraphs={paragraphs} topHeader={"Why You Should Register?"} />
           </section>
         </Container>

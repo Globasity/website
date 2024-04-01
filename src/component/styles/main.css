@@ -733,6 +733,22 @@ ol > li::marker {
   border-radius: 15px;
 }
 
+.research_main-s {
+  margin: auto;
+  border-radius: 2px;
+}
+
+.research_main-s-2 {
+  border-left: 2px solid var(--light);
+  padding: 0rem 1rem;
+}
+
+.list-style-none {
+  list-style-type: none;
+
+}
+
+
 .image-styling-center {
   background: var(--light);
   border-radius: 15px;
@@ -740,6 +756,21 @@ ol > li::marker {
   justify-content: center;
   align-items: center;
   padding: 3rem 3rem;
+}
+
+.image-styling-center-s {
+  background: var(--light);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-styling-center-2 {
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-card {
@@ -1088,6 +1119,12 @@ font-weight: 600; */
   }
 }
 
+@media screen and (max-width: 1100px) {
+  .research_main-s{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 890px) {
   .pricing_col_1 {
     gap: 0rem !important;
@@ -1392,6 +1429,17 @@ font-weight: 600; */
   .custom-pad-top {
     padding-top: 2rem;
   }
+  .resp-img-width-2 {
+    display: none;
+    margin: auto;
+  }
+  .resp-process-work{
+    display: block !important;
+  }
+}
+
+.resp-process-work{
+  display: none;
 }
 
 @media only screen and (min-width: 897px) {
