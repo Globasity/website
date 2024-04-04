@@ -19,7 +19,7 @@ export const apiRequest = async ({ body }) => {
 export const apiRequestEmail = async ({ body }) => {
   // ** Store Vars
   return await axios
-    .post('https://locatestudent.com/globasity/api.php', body, {
+    .post('https://globasity.com/api/api.php/', body, {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
     .then((res) => {

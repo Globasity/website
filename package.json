@@ -1,5 +1,6 @@
 {
   "name": "navigation",
+  "homepage": "https://globasity.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

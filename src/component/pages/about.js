@@ -16,6 +16,11 @@ import AboutIcon from "../assests/svg/AboutIcon";
 import OurMissionIcon from "../assests/svg/OurMissionIcon";
 import ProcessWork from "../assests/svg/ProcessWork";
 import Team from "../assests/png/team.png";
+import Logo1 from "../assests/png/Logo1.png";
+import Logo2 from "../assests/png/Logo2.png";
+import Logo3 from "../assests/png/Logo3.png";
+import LogoSlider from "./pagesComponent/LogoSlider";
+import VerifiedIcon from "../assests/svg/VerifiedIcon";
 import {
   ArrowUp,
   Facebook,
@@ -29,6 +34,7 @@ import AndIcon from "../assests/svg/AndIcon";
 const About = () => {
   const { t } = useTranslation();
   const isLogin = useSelector((state) => state.auth.isLogin);
+  const logos = [Logo1, Logo2, Logo3];
   const handleShareClick = (socialMedia) => {
     let socialMediaUrl = "";
 
@@ -249,15 +255,23 @@ const About = () => {
                       </span>
                     </div>
                     <ul className="list-style-none">
-                      <li>Founded In 2023</li>
-                      <li>{t("In2")}</li>
-                      <li>{t("In3")}</li>
-                      <li>{t("In4")}</li>
+                      <li>Established in 2021 as a family-owned venture.</li>
+                      <li>Rebranded in 2022 to reflect expanded market presence.</li>
+                      <li>Celebrated 1 millionth customer milestone in 2024.</li>
+                      <li>Launched international operations in 2018.</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </section>
+            <section className="margin-bottom-content mt-5">
+            <div>
+              <h3 className="main-headings display-center popins_semibold">
+                Trustful Partners <VerifiedIcon />
+              </h3>
+              <LogoSlider logos={logos} />
+            </div>
+          </section>
             {/*
                         <section id='team'>
                             <div className=' creative_team' >

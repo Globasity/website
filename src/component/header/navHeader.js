@@ -91,7 +91,9 @@ const NavHeader = () => {
     location.pathname === "/startups" || location.pathname === "/investors"
       ? "Register"
       : "Login";
-
+  const selectedPagePath = location.pathname;
+  const isStartups = selectedPagePath === "/startups";
+  const isInvestors = selectedPagePath === "/investors";
   return (
     <>
       <ScrollHandler />
@@ -152,9 +154,13 @@ const NavHeader = () => {
                   onMouseEnter={() => handleMouseHover(item.id)}
                   onMouseLeave={handleMouseLeave}
                   onToggle={handleShow2}
+                  
                 >
                   <Dropdown.Toggle
                     as={Nav.Link}
+                    style={{
+                      color: isStartups || selectedPagePath === item.path ? "#FFBE16" : ""
+                    }}
                     active={location.pathname === item.path}
                   >
                     {item.items}
@@ -191,6 +197,9 @@ const NavHeader = () => {
                   <Dropdown.Toggle
                     as={Nav.Link}
                     active={location.pathname === item.path}
+                    style={{
+                      color: isInvestors || selectedPagePath === item.path ? "#FFBE16" : ""
+                    }}
                   >
                     {item.items}
                   </Dropdown.Toggle>
@@ -219,13 +228,20 @@ const NavHeader = () => {
                 <NavLink
                   key={item.id}
                   to={item.path}
-                  className="nav-link"
                   onClick={() => handleHover(item.id)}
                   onMouseEnter={() => handleMouseHover(item.id)}
                   onMouseLeave={handleMouseLeave}
-                  activeClassName="active"
+                  className={`nav-link ${
+                    location.pathname === item.path ? "active" : ""
+                  }`}
                 >
-                  {item.items}
+                  <span
+                    style={{
+                      color: location.pathname === item.path ? "#FFBE16" : "",
+                    }}
+                  >
+                    {item.items}
+                  </span>
                 </NavLink>
               )
             )}
