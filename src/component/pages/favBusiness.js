@@ -178,7 +178,7 @@ const FavBusiness = () => {
                 <BackToTop />
                 <section>
                     <Container fluid="lg">
-                        <div className='border p-4 rounded-4 my-5 shadow1'>
+                        {/* <div className='border p-4 rounded-4 my-5 shadow1'>
                             <h6 className='popins_medium mb-3'>{t("ADVANCE_SEARCH")}</h6>
                             <Form onSubmit={handleFormSubmit}>
                                 <div className='display_flex gap-md-4 flex_wrap'>
@@ -216,6 +216,10 @@ const FavBusiness = () => {
                                     </div>
                                 </Form.Group>
                             </Form>
+                        </div> */}
+                        <div className='mb-5 mt-5'>
+                            <h5 className='popins_semibold text-center mb-0'>Favorite Businesses</h5>
+                            <div className='fs_08 popins_light text-center mt-1'>You can see favorite businesses here</div>
                         </div>
                         <div>
                             <div className='row contentCenter'>

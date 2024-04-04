@@ -51,7 +51,7 @@ const SiginUp = () => {
     };
     useEffect(() => {
         const calculateProgress = () => {
-            const totalSteps = userType === 'investor' ? 4 : 3;
+            const totalSteps = userType === 'investor' ? 4 : 4;
             const calculatedProgress = ((currentStep + 1) / totalSteps) * 100;
             setProgress(calculatedProgress);
         };
@@ -97,7 +97,7 @@ const SiginUp = () => {
                         {/* {currentStep === 3 && <VerfyById profileImage={profileImage} userType={userType} onPrevStep={handlePrevStep} setId_front={setId_front} setId_back={setId_back} setId_Number={setId_Number} onNextStep={handleNextStep} />} */}
                         {/* {currentStep === 4 && <Subscription onNextStep={handleNextStep} onPrevStep={handlePrevStep} />} */}
                         {/* {currentStep === 5 && <CommercialTerms onNextStep={handleNextStep} onPrevStep={handlePrevStep} />} */}
-                        {currentStep === 2 && <CreateBusiness />}
+                        {currentStep === 3 && <CreateBusiness />}
                     </>)
                 }
             </div>

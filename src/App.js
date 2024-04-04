@@ -8,7 +8,7 @@ import './component/styles/main.css'
 import './component/styles/font_Sizes.css'
 import { useLocation } from 'react-router-dom';
 import NavHeader from './component/header/navHeader'
-import Pricing from './component/pages/pricing';
+// import Pricing from './component/pages/pricing';
 import Contact from './component/pages/contact';
 import Startups from './component/pages/startups';
 import Investors from './component/pages/investors';
@@ -177,7 +177,7 @@ const App = () => {
   return (
     <>
       <NotifySnackbar handleClose={handleClose} open={open} message={message} messageType={messageType} />
-      <Modal className='' show={show} centered>
+      {/* <Modal className='' show={show} centered>
         <Modal.Header >
           <Modal.Title className=' fs_13'>User Authentication Required</Modal.Title>
         </Modal.Header>
@@ -202,7 +202,7 @@ const App = () => {
           </Form>
         </Modal.Body>
 
-      </Modal>
+      </Modal> */}
       <ScrollToTop />
       {!isLogin ? (<NavHeader />) : (<NavHeader2 />)}
       <Suspense fallback={
@@ -217,7 +217,7 @@ const App = () => {
           <Route index element={<MainPage />} ></Route>
           <Route path='/' element={<MainPage />} ></Route>
           <Route path='/about-us' element={<About />} ></Route>
-          <Route path='/pricing' element={<Pricing />} ></Route>
+          {/* <Route path='/pricing' element={<Pricing />} ></Route> */}
           <Route path='/contact' element={<Contact />} ></Route>
           <Route path='/startups' element={<Startups />} ></Route>
           <Route path='/investors' element={<Investors />} ></Route>

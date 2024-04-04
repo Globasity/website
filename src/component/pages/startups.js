@@ -75,9 +75,10 @@ const Startups = () => {
     }
   }, [location.hash]);
   const scrollToOurValues = () => {
-    if (ourValuesRef.current) {
-      ourValuesRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    // if (ourValuesRef.current) {
+    //   ourValuesRef.current.scrollIntoView({ behavior: "smooth" });
+    // }
+    window.scrollTo(0, 50000);
   };
   const scrollToMain = () => {
     if (mainRef.current) {

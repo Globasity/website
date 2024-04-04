@@ -1346,7 +1346,7 @@ font-weight: 600; */
 }
 
 .paper {
-  width: 5rem;
+  width: 3rem;
 }
 
 .grid2 {
@@ -3163,6 +3163,11 @@ footer {
   font-size: 14px;
   border-radius: 7px;
   background: #f9f9f9;
+}
+
+.custom-input-s {
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .react-tel-input .flag-dropdown.open,
