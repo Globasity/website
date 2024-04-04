@@ -1,81 +1,81 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
-import { Container, Form, Spinner } from 'react-bootstrap'
-import Button from './pagesComponent/button'
-import Footer from './pagesComponent/footer'
-import { apiRequest } from '../api/apiRequest'
-import { toast } from 'react-toastify'
-import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
-import NotifySnackbar from '../snackbar/notiySnackbar'
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
-import ContactIcon from '../assests/svg/ContactIcon'
+import React, { useState } from "react";
+import { Container, Form, Spinner } from "react-bootstrap";
+import Button from "./pagesComponent/button";
+import Footer from "./pagesComponent/footer";
+import { apiRequest } from "../api/apiRequest";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import NotifySnackbar from "../snackbar/notiySnackbar";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import ContactIcon from "../assests/svg/ContactIcon";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    title: '',
-    mobileNumber: '',
-    message: ''
+    fullName: "",
+    email: "",
+    title: "",
+    mobileNumber: "",
+    message: "",
   });
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
   const handlePhoneInputChange = (value) => {
     setPhoneNumber(value);
   };
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState('');
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
   const handleClose = (reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpen(false);
   };
 
-  const isLogin = useSelector((state) => state.auth.isLogin)
+  const isLogin = useSelector((state) => state.auth.isLogin);
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     // You can access form data in the `formData` state
-    const body = new FormData()
-    body.append('table_name', 'contact_us')
-    body.append('type', 'add_data')
-    body.append('name', formData.fullName)
-    body.append('email', formData.email)
-    body.append('title', formData.title)
-    body.append('phone', phoneNumber)
-    body.append('description', formData.message)
+    const body = new FormData();
+    body.append("table_name", "contact_us");
+    body.append("type", "add_data");
+    body.append("name", formData.fullName);
+    body.append("email", formData.email);
+    body.append("title", formData.title);
+    body.append("phone", phoneNumber);
+    body.append("description", formData.message);
     apiRequest({ body })
       .then((result) => {
         if (result.result) {
-          setMessage("Message Sent Successfully!")
-          setMessageType('success')
-          setOpen(true)
+          setMessage("Message Sent Successfully!");
+          setMessageType("success");
+          setOpen(true);
           setFormData({
-            fullName: '',
-            email: '',
-            title: '',
-            mobileNumber: '',
-            message: ''
+            fullName: "",
+            email: "",
+            title: "",
+            mobileNumber: "",
+            message: "",
           });
-          setPhoneNumber('')
-        }else{
-          setMessage(result.message)
-          setOpen(true)
-          setMessageType('error')
+          setPhoneNumber("");
+        } else {
+          setMessage(result.message);
+          setOpen(true);
+          setMessageType("error");
         }
-        setIsLoading(false)
-      }).catch((err) => {
-        setIsLoading(false)
-        setMessage(err)
-        setMessageType('error')
-        setOpen(true)
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setMessage(err);
+        setMessageType("error");
+        setOpen(true);
       });
-
 
     // Here, you can send the form data to your server or perform any other actions
   };
@@ -84,35 +84,46 @@ const Contact = () => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <div>
-      <NotifySnackbar handleClose={handleClose} open={open} message={message} messageType={messageType} />
+      <NotifySnackbar
+        handleClose={handleClose}
+        open={open}
+        message={message}
+        messageType={messageType}
+      />
 
-      <div className='main' id="main">
-        <Container fluid="xxl" className="px-0" >
-        <section className='mx-3 mb-3'>
-            <div className='pt-5 banner_main px-3'>
-              <div className='row ps-md-5 ps-1' >
-              <div className="col-md-8 mb-5">
+      <div className="main" id="main">
+        <Container fluid="xxl" className="px-0">
+          <section className="mx-3 mb-3">
+            <div className="pt-5 banner_main px-3">
+              <div className="row ps-md-5 ps-1">
+                <div className="col-md-8 mb-5">
                   <p className="hero-heading">{t("work_together")}</p>
-                  <p className="hero-detail">
-                    {t("corporate")}
-                  </p>
+                  <p className="hero-detail">{t("corporate")}</p>
                 </div>
-                <div className='col-md-4 col-sm-12'>
-                    <div style={{ width: '-webkit-fill-available',  display: 'flex', justifyContent: 'center' }}>
-                      <ContactIcon />
-                    </div>
+                <div className="col-md-4 col-sm-12">
+                  <div
+                    style={{
+                      width: "-webkit-fill-available",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <ContactIcon />
+                  </div>
                 </div>
               </div>
             </div>
           </section>
-          <section className='mx-3 margin-bottom-content'>
-          <h3 className="main-headings display-center popins_semibold">Contact Us</h3>
+          <section className="mx-3 margin-bottom-content">
+            <h3 className="main-headings display-center popins_semibold">
+              Contact Us
+            </h3>
             <div id="contact_form">
               <form onSubmit={handleSubmit}>
                 <div className="row justify-content-center">
@@ -157,17 +168,17 @@ const Contact = () => {
                   <div className="col-md-6">
                     <div className="d-flex flex-column gap-2 contact_inputs">
                       <label>{t("HEAD_ENTER_PHONE")}</label>
-                      <div className='contact_inputs register mb-3'>
+                      <div className="contact_inputs register mb-3">
                         <PhoneInput
                           required={true}
-                          country={'il'}
+                          country={"il"}
                           enableAreaCodes={true}
                           enableSearch={true}
                           disableSearchIcon={true}
                           value={phoneNumber}
                           onChange={handlePhoneInputChange}
                           containerClass=" rounded-4"
-                          inputClass='w-100'
+                          inputClass="w-100"
                         />
                       </div>
                       {/* <input
@@ -194,20 +205,23 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="d-flex align-items-center justify-content-center">
-
-                    <Button disabled={isLoading} type="submit"
-                      content={<>
-                        {
-                          isLoading ?
-                            <Spinner animation="border" variant="light" size="sm" />
-                            : t("message")
-                        }
-                      </>} padding="15px 47px" fs="14px" />
+                    <button
+                      disabled={isLoading ? true : false}
+                      type="submit"
+                      className="btn1 btn2 mx-auto fs_09 btn_primary rounded_3 px-4 py-3 mt-3"
+                    >
+                      {isLoading ? (
+                        <span className="px-3">
+                          <Spinner animation="border" size="sm" />
+                        </span>
+                      ) : (
+                        `Send Message`
+                      )}
+                    </button>
                   </div>
                 </div>
               </form>
             </div>
-
           </section>
           {/* <section className='px-md-5 px-1 mx-3 py-5'>
             <div className='row justify-content-center align-items-center '>
@@ -235,10 +249,9 @@ const Contact = () => {
         </Container>
 
         <Footer />
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

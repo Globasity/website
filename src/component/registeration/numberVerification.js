@@ -309,7 +309,9 @@ const NumberVerification = () => {
                     className="btn1 btn2 mx-auto fs_09 btn_primary rounded_3 px-3 py-2"
                   >
                     {isLoading ? (
-                      <Spinner animation="border" variant="light" size="sm" />
+                      <span className="px-3">
+                      <Spinner animation="border" size="sm" />
+                      </span>
                     ) : (
                       `${t("LOGIN_BTN_TXT")}`
                     )}

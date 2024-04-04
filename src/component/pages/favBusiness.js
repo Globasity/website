@@ -218,8 +218,8 @@ const FavBusiness = () => {
                             </Form>
                         </div> */}
                         <div className='mb-5 mt-5'>
-                            <h5 className='popins_semibold text-center mb-0'>Favorite Businesses</h5>
-                            <div className='fs_08 popins_light text-center mt-1'>You can see favorite businesses here</div>
+                            <h5 className='popins_semibold text-center mb-0'>Favorite Startups</h5>
+                            <div className='fs_08 popins_light text-center mt-1'>You can see favorite startups here</div>
                         </div>
                         <div>
                             <div className='row contentCenter'>

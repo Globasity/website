@@ -62,13 +62,13 @@ const NavHeader2 = () => {
     const navigate = useNavigate();
     let navItems = []
     userData?.user_type === "investor" && (navItems = [
-        { id: "1", items: t("SELLING_BUSINESS"), path: 'sell-business' },
-        { id: "2", items: t("Fav_Bus"), path: '/fav-business' },
+        { id: "1", items: "Selling startups", path: 'sell-business' },
+        { id: "2", items: "Favorite startups", path: '/fav-business' },
         { id: "3", items: t("NDA_CONTRACT"), path: "/Initial-contract" },
         { id: "4", items: t("Bus_CONTRACT"), path: "/business-contract" },
     ])
     userData?.user_type === "business" && (navItems = [
-        { id: "1", items: t("SELLING_BUSINESS"), path: 'sell-business' },
+        { id: "1", items: "Selling startups", path: 'sell-business' },
         { id: "2", items: t("INVESTOR_LIST"), path: '/investor-list' },
         { id: "3", items: t("Favorite_Investor_List"), path: '/fav-investor' },
         { id: "4", items: t("NDA_CONTRACT"), path: "/Initial-contract" },
