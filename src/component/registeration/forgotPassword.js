@@ -10,68 +10,77 @@ import { useTranslation } from "react-i18next";
 import NotifySnackbar from "../snackbar/notiySnackbar";
 
 const ForgotPassword = ({ onNextStep }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState('');
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
   const handleClose = (reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpen(false);
   };
-  const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = (e) => {
-    setIsLoading(true)
-    e.preventDefault()
+    setIsLoading(true);
+    e.preventDefault();
     const form = e.target;
     const email = form.elements.email.value;
-    const body = new FormData()
-    body.append('type', 'forgot_password')
-    body.append('email', email)
+    const body = new FormData();
+    body.append("type", "forgot_password");
+    body.append("email", email);
     apiRequest({ body })
       .then((result) => {
         if (result.result) {
-          const body = new FormData()
-          body.append('type', 'email_send')
-          body.append('email', email)
-          apiRequestEmail({ body })
-            .then((res) => {
-              if (res.result) {
-                const data = { ...result, ...res }
-                window.localStorage.setItem('globasity_reset_password', JSON.stringify(data))
-                e.target.reset()
-                onNextStep()
-              }
-            })
+          const body = new FormData();
+          body.append("type", "email_send");
+          body.append("email", email);
+          apiRequestEmail({ body }).then((res) => {
+            if (res.result) {
+              const data = { ...result, ...res };
+              window.localStorage.setItem(
+                "globasity_reset_password",
+                JSON.stringify(data)
+              );
+              e.target.reset();
+              onNextStep();
+            }
+          });
         } else {
-          setMessage(result.message)
-          setMessageType('error')
-          setOpen(true)
+          setMessage(result.message);
+          setMessageType("error");
+          setOpen(true);
         }
-        setIsLoading(false)
-      }).catch((err) => {
-        console.log(err)
-        setIsLoading(false)
-
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
       });
-
-  }
+  };
   return (
     <>
-      <div >
-        <NotifySnackbar handleClose={handleClose} open={open} message={message} messageType={messageType} />
+      <div>
+        <NotifySnackbar
+          handleClose={handleClose}
+          open={open}
+          message={message}
+          messageType={messageType}
+        />
 
         <Container fluid="xxl" className="px-0">
           <section className="px-sm-3 d-flex align-items-center justify-content-center">
             <div className="login_card">
-              <div className='me-auto' onClick={() => navigate(-1)}> <ArrowLeft className='leftArrow' /></div>
+              <div className="me-auto" onClick={() => navigate(-1)}>
+                {" "}
+                <ArrowLeft className="leftArrow" />
+              </div>
               <div>
-                <div className="heading text-center">{t("Email_Verification")}</div>
-                <div className="fs_07 text-center">
-                  {t("send_code")}
+                <div className="heading text-center">
+                  {t("Email_Verification")}
                 </div>
+                <div className="fs_07 text-center">{t("send_code")}</div>
                 <div className="fs_07 text-center"></div>
               </div>
 
@@ -89,12 +98,16 @@ const ForgotPassword = ({ onNextStep }) => {
                 </div>
                 <div className="mb-4">
                   <div className="d-flex">
-                    <button disabled={isLoading ? true : false} type='submit' className='btn1 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2' >
-                      {
-                        isLoading ?
-                          <Spinner animation="border" variant="light" size="sm" />
-                          : t("send_code_bnt")
-                      }
+                    <button
+                      disabled={isLoading ? true : false}
+                      type="submit"
+                      className="btn1 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2"
+                    >
+                      {isLoading ? (
+                        <Spinner animation="border" size="sm" />
+                      ) : (
+                        t("send_code_bnt")
+                      )}
                     </button>
                   </div>
                 </div>

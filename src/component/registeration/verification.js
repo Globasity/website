@@ -8,7 +8,14 @@ import NotifySnackbar from "../snackbar/notiySnackbar";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 
-const Verification = ({ setProfileImage, setProfileBanner, setSocialMediaLink, setShortDescription, onNextStep, onPrevStep }) => {
+const Verification = ({
+  setProfileImage,
+  setProfileBanner,
+  setSocialMediaLink,
+  setShortDescription,
+  onNextStep,
+  onPrevStep,
+}) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedBanner, setSelectedBanner] = useState(null);
   const [open, setOpen] = useState(false);
@@ -152,7 +159,9 @@ const Verification = ({ setProfileImage, setProfileBanner, setSocialMediaLink, s
             <Form className="w-100 mt-4" onSubmit={handleSubmit}>
               <Form.Group>
                 <div className="d-flex flex-column gap-1 register mb-2-rem">
-                  <Form.Label className="ps-2 custom-label">Upload Logo / Avatar*</Form.Label>
+                  <Form.Label className="ps-2 custom-label">
+                    Upload Logo / Avatar*
+                  </Form.Label>
                   <div className="profile_image mx-auto">
                     {selectedImage ? (
                       <img
@@ -188,7 +197,9 @@ const Verification = ({ setProfileImage, setProfileBanner, setSocialMediaLink, s
               </Form.Group>
               <Form.Group>
                 <div className="d-flex flex-column gap-1 register mb-2-rem">
-                  <Form.Label className="ps-2 custom-label">Upload Banner</Form.Label>
+                  <Form.Label className="ps-2 custom-label">
+                    Upload Banner
+                  </Form.Label>
                   <div className="identity_image mx-auto">
                     {selectedBanner ? (
                       <img
@@ -234,7 +245,9 @@ const Verification = ({ setProfileImage, setProfileBanner, setSocialMediaLink, s
                 />
               </Form.Group>
               <Form.Group controlId="smallDescription" className="mb-2-rem">
-                <Form.Label className="custom-label">Short Description</Form.Label>
+                <Form.Label className="custom-label">
+                  Short Description
+                </Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
@@ -253,7 +266,7 @@ const Verification = ({ setProfileImage, setProfileBanner, setSocialMediaLink, s
                     className="btn1 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2"
                   >
                     {isLoading ? (
-                      <Spinner animation="border" variant="light" size="sm" />
+                      <Spinner animation="border" size="sm" />
                     ) : (
                       t("BTN_NEXT")
                     )}
