@@ -11,7 +11,9 @@ const InvestorCard = ({ name, totalAmount, description, profile, lastInvest, inv
     const [check, setCheck] = useState(false)
     useEffect(() => {
         if (favourite === "like")
+        // eslint-disable-next-line 
             setCheck(true)
+        // eslint-disable-next-line 
     }, [])
     const addFav = (status) => {
         const body = new FormData()
