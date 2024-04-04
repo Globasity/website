@@ -3281,6 +3281,16 @@ footer {
   gap: 2rem;
 }
 
+.rounded-special{
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.rounded-special-2{
+  border-radius: 12px;
+  padding: 15px;
+}
+
 .card_account {
   position: relative;
   height: 5rem;

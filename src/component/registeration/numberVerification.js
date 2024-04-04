@@ -130,9 +130,10 @@ const NumberVerification = () => {
           <div className="login_card">
             <span className="heading">Login</span>
             <p className="m-0 pb-2 fs_08 text-center">Choose Your Account Type</p>
-            <div className="account_type pb-4 pt-4 ">
+            <div className="row m-4 w-100">
+              <div style={{padding:"10px"}} className="col-6">
               <div
-                className={`card_account d-flex align-items-center justify-content-center rounded-4 ${
+                className={`d-flex justify-content-center rounded-special margin-special ${
                   checked2 ? "custom-yellow-border bg-light-yellow" : "border"
                 }`}
                 onClick={handleAccount2}
@@ -150,30 +151,15 @@ const NumberVerification = () => {
     
                   <div
                     className="text-center popins_medium"
-                    // style={{
-                    //   position: "absolute",
-                    //   bottom: 0,
-                    //   left: 0,
-                    //   right: 0,
-                    // }}
                   >
                     {t("BTN_INVESTOR")}
                   </div>
                 </div>
-                {/* {checked2 ? (
-                  <>
-                    <img
-                      src={accept}
-                      alt="checked"
-                      className="bg-white checked_account"
-                    />
-                  </>
-                ) : (
-                  ""
-                )} */}
               </div>
+              </div>
+              <div style={{padding:"10px"}} className="col-6">
               <div
-                className={`card_account d-flex align-items-center justify-content-center  rounded-4 ${
+                className={`d-flex justify-content-center rounded-special-2 ${
                   checked ? "custom-yellow-border bg-light-yellow" : "border"
                 }`}
                 onClick={handleAccount}
@@ -190,25 +176,11 @@ const NumberVerification = () => {
                   <EntrepreneurIcon color={checked ? "#FFBE16" : "#212529"} />
                   <div
                     className="text-center popins_medium"
-                    // style={{
-                    //   position: "absolute",
-                    //   bottom: 0,
-                    //   left: 0,
-                    //   right: 0,
-                    // }}
                   >
                     Startup
                   </div>
                 </div>
-                {/* {checked ? (
-                  <img
-                    src={accept}
-                    alt="checked"
-                    className="bg-white checked_account"
-                  />
-                ) : (
-                  ""
-                )} */}
+              </div>
               </div>
             </div>
             <div className="login_section d-flex mt-3 flex-column align-items-center justify-content-center">
