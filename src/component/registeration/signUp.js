@@ -12,6 +12,7 @@ import AccountType from './accountType'
 import InvestmentInfo from './investmentInfo'
 import CommercialTerms from './commercialTerms'
 import Subscription from './subscription'
+import AgreementTerms from './agreementTerms'
 const SiginUp = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const [id_front, setId_front] = useState('');
@@ -51,7 +52,7 @@ const SiginUp = () => {
     };
     useEffect(() => {
         const calculateProgress = () => {
-            const totalSteps = userType === 'investor' ? 4 : 4;
+            const totalSteps = userType === 'investor' ? 5 : 5;
             const calculatedProgress = ((currentStep + 1) / totalSteps) * 100;
             setProgress(calculatedProgress);
         };
@@ -82,7 +83,8 @@ const SiginUp = () => {
                 {userType === "investor" &&
                     (<>
                         {/* {currentStep === 3 && <VerfyById userType={userType} onPrevStep={handlePrevStep} setId_front={setId_front} setId_back={setId_back} setId_Number={setId_Number} onNextStep={handleNextStep} />} */}
-                        {currentStep === 3 &&
+                        {currentStep === 3 && <AgreementTerms onNextStep={handleNextStep} onPrevStep={handlePrevStep} />}
+                        {currentStep === 4 &&
                             <InvestmentInfo
                                 profileImage={profileImage}
                                 profileBanner={profileBanner}
@@ -97,7 +99,8 @@ const SiginUp = () => {
                         {/* {currentStep === 3 && <VerfyById profileImage={profileImage} userType={userType} onPrevStep={handlePrevStep} setId_front={setId_front} setId_back={setId_back} setId_Number={setId_Number} onNextStep={handleNextStep} />} */}
                         {/* {currentStep === 4 && <Subscription onNextStep={handleNextStep} onPrevStep={handlePrevStep} />} */}
                         {/* {currentStep === 5 && <CommercialTerms onNextStep={handleNextStep} onPrevStep={handlePrevStep} />} */}
-                        {currentStep === 3 && <CreateBusiness />}
+                        {currentStep === 3 && <AgreementTerms onNextStep={handleNextStep} onPrevStep={handlePrevStep} />}
+                        {currentStep === 4 && <CreateBusiness />}
                     </>)
                 }
             </div>
