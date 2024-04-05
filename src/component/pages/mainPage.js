@@ -70,8 +70,8 @@ const MainPage = () => {
                   <div className="width5">
                     <div className="d-flex gap-2 ">
                       <div className="banner_col_1">
-                        <h6>
-                          A New World of Connecting Small Businesses &
+                        <h6 className="reponsive-font">
+                          A New World of Connecting Small Startups &
                           Investors.
                         </h6>
                         {/* <p> {t("Subheadline")} </p> */}
@@ -179,7 +179,7 @@ const MainPage = () => {
           <section className="margin-bottom-content-more">
             <div className="px-sm-5 px-3">
               <div className="grid2">
-                <div className="text_width w-100 resp-margin-bottom">
+                <div className="text_width w-100 resp-margin-bottom px-3">
                   <div className="secondary-headings popins_semibold margin-s-b">
                     About Us
                   </div>
@@ -292,7 +292,7 @@ const MainPage = () => {
                   </div>
                 </div>
                 <div className="col-lg-6 image-styling-center resp-img-width">
-                  <div className="mx-3">
+                  <div className="mx-3 display-contents">
                     <InvestEcoIcon />
                   </div>
                 </div>
@@ -331,7 +331,7 @@ const MainPage = () => {
             <div className="business_interest">
               <div className="row mx-3 reverse-flow">
                 <div className="col-lg-6 image-styling-center resp-margin-bottom resp-img-width">
-                  <div className="mx-3 ">
+                  <div className="mx-3 display-contents">
                     <SmartInvestIcon />
                   </div>
                 </div>

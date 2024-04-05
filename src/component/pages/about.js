@@ -136,7 +136,7 @@ const About = () => {
                           <span
                             style={{ fontSize: "1.1rem", marginLeft: "50px" }}
                           >
-                            {t("For_Businesses")}
+                            For Startups
                           </span>
                         </div>
                         <ul className="mt-2 ps-5 pe-lg-5 ms-1">
@@ -170,7 +170,7 @@ const About = () => {
             <section id="mission" className="margin-bottom-content">
               <div className="row ">
                 <div className="col-lg-6 m-auto">
-                  <div className="px-lg-0 px-sm-5 px-sm-4 px-3">
+                  <div className="px-lg-0 px-sm-3 px-sm-4">
                     <h3 className="secondary-headings popins_semibold">
                       {t("Our_Mission")}
                     </h3>
@@ -186,7 +186,7 @@ const About = () => {
                   </div>
                 </div>
                 <div className="col-lg-6 image-styling-center resp-img-width">
-                  <div className="mx-3">
+                  <div className="mx-3" style={{display:'contents'}}>
                     <OurMissionIcon />
                   </div>
                 </div>

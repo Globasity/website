@@ -1410,6 +1410,19 @@ font-weight: 600; */
   .custom-resp-margin {
     margin-left: 50px;
   }
+  .main-headings {
+    font-size: 1.5em;
+  } 
+  .secondary-headings {
+    font-size: 1.5em;
+  }
+  .reponsive-font, .hero-heading {
+    font-size: 1.5rem !important;
+  }
+  .margin-bottom-content{
+    margin-bottom: 3rem;
+  }
+  
 }
 
 @media only screen and (max-width: 991px) {
@@ -1425,6 +1438,9 @@ font-weight: 600; */
   .resp-img-width {
     max-width: 750px;
     margin: auto;
+  }
+  .display-contents{
+    display: contents;
   }
   .custom-pad-top {
     padding-top: 2rem;
@@ -1444,7 +1460,7 @@ font-weight: 600; */
 
 @media only screen and (min-width: 897px) {
   .custom-pad-left {
-    padding-left: 50px;
+    padding-left: 25px;
   }
 }
 

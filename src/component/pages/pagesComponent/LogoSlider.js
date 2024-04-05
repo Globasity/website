@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-infinite-logo-slider';
 
 const LogoSlider = ({ logos }) => {
+  const [shouldBlur, setShouldBlur] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShouldBlur(window.innerWidth > 600);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <Slider
       width="250px"
       duration={10}
       pauseOnHover={false}
-      blurBorders={true}
+      blurBorders={shouldBlur}
       blurBoderColor={'#fff'}
     >
       {logos.map((logo, index) => (

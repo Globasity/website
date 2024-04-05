@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactIcon = () => (
   <svg
-    width="309"
+    width="250"
     height="219"
     viewBox="0 0 309 219"
     fill="none"
