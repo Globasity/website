@@ -123,7 +123,7 @@ const Verification = ({
       // await updateSteps()
       onNextStep();
     } else {
-      toast.warn("please upload Logo");
+      toast.warn("please upload Logo & Banner");
     }
   };
 
@@ -198,7 +198,7 @@ const Verification = ({
               <Form.Group>
                 <div className="d-flex flex-column gap-1 register mb-2-rem">
                   <Form.Label className="ps-2 custom-label">
-                    Upload Banner
+                    Upload Banner*
                   </Form.Label>
                   <div className="identity_image mx-auto">
                     {selectedBanner ? (

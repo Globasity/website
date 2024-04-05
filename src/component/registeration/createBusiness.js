@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import NotifySnackbar from "../snackbar/notiySnackbar";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { countries } from "countries-list";
 
 const CreateBusiness = ({ onNextStep }) => {
   const userData = JSON.parse(
@@ -269,6 +270,9 @@ const CreateBusiness = ({ onNextStep }) => {
           setBusCertificateImg(null);
           setOtherDoc(null);
           setOtherDocImg(null);
+          setLegalDiligenceImg(null);
+          setBusinessDiligenceImg(null);
+          setRaisedAmount("");
           toast.success(result.message);
           if (userData.is_active !== "true") {
             navigate("/wait-for-login");
@@ -340,7 +344,7 @@ const CreateBusiness = ({ onNextStep }) => {
                       className="fs_09"
                     />
                   </Form.Group>
-                  <Form.Group>
+                  <Form.Group className="mb-2">
                     <Form.Label className="ps-2 mb-2">
                       {t("Business_Images")}
                     </Form.Label>
@@ -439,14 +443,16 @@ const CreateBusiness = ({ onNextStep }) => {
                   </Form.Group>
                   <Form.Group controlId="location">
                     <Form.Label className="ps-2 mb-2">
-                      {t("PLACE_LOCATION")}
+                      Location
                     </Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Enter Location"
-                      className="fs_09"
-                    />
+                    <Form.Select required>
+                      <option value="">Location</option>
+                      {Object.keys(countries).map((countryCode) => (
+                        <option key={countryCode} value={[countryCode].name}>
+                          {countries[countryCode].name}
+                        </option>
+                      ))}
+                    </Form.Select>
                   </Form.Group>
                   <Form.Group controlId="since">
                     <Form.Label className="ps-2 mb-2">
@@ -457,6 +463,7 @@ const CreateBusiness = ({ onNextStep }) => {
                       type="date"
                       placeholder="Enter Since"
                       className="fs_09"
+                      style={{paddingRight:'15px'}}
                     />
                   </Form.Group>
                   <Form.Group controlId="type">

@@ -260,7 +260,7 @@ const BusinessDetail = () => {
                   </p>
                 </div>
                 <div className="loka" style={{}}>
-                  <h5 className="m-0 mb-1">{t("LOCATION")}</h5>
+                  <h5 className="m-0 mb-1">Location</h5>
                   <p className="m-0 text-black popins_semibold">
                     {businessData?.location}
                   </p>
