@@ -1410,7 +1410,7 @@ font-weight: 600; */
   .custom-resp-margin {
     margin-left: 50px;
   }
-  .main-headings {
+  .main-headings, .font-custom-heading  {
     font-size: 1.5em;
   } 
   .secondary-headings {
