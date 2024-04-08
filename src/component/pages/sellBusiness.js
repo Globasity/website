@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import paper from "../assests/png/paper.png";
 import BackToTop from "./pagesComponent/backToTop";
 import { countries } from "countries-list";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const SellBusiness = () => {
   const userData = JSON.parse(
@@ -26,6 +27,7 @@ const SellBusiness = () => {
   const [counts, setCounts] = useState(null);
   const [loaderCounts, setLoaderCounts] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [pageLoad, setPageLoad] = useState(true);
   const [display, setDisplay] = useState(true);
   const lastIdRef = useRef();
   const { t } = useTranslation();
@@ -74,6 +76,7 @@ const SellBusiness = () => {
         const count = result?.data?.length;
         setAllBusinessType(result.data);
         setAllBusinessType2(result.data);
+        setPageLoad(false);
         isLike === false && updateLastId(result?.data[count - 1].id);
       })
       .catch((err) => {
@@ -174,11 +177,11 @@ const SellBusiness = () => {
     }
     return true;
   });
-//   const handleFormSubmit = (e) => {
-//     e.preventDefault();
-//     setAllBusinessType(filteredBusinessData)
-//     console.log(formData);
-//   };
+  //   const handleFormSubmit = (e) => {
+  //     e.preventDefault();
+  //     setAllBusinessType(filteredBusinessData)
+  //     console.log(formData);
+  //   };
 
   const handleFormSubmit = (e) => {
     setDisplay(false);
@@ -190,20 +193,20 @@ const SellBusiness = () => {
       formData.location !== ""
     ) {
       const formData = new FormData(e.target);
-  
-      formData.append('table_name', 'business');
-      formData.append('type', 'get_data');
-      formData.append('limit', '100000');
-      formData.append('user_id', userData.user_id);
-      formData.append('fav', '1');
-  
+
+      formData.append("table_name", "business");
+      formData.append("type", "get_data");
+      formData.append("limit", "100000");
+      formData.append("user_id", userData.user_id);
+      formData.append("fav", "1");
+
       apiRequest({ body: formData })
         .then((result) => {
           const data = result.data;
           setAllBusinessType(data);
         })
         .catch((err) => {
-          console.error('Error fetching filtered business data:', err);
+          console.error("Error fetching filtered business data:", err);
         });
     }
   };
@@ -224,7 +227,6 @@ const SellBusiness = () => {
         location: "",
       });
     }
-    
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -264,174 +266,185 @@ const SellBusiness = () => {
 
   return (
     <>
-      <Container fluid="xxl" className="px-0" ref={sectionRef}>
-        <BackToTop />
-        <section>
-          <Container fluid="lg">
-            <div className="border p-4 rounded-4 my-5 shadow1">
-              <h6 className="popins_medium mb-3">{t("ADVANCE_SEARCH")}</h6>
-              <Form onSubmit={handleFormSubmit}>
-                <div className="display_flex gap-md-4 flex_wrap">
-                  <Form.Group className="w-100">
-                    <Form.Control
-                      type="text"
-                      name="searchText"
-                      value={formData.searchText}
-                      className="custom-input"
-                      onChange={handleInputChange}
-                      placeholder="Search by Name"
-                    />
-                  </Form.Group>
-                  <Form.Group className="w-100">
-                    <Form.Select
-                      name="businessType"
-                      className="custom-input-s"
-                      value={formData.businessType}
-                      onChange={handleInputChange}
-                    >
-                      <option value="" className="fs_09">
-                        {t("PLACE_B_TYPE")}
-                      </option>
-                      {businessType?.length > 0 &&
-                        businessType?.map(
-                          (item) =>
-                            userLangauge === "en" && (
-                              <option
-                                key={item.id}
-                                value={
-                                  userLangauge === "en"
-                                    ? item.name_eng
-                                    : item.name_heb
-                                }
-                              >
-                                {userLangauge === "en"
-                                  ? item.name_eng
-                                  : item.name_heb}
-                              </option>
-                            )
-                        )}
-                    </Form.Select>
-                  </Form.Group>
-                </div>
-                <div className="display_flex gap-md-4 flex_wrap">
-                  <Form.Group className="w-100">
-                    <Form.Select
-                      name="businessStatus"
-                      className="custom-input-s"
-                      value={formData.businessStatus}
-                      onChange={handleInputChange}
-                    >
-                      <option value="">{t("PLACE_B_STATUS")}</option>
-                      {businessStatus?.length > 0 &&
-                        businessStatus?.map(
-                          (item) =>
-                            userLangauge === "en" && (
-                              <option
-                                key={item.id}
-                                value={
-                                  userLangauge === "en"
-                                    ? item.status_eng
-                                    : item.status_heb
-                                }
-                              >
-                                {userLangauge === "en"
-                                  ? item.status_eng
-                                  : item.status_heb}
-                              </option>
-                            )
-                        )}
-                    </Form.Select>
-                  </Form.Group>
-                  <Form.Group className="w-100">
-                  <Form.Select
-                      name="location"
-                      className="custom-input-s"
-                      value={formData.location}
-                      onChange={handleInputChange}
-                    >
-                      <option value="">Location</option>
-                      {Object.keys(countries).map((countryCode) => (
-                        <option key={countryCode} value={[countryCode].name}>
-                          {countries[countryCode].name}
+      {" "}
+      {pageLoad ? (
+        <div className="w-100 vh_90 main_app d-flex justify-content-center align-items-center">
+          <div className="d-flex align-items-center position-relative">
+            <div className="position-absolute"></div>
+          </div>
+          <CircularProgress size={"3rem"} />
+        </div>
+      ) : (
+        <Container fluid="xxl" className="px-0" ref={sectionRef}>
+          <BackToTop />
+          <section>
+            <Container fluid="lg">
+              <div className="border p-4 rounded-4 my-5 shadow1">
+                <h6 className="popins_medium mb-3">{t("ADVANCE_SEARCH")}</h6>
+                <Form onSubmit={handleFormSubmit}>
+                  <div className="display_flex gap-md-4 flex_wrap">
+                    <Form.Group className="w-100">
+                      <Form.Control
+                        type="text"
+                        name="searchText"
+                        value={formData.searchText}
+                        className="custom-input"
+                        onChange={handleInputChange}
+                        placeholder="Search by Name"
+                      />
+                    </Form.Group>
+                    <Form.Group className="w-100">
+                      <Form.Select
+                        name="businessType"
+                        className="custom-input-s"
+                        value={formData.businessType}
+                        onChange={handleInputChange}
+                      >
+                        <option value="" className="fs_09">
+                          {t("PLACE_B_TYPE")}
                         </option>
-                      ))}
-                    </Form.Select>
+                        {businessType?.length > 0 &&
+                          businessType?.map(
+                            (item) =>
+                              userLangauge === "en" && (
+                                <option
+                                  key={item.id}
+                                  value={
+                                    userLangauge === "en"
+                                      ? item.name_eng
+                                      : item.name_heb
+                                  }
+                                >
+                                  {userLangauge === "en"
+                                    ? item.name_eng
+                                    : item.name_heb}
+                                </option>
+                              )
+                          )}
+                      </Form.Select>
+                    </Form.Group>
+                  </div>
+                  <div className="display_flex gap-md-4 flex_wrap">
+                    <Form.Group className="w-100">
+                      <Form.Select
+                        name="businessStatus"
+                        className="custom-input-s"
+                        value={formData.businessStatus}
+                        onChange={handleInputChange}
+                      >
+                        <option value="">{t("PLACE_B_STATUS")}</option>
+                        {businessStatus?.length > 0 &&
+                          businessStatus?.map(
+                            (item) =>
+                              userLangauge === "en" && (
+                                <option
+                                  key={item.id}
+                                  value={
+                                    userLangauge === "en"
+                                      ? item.status_eng
+                                      : item.status_heb
+                                  }
+                                >
+                                  {userLangauge === "en"
+                                    ? item.status_eng
+                                    : item.status_heb}
+                                </option>
+                              )
+                          )}
+                      </Form.Select>
+                    </Form.Group>
+                    <Form.Group className="w-100">
+                      <Form.Select
+                        name="location"
+                        className="custom-input-s"
+                        value={formData.location}
+                        onChange={handleInputChange}
+                      >
+                        <option value="">Location</option>
+                        {Object.keys(countries).map((countryCode) => (
+                          <option key={countryCode} value={[countryCode].name}>
+                            {countries[countryCode].name}
+                          </option>
+                        ))}
+                      </Form.Select>
+                    </Form.Group>
+                  </div>
+                  <Form.Group>
+                    <div className="display_flex gap-3 flex_wrap">
+                      <button
+                        type="submit"
+                        className="btn1 fs_09 btn_primary rounded_3 px-3 py-2"
+                      >
+                        {t("Search")}
+                      </button>
+                      <button
+                        onClick={handleClear}
+                        type="button"
+                        className="btn1 fs_09 btn_primary_outline rounded_3 px-3 py-2"
+                      >
+                        {t("Clear")}
+                      </button>
+                    </div>
                   </Form.Group>
-                </div>
-                <Form.Group>
-                  <div className="display_flex gap-3 flex_wrap">
-                    <button
-                      type="submit"
-                      className="btn1 fs_09 btn_primary rounded_3 px-3 py-2"
-                    >
-                      {t("Search")}
-                    </button>
-                    <button
-                      onClick={handleClear}
-                      type="button"
-                      className="btn1 fs_09 btn_primary_outline rounded_3 px-3 py-2"
-                    >
-                      {t("Clear")}
-                    </button>
-                  </div>
-                </Form.Group>
-              </Form>
-            </div>
-            <div>
-              <div className="row contentCenter">
-                {allBusinessType?.length > 0 ? (
-                  allBusinessType?.map(
-                    (items) =>
-                      items?.user?.is_active === "true" && (
-                        <div
-                          key={items.id}
-                          className="col-xl-4 col-lg-5 col-md-6 col-sm-9  p-2"
-                        >
-                          <DetailCard
-                            getAllBusiness={getAllBusiness}
-                            id={items.id}
-                            url={items.url}
-                            lastId={lastId}
-                            name={items.name}
-                            favourite={items.favourite}
-                            profile={items.thumb}
-                            businessData={items}
-                            description={items.description}
-                            amountPer={items.requested_amount}
-                          />
-                        </div>
-                      )
-                  )
-                ) : (
-                  <div className="d-flex justify-content-center flex-column align-items-center">
-                    <img src={paper} alt="" className="paper" />
-                    <div className="mt-1">{t("No_Business_Found")}</div>
-                  </div>
-                )}
+                </Form>
               </div>
-            </div>
-          </Container>
-        </section>
-        {allBusinessType?.length > 0 && display &&
-          loaderCounts > 0 &&
-          (formData.businessStatus === "" || formData.businessType === "") &&
-          allBusinessType?.length >= 10 && (
-            <button
-              button
-              disabled={isLoading}
-              className="btn1 fs_09 btn_primary rounded_3 px-3 py-2 mx-auto my-5"
-              onClick={() => getBusinessOnScroll(lastId)}
-            >
-              {isLoading ? <Spinner size="sm" /> : t("Load_More")}
-            </button>
-          )}
-        {/* {(isLoading && loaderCounts > 0) &&
+              <div>
+                <div className="row contentCenter">
+                  {allBusinessType?.length > 0 ? (
+                    allBusinessType?.map(
+                      (items) =>
+                        items?.user?.is_active === "true" && (
+                          <div
+                            key={items.id}
+                            className="col-xl-4 col-lg-5 col-md-6 col-sm-9  p-2"
+                          >
+                            <DetailCard
+                              getAllBusiness={getAllBusiness}
+                              id={items.id}
+                              url={items.url}
+                              lastId={lastId}
+                              name={items.name}
+                              favourite={items.favourite}
+                              profile={items.thumb}
+                              businessData={items}
+                              description={items.description}
+                              amountPer={items.requested_amount}
+                            />
+                          </div>
+                        )
+                    )
+                  ) : (
+                    <div className="d-flex justify-content-center flex-column align-items-center">
+                      <img src={paper} alt="" className="paper" />
+                      <div className="mt-1">{t("No_Business_Found")}</div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </Container>
+          </section>
+          {allBusinessType?.length > 0 &&
+            display &&
+            loaderCounts > 0 &&
+            (formData.businessStatus === "" || formData.businessType === "") &&
+            allBusinessType?.length >= 10 && (
+              <button
+                button
+                disabled={isLoading}
+                className="btn1 fs_09 btn_primary rounded_3 px-3 py-2 mx-auto my-5"
+                onClick={() => getBusinessOnScroll(lastId)}
+              >
+                {isLoading ? <Spinner size="sm" /> : t("Load_More")}
+              </button>
+            )}
+          {/* {(isLoading && loaderCounts > 0) &&
                     <div className='my-4'>
                         <div className={`d-flex justify-content-center ${isLoading === false && "visibles"}`} style={{ height: "2rem" }}>
                             <Spinner size='large' />
                         </div>
                     </div>} */}
-      </Container>
+        </Container>
+      )}
     </>
   );
 };

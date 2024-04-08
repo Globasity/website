@@ -1403,6 +1403,10 @@ font-weight: 600; */
   margin-bottom: 7rem;
 }
 
+.css-1idz92c-MuiCircularProgress-svg{
+  color: var(--yellow) !important;
+}
+
 @media only screen and (max-width: 600px) {
   .font-custom-heading {
     font-size: 1.5rem !important;
