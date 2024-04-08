@@ -33,10 +33,10 @@ root.render(
       </div>}>
       <React.StrictMode>
         <I18nextProvider i18n={i18n}>
-          <HashRouter>
+          <BrowserRouter>
             <App />
             <ToastContainer newestOnTop />
-          </HashRouter>
+          </BrowserRouter>
         </I18nextProvider>
       </React.StrictMode>
     </Suspense>

@@ -26,6 +26,7 @@ const SellBusiness = () => {
   const [counts, setCounts] = useState(null);
   const [loaderCounts, setLoaderCounts] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [display, setDisplay] = useState(true);
   const lastIdRef = useRef();
   const { t } = useTranslation();
   let userLangauge = JSON.parse(
@@ -180,25 +181,35 @@ const SellBusiness = () => {
 //   };
 
   const handleFormSubmit = (e) => {
+    setDisplay(false);
     e.preventDefault();
-    const formData = new FormData(e.target);
-
-    formData.append('table_name', 'business');
-    formData.append('type', 'get_data');
-    formData.append('user_id', userData.user_id);
-    formData.append('fav', '1');
-
-    apiRequest({ body: formData })
-      .then((result) => {
-        const data = result.data;
-        setAllBusinessType(data);
-      })
-      .catch((err) => {
-        console.error('Error fetching filtered business data:', err);
-      });
+    if (
+      formData.businessStatus !== "" ||
+      formData.businessType !== "" ||
+      formData.searchText !== "" ||
+      formData.location !== ""
+    ) {
+      const formData = new FormData(e.target);
+  
+      formData.append('table_name', 'business');
+      formData.append('type', 'get_data');
+      formData.append('limit', '100000');
+      formData.append('user_id', userData.user_id);
+      formData.append('fav', '1');
+  
+      apiRequest({ body: formData })
+        .then((result) => {
+          const data = result.data;
+          setAllBusinessType(data);
+        })
+        .catch((err) => {
+          console.error('Error fetching filtered business data:', err);
+        });
+    }
   };
 
   const handleClear = () => {
+    setDisplay(true);
     if (
       formData.businessStatus !== "" ||
       formData.businessType !== "" ||
@@ -401,7 +412,7 @@ const SellBusiness = () => {
             </div>
           </Container>
         </section>
-        {allBusinessType?.length > 0 &&
+        {allBusinessType?.length > 0 && display &&
           loaderCounts > 0 &&
           (formData.businessStatus === "" || formData.businessType === "") &&
           allBusinessType?.length >= 10 && (
