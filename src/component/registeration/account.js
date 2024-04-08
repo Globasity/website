@@ -16,10 +16,12 @@ import { useEffect } from "react";
 import SMSVerification from "./smsVerification";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const UserAccount = () => {
   const [email, setEmail] = useState("");
   const [userForm, setUserForm] = useState(false);
+  const [pageLoad, setPageLoad] = useState(true);
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
@@ -112,6 +114,7 @@ const UserAccount = () => {
             // currency: data.currency_type,
           });
           setEmail(data.email);
+          setPageLoad(false);
           setPhoneNumber(data.phone);
           if (userForm === true) {
             const data2 = {
@@ -175,138 +178,149 @@ const UserAccount = () => {
     getUserData();
   }, []);
   return (
-    <div
-      className="py-5"
-      style={{ backgroundColor: "#F3F7F5", minHeight: "90vh" }}
-    >
-      <NotifySnackbar
-        handleClose={handleClose}
-        open={open}
-        message={message}
-        messageType={messageType}
-      />
-      <Container fluid="xxl" className="px-0  w-100">
-        <section className="px-sm-3 d-flex align-items-center justify-content-center">
-          <div className="login_card position-relative    ">
-            <div className="d-flex justify-content-between align-items-center w-100">
-              <div className="" onClick={() => navigate(-1)}>
-                {" "}
-                <ArrowLeft className="leftArrow" />
-              </div>
-              {userForm === false ? (
-                <div
-                  className="popins_medium fs_09 btn_primary rounded_3 py-2 btn_padd2"
-                  onClick={() => setUserForm(!userForm)}
-                  style={{ cursor: "pointer" }}
-                >
-                  {" "}
-                  Edit{" "}
+    <>
+      {pageLoad ? (
+        <div className="w-100 vh_90 main_app d-flex justify-content-center align-items-center">
+          <div className="d-flex align-items-center position-relative">
+            <div className="position-absolute"></div>
+          </div>
+          <CircularProgress size={"3rem"} />
+        </div>
+      ) : (
+        <div
+          className="py-5"
+          style={{ backgroundColor: "#F3F7F5", minHeight: "90vh" }}
+        >
+          <NotifySnackbar
+            handleClose={handleClose}
+            open={open}
+            message={message}
+            messageType={messageType}
+          />
+          <Container fluid="xxl" className="px-0  w-100">
+            <section className="px-sm-3 d-flex align-items-center justify-content-center">
+              <div className="login_card position-relative    ">
+                <div className="d-flex justify-content-between align-items-center w-100">
+                  <div className="" onClick={() => navigate(-1)}>
+                    {" "}
+                    <ArrowLeft className="leftArrow" />
+                  </div>
+                  {userForm === false ? (
+                    <div
+                      className="popins_medium fs_09 btn_primary rounded_3 py-2 btn_padd2"
+                      onClick={() => setUserForm(!userForm)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {" "}
+                      Edit{" "}
+                    </div>
+                  ) : (
+                    <div
+                      className="popins_medium fs_09 btn_primary bg-danger rounded_3 py-2 btn_padd2"
+                      onClick={() => setUserForm(!userForm)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {" "}
+                      Cancel{" "}
+                    </div>
+                  )}
                 </div>
-              ) : (
-                <div
-                  className="popins_medium fs_09 btn_primary bg-danger rounded_3 py-2 btn_padd2"
-                  onClick={() => setUserForm(!userForm)}
-                  style={{ cursor: "pointer" }}
-                >
-                  {" "}
-                  Cancel{" "}
+                <div className="">
+                  <div className="heading text-center">{t("HEAD_P_INFO")}</div>
+                  <div className="fs_07 text-center">{t("DESC_P_INFO")}</div>
                 </div>
-              )}
-            </div>
-            <div className="">
-              <div className="heading text-center">{t("HEAD_P_INFO")}</div>
-              <div className="fs_07 text-center">{t("DESC_P_INFO")}</div>
-            </div>
-            <Form className="w-100 mt-3" onSubmit={handleSubmit}>
-              <div className="d-flex flex-column contact_inputs gap-1 register">
-                <Form.Group>
-                  <div className="d-flex flex-column gap-1 register">
-                    <Form.Label className="ps-2">Image</Form.Label>
-                    <div className="profile_image mx-auto">
-                      {selectedImage || formData.image !== "" ? (
-                        <img
-                          src={
-                            selectedImage
-                              ? selectedImage
-                              : formData.url + formData.image
-                          }
-                          alt="Selected"
-                          className="display_flex2"
-                        />
-                      ) : (
-                        <div>
-                          <div className="position-absolute top-0 w-100 bottom-0">
-                            <div className="display_flex2 h-100 ">
-                              <div className="user_image">
-                                <User className="user" />
-                                <div className="plus display_flex2">
-                                  <Plus
-                                    style={{
-                                      width: "1.2rem",
-                                      height: "1.2rem",
-                                    }}
-                                  />
+                <Form className="w-100 mt-3" onSubmit={handleSubmit}>
+                  <div className="d-flex flex-column contact_inputs gap-1 register">
+                    <Form.Group>
+                      <div className="d-flex flex-column gap-1 register">
+                        <Form.Label className="ps-2">Image</Form.Label>
+                        <div className="profile_image mx-auto">
+                          {selectedImage || formData.image !== "" ? (
+                            <img
+                              src={
+                                selectedImage
+                                  ? selectedImage
+                                  : formData.url + formData.image
+                              }
+                              alt="Selected"
+                              className="display_flex2"
+                            />
+                          ) : (
+                            <div>
+                              <div className="position-absolute top-0 w-100 bottom-0">
+                                <div className="display_flex2 h-100 ">
+                                  <div className="user_image">
+                                    <User className="user" />
+                                    <div className="plus display_flex2">
+                                      <Plus
+                                        style={{
+                                          width: "1.2rem",
+                                          height: "1.2rem",
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          )}
+                          <Form.Control
+                            type="file"
+                            disabled={userForm === false ? true : false}
+                            className="upload"
+                            accept="image/*" // Restrict to image files
+                            onChange={handleFileChange}
+                            placeholder="Enter Code"
+                          />
                         </div>
-                      )}
+                      </div>
+                    </Form.Group>
+                    <Form.Group controlId="name">
+                      <Form.Label className="">{t("Name")}</Form.Label>
                       <Form.Control
-                        type="file"
+                        required
+                        type="text"
+                        value={formData.name}
+                        onChange={handleChange}
                         disabled={userForm === false ? true : false}
-                        className="upload"
-                        accept="image/*" // Restrict to image files
-                        onChange={handleFileChange}
-                        placeholder="Enter Code"
+                        placeholder={t("Name")}
+                        style={{ fontSize: "14px" }}
                       />
-                    </div>
-                  </div>
-                </Form.Group>
-                <Form.Group controlId="name">
-                  <Form.Label className="">{t("Name")}</Form.Label>
-                  <Form.Control
-                    required
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChange}
-                    disabled={userForm === false ? true : false}
-                    placeholder={t("Name")}
-                    style={{ fontSize: "14px" }}
-                  />
-                </Form.Group>
+                    </Form.Group>
 
-                <Form.Group controlId="phone">
-                  <Form.Label className="">{t("HEAD_ENTER_PHONE")}</Form.Label>
-                  <div className="contact_inputs register mb-3">
-                    <PhoneInput
-                      required={true}
-                      country={"il"}
-                      enableAreaCodes={true}
-                      enableSearch={true}
-                      disableSearchIcon={true}
-                      value={phoneNumber}
-                      disabled={userForm === false ? true : false}
-                      onChange={handlePhoneInputChange}
-                      containerClass=" rounded-4"
-                      inputClass="w-100"
-                    />
-                  </div>
-                </Form.Group>
-                <Form.Group controlId="email" className="">
-                  <Form.Label className="">{t("TITLE_EMAIL")}</Form.Label>
-                  <div className="position-relative">
-                    <Form.Control
-                      required
-                      type="email"
-                      placeholder={t("PLACE_EMAIL")}
-                      defaultValue={email}
-                      style={{ fontSize: "14px" }}
-                      disabled
-                    />
-                  </div>
-                </Form.Group>
-                {/* <Form.Group controlId='address' >
+                    <Form.Group controlId="phone">
+                      <Form.Label className="">
+                        {t("HEAD_ENTER_PHONE")}
+                      </Form.Label>
+                      <div className="contact_inputs register mb-3">
+                        <PhoneInput
+                          required={true}
+                          country={"il"}
+                          enableAreaCodes={true}
+                          enableSearch={true}
+                          disableSearchIcon={true}
+                          value={phoneNumber}
+                          disabled={userForm === false ? true : false}
+                          onChange={handlePhoneInputChange}
+                          containerClass=" rounded-4"
+                          inputClass="w-100"
+                        />
+                      </div>
+                    </Form.Group>
+                    <Form.Group controlId="email" className="">
+                      <Form.Label className="">{t("TITLE_EMAIL")}</Form.Label>
+                      <div className="position-relative">
+                        <Form.Control
+                          required
+                          type="email"
+                          placeholder={t("PLACE_EMAIL")}
+                          defaultValue={email}
+                          style={{ fontSize: "14px" }}
+                          disabled
+                        />
+                      </div>
+                    </Form.Group>
+                    {/* <Form.Group controlId='address' >
                                     <Form.Label className=''>{t("Address")}</Form.Label>
                                     <Form.Control required value={formData.address}
                                         onChange={handleChange} type='text' disabled={userForm === false ? true : false} placeholder={t("Address")} style={{ fontSize: "14px" }} />
@@ -332,29 +346,31 @@ const UserAccount = () => {
                                         <option value="₪shekel">₪Shekel</option>
                                     </Form.Select>
                                 </Form.Group> */}
-                <Form.Group className="my-3">
-                  <div className="d-flex gap-3">
-                    <button
-                      disabled={
-                        userForm === false ? true : isLoading ? true : false
-                      }
-                      type="submit"
-                      className="btn1 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2"
-                    >
-                      {isLoading ? (
-                        <Spinner animation="border" size="sm" />
-                      ) : (
-                        t("BTN_SUBMIT")
-                      )}
-                    </button>
+                    <Form.Group className="my-3">
+                      <div className="d-flex gap-3">
+                        <button
+                          disabled={
+                            userForm === false ? true : isLoading ? true : false
+                          }
+                          type="submit"
+                          className="btn1 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2"
+                        >
+                          {isLoading ? (
+                            <Spinner animation="border" size="sm" />
+                          ) : (
+                            t("BTN_SUBMIT")
+                          )}
+                        </button>
+                      </div>
+                    </Form.Group>
                   </div>
-                </Form.Group>
+                </Form>
               </div>
-            </Form>
-          </div>
-        </section>
-      </Container>
-    </div>
+            </section>
+          </Container>
+        </div>
+      )}
+    </>
   );
 };
 export default UserAccount;
