@@ -171,7 +171,7 @@ const MainPage = () => {
           <section className="margin-bottom-content">
             <div>
               <h3 className="main-headings display-center popins_semibold">
-                Confirmed Companies <VerifiedIcon />
+                Trusted Companies <VerifiedIcon />
               </h3>
               <LogoSlider logos={logos} />
             </div>
@@ -355,6 +355,29 @@ const MainPage = () => {
               paragraphs={paragraphs}
               topHeader={t("Revolutionizing_Financing")}
             />
+          </section>
+          <section className="margin-bottom-content">
+          <h3 className="main-headings display-center popins_semibold">
+                Tursted Partners <VerifiedIcon />
+              </h3>
+            <div className="business_interest">
+              <div className="row mx-3">
+                <div className="col-lg-6" style={{padding:'10px 10px 10px 0px'}}>
+              <div className="image-styling-center resp-img-width">
+                  <div className="display-contents">
+                    <InvestEcoIcon />
+                  </div>
+                </div>
+                </div>
+                <div className="col-lg-6" style={{padding:'10px 0px 10px 10px'}}>
+                <div className="image-styling-center resp-img-width">
+                  <div className="display-contents">
+                    <InvestEcoIcon />
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
           </section>
         </Container>
         <Footer />

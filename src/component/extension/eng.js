@@ -125,7 +125,7 @@ export default {
     Already_bus_created: "This business has already been associated with this user. Please choose a different business",
     Apply_Contract: "Apply Contract",
     Investor_Signatures: "Investor Signatures",
-    Business_Owner_Signatures: "Business Owner Signatures",
+    Business_Owner_Signatures: "Startuo Owner Signatures",
     Investment_Agreement: "Investment Agreement",
     Sign_Terms: "Signing the terms with a form that completes the detail of the parties",
 
@@ -142,22 +142,22 @@ export default {
 
     // ////////////// Contracts
     HEAD_CONTRACTS: 'Initial contracts',
-    CONTRACTS_DETAIL: 'A contract between an investor and the business owner',
+    CONTRACTS_DETAIL: 'A contract between an investor and the startup owner',
     BTN_ONGOING: 'Pending Contract',
     BTN_COMPLETED: 'Completed contract',
     BTN_VIEW_CONTRACT: 'Show contract',
     ALREADY_CREATED: 'You already created a business contract for this business',
     VIEW_CONTRACT: 'View Contract',
-    VIEW_BUSINESS: 'View Business',
+    VIEW_BUSINESS: 'View Startup',
     CREATE_BUS_CONTRACT: "Create Business Contract",
     optional: "optional",
 
     // //////////// Signing Contracts
     DETAIL_S_CONTRACT: 'Signing the terms in the form that completes the details of the parties',
-    BUSINESS_OWNER_SIGNATURE: 'Signature of the business owner',
+    BUSINESS_OWNER_SIGNATURE: 'Signature of the startup owner',
     INVESTOR_SIGNATURE: 'The investor signature',
-    CHAT_OWNER: 'Chat with the business owner',
-    SEND_OWNER: 'Send to the business owner',
+    CHAT_OWNER: 'Chat with the startup owner',
+    SEND_OWNER: 'Send to the startup owner',
     SIGNATURE: 'signature',
     DIGITAL_SIGNATURE: 'digital signature',
     UPLOAD_MOBILE: 'Upload from mobile',
@@ -214,11 +214,11 @@ export default {
     ///////////// Homepage //////////////////////////////////
     Headline: "A New World of Investing for Small Businesses and Investors",
     Headline2: "Revolutionizing Small Business and Investor Engagement",
-    Subheadline: "Connecting small business owners and private investors for smarter financing and investment opportunities.",
-    Paragraph1: "Globasity is an AI-powered platform that makes financing easier for small business owners and opens up new investment opportunities for individual investors. We provide the connections and tools needed to grow businesses and investment portfolios.",
-    Paragraph2: "For small business owners, we offer an alternative way to obtain funding that looks beyond traditional criteria. Connect with individual investors in your community willing to finance credit-challenged entrepreneurs. For investors, we provide access to a diverse array of investments in real small businesses right in your area. ",
+    Subheadline: "Connecting small startup owners and private investors for smarter financing and investment opportunities.",
+    Paragraph1: "Globasity is an AI-powered platform that makes financing easier for small startup owners and opens up new investment opportunities for individual investors. We provide the connections and tools needed to grow businesses and investment portfolios.",
+    Paragraph2: "For small startup owners, we offer an alternative way to obtain funding that looks beyond traditional criteria. Connect with individual investors in your community willing to finance credit-challenged entrepreneurs. For investors, we provide access to a diverse array of investments in real small businesses right in your area. ",
     Paragraph3: "On our intelligent platform, you can quickly and easily:",
-    Para3_Point1: "As a business owner, create a profile showcasing your business to prospective investors. Upload financials, share your story and growth goals, and specify the funding you need.",
+    Para3_Point1: "As a startup owner, create a profile showcasing your business to prospective investors. Upload financials, share your story and growth goals, and specify the funding you need.",
     Para3_Point2: "As an investor, browse businesses looking for financing and invest across multiple opportunities. Review business profiles and financials to make informed investment choices based on your risk tolerance and interests.",
     Para3_Point3: "- For both sides, our AI-powered algorithms will recommend tailored matches based on your criteria. Our team of experts provides due diligence and handles contracts, security, and payments.",
     Paragraph4: "Join the new world of smarter investing and business financing today. We provide the tools, connections, and expertise to help small businesses grow and investors diversify.",
@@ -239,11 +239,11 @@ export default {
     Identity_detail: "Globasity is an AI-powered platform designed to facilitate financing for small businesses and offer new investment prospects for individual investors.",
     ///////////// About us //////////////////////////////////
     About_Headline: "Financing Small Businesses Smarter Investing",
-    About_Para3_Point1: "Business owners create a profile showing off their business to prospective investors. Upload financials, share your story and growth goals, and specify the funding you need.",
+    About_Para3_Point1: "startup owners create a profile showing off their business to prospective investors. Upload financials, share your story and growth goals, and specify the funding you need.",
     About_Para3_Point2: "Investors browse businesses looking for financing and build a diversified portfolio. Review profiles and financials to make informed investment choices based on your criteria",
     About_Para3_Point3: "Our intelligent algorithms recommend tailored financing matches based on your needs and preferences.",
     About_Para3_Point4: "Our team of experts provides due diligence on each business, draws up investment contracts, handles security and payments, and supports you each step of the way.",
-    About_Paragraph4: "Globasity offers an easier way for small business owners to secure financing to start or grow their company. For investors, we provide access to a whole new asset class of diverse small business investment opportunities right in your community. Join us and be part of the new world of smarter investing and business financing.",
+    About_Paragraph4: "Globasity offers an easier way for small startup owners to secure financing to start or grow their company. For investors, we provide access to a whole new asset class of diverse small business investment opportunities right in your community. Join us and be part of the new world of smarter investing and business financing.",
     Six_Year: "Six Years of In-Depth Research",
     Audience: "Audience segmentation",
     Contact_monitoring: "Contact monitoring",
@@ -254,7 +254,7 @@ export default {
 
     About_Paragraph1: "Globasity was founded to transform how small businesses get the funding they need to grow and thrive. Our revolutionary fintech platform connects businesses with investors in a streamlined, transparent process.",
     About_Paragraph2: "Our mission is to level the playing field so that all small businesses have equal access to financing, regardless of their credit rating or stage of growth. Traditional lenders reject countless viable businesses every year. Meanwhile, individual investors struggle to find promising private investment opportunities.",
-    About_Paragraph3: "Globasity solves both problems by bringing together business owners and investors on a trusted digital platform.",
+    About_Paragraph3: "Globasity solves both problems by bringing together startup owners and investors on a trusted digital platform.",
     Our_Values: "Our Values",
     three_value: "Globasity succeeds when small businesses succeed. We live by three core values",
     Accessibility: "Accessibility",
@@ -308,7 +308,7 @@ export default {
     Close: "Close",
     //////////////////////FAq's//////////////////////////////
     Q1: `What is "A New World of Investing for Small Businesses and Investors"?`,
-    ANS1: "This is a platform that connects small business owners with private investors to facilitate smarter financing and investment opportunities.",
+    ANS1: "This is a platform that connects small startup owners with private investors to facilitate smarter financing and investment opportunities.",
     Q2: "How does this platform benefit small businesses?",
     ANS2: "Small businesses can access capital from private investors, helping them grow and expand their operations.",
     Q3: "How does this platform benefit private investors?",
@@ -355,7 +355,7 @@ export default {
     basic: "Basic (Free) - Browse 5 featured businesses per month",
     Premium_sub: "Premium ($49.99/month) - All lower tier perks plus deal flow alerts, analytics, reporting",
     //////////////////////////////////
-    No_Business_Found: "No Business Found",
+    No_Business_Found: "No Startups Found",
     Load_More: "Load More",
 
     ///forgot

@@ -72,11 +72,11 @@ const FavBusiness = () => {
     body.append("fav", "1");
     apiRequest({ body })
       .then((result) => {
+        setPageLoad(false);
         setAllBusinessType(result.data);
         setAllBusinessType2(result.data);
         const count = result?.data?.length;
         isLike === false && updateLastId(result?.data[count - 1].id);
-        setPageLoad(false);
       })
       .catch((err) => {
         console.log(err);
