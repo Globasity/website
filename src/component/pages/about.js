@@ -264,14 +264,14 @@ const About = () => {
                 </div>
               </div>
             </section>
-            <section className="margin-bottom-content mt-5">
+            {/* <section className="margin-bottom-content mt-5">
             <div>
               <h3 className="main-headings display-center popins_semibold">
                 Trustful Partners <VerifiedIcon />
               </h3>
               <LogoSlider logos={logos} />
             </div>
-          </section>
+          </section> */}
             {/*
                         <section id='team'>
                             <div className=' creative_team' >

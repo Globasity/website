@@ -19,6 +19,7 @@ const Contact = () => {
     email: "",
     title: "",
     mobileNumber: "",
+    about: "investor",
     message: "",
   });
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -48,6 +49,7 @@ const Contact = () => {
     body.append("email", formData.email);
     body.append("title", formData.title);
     body.append("phone", phoneNumber);
+    body.append("about", formData.about);
     body.append("description", formData.message);
     apiRequest({ body })
       .then((result) => {
@@ -188,6 +190,20 @@ const Contact = () => {
                         value={formData.mobileNumber}
                         onChange={handleChange}
                       /> */}
+                    </div>
+                  </div>
+                  <div className="col-md-12 mb-1">
+                    <div className="d-flex flex-column gap-2 contact_inputs">
+                      <label>Who are you?</label>
+                      <select
+                        name="about"
+                        value={formData.about}
+                        onChange={handleChange}
+                      >
+                        <option value="investor">Investor</option>
+                        <option value="startup">Startup</option>
+                        <option value="other">Other</option>
+                      </select>
                     </div>
                   </div>
                   <div className="col-md-12">

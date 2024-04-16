@@ -11,12 +11,14 @@ import { useTranslation } from "react-i18next";
 import paper from "../assests/png/paper.png";
 import BackToTop from "./pagesComponent/backToTop";
 import CircularProgress from "@mui/material/CircularProgress";
+import FavInvestorList from "./favInvestorList";
 
 const InvestorList = () => {
   const { t } = useTranslation();
   const [investors, setInvestors] = useState([]);
   const [array, setArray] = useState([]);
   const [lastId, setLastId] = useState(null);
+  const [toggle, setToggle] = useState(true);
   const [pageLoad, setPageLoad] = useState(true);
   const [counts, setCounts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -64,7 +66,9 @@ const InvestorList = () => {
         setPageLoad(false);
         if (lastId !== result?.data[count - 1].id) {
           if (data.length > 0) {
-            setArray(data);
+            // setArray(data);
+            // setCounts(array.length);
+            setInvestors((prevData) => [...prevData, ...data]);
             updateLastId(result?.data[count - 1].id);
           }
         }
@@ -106,13 +110,17 @@ const InvestorList = () => {
     setLastId(newLastId);
     lastIdRef.current = newLastId;
   };
-  useEffect(() => {
-    if (array.length !== counts) {
-      setCounts(array.length);
-      setInvestors((prevData) => [...prevData, ...array]);
-    }
-  }, [array]);
+  const handleToggle = (data) => {
+    setToggle(data);
+  };
+  // useEffect(() => {
+  //   if (array.length !== counts) {
+  //     setCounts(array.length);
+  //     setInvestors((prevData) => [...prevData, ...array]);
+  //   }
+  // }, [array]);
   return (
+    <> {toggle ? (
     <>
       {pageLoad ? (
         <div className="w-100 vh_90 main_app d-flex justify-content-center align-items-center">
@@ -126,13 +134,19 @@ const InvestorList = () => {
           <BackToTop />
           <section className="mt-5">
             <Container fluid="lg">
-              <div className="mb-5">
+              <div className="mb-3">
                 <h5 className="popins_semibold text-center mb-0">
                   {t("INVESTOR_LIST")}
                 </h5>
-                <div className="fs_08 popins_light text-center mt-1">
+                <div className="fs_08 popins_light text-center">
                   {t("investor_profile")}
                 </div>
+                <button
+              className="btn1 fs_09 btn_primary rounded_3 px-3 py-2" style={{marginLeft:'auto'}}
+              onClick={() => handleToggle(false)}
+            >
+              {"See Favourite Investors"}
+            </button>
               </div>
               <div>
                 <div className="row contentCenter">
@@ -149,7 +163,7 @@ const InvestorList = () => {
                           description={items.company_description}
                           totalAmount={items.invested_amount}
                           lastInvest={0}
-                          getInvestors={getInvestors}
+                          // getInvestors={getInvestors}
                           favourite={items?.favourite}
                         />
                       </div>
@@ -179,6 +193,9 @@ const InvestorList = () => {
                     </div>} */}
         </Container>
       )}
+    </>) : (<>
+      <FavInvestorList triggerToggle={handleToggle} />
+    </>)}
     </>
   );
 };

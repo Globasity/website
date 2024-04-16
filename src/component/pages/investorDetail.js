@@ -139,7 +139,7 @@ const InvestorDetail = () => {
                         </div>
                         <div className="pb-5">
                             <button type='button' onClick={handleShow} className='btn1 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2' >
-                                {t("BTN_CONTACT_US")}
+                                Contact
                             </button>
                         </div>
                     </Container>

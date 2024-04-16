@@ -562,7 +562,7 @@ const ViewInitialContract = () => {
                 <p>
                   For purposes of this Agreement, "Confidential Information"
                   shall include all information or material that has or could
-                  have commercial value or other utility in the business in
+                  have commercial value or other utility in the startup in
                   which Disclosing Party is engaged. If Confidential Information
                   is in written form, the Disclosing Party shall label or stamp
                   the materials with the word "Confidential" or some similar

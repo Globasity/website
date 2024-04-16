@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import paper from "../assests/png/paper.png";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const FavInvestorList = () => {
+const FavInvestorList = (props) => {
   const { t } = useTranslation();
   const [investors, setInvestors] = useState([]);
   const [pageLoad, setPageLoad] = useState(true);
@@ -60,7 +60,8 @@ const FavInvestorList = () => {
         setLoaderCounts(data.length);
         if (lastId !== result?.data[count - 1].id) {
           if (data.length > 0) {
-            setArray(data);
+            // setArray(data);
+            setInvestors((prevData) => [...prevData, ...data]);
             updateLastId(result?.data[count - 1].id);
           }
         }
@@ -108,6 +109,9 @@ const FavInvestorList = () => {
       setInvestors((prevData) => [...prevData, ...array]);
     }
   }, [array]);
+  const handleClick = () => {
+    props.triggerToggle(true);
+  };
   return (
     <>
       {pageLoad ? (
@@ -128,6 +132,12 @@ const FavInvestorList = () => {
                 <div className="fs_08 popins_light text-center mt-1">
                   {t("investor_profile")}
                 </div>
+                <button
+              className="btn1 fs_09 btn_primary rounded_3 px-3 py-2" style={{marginLeft:'auto'}}
+              onClick={handleClick}
+            >
+              {"See All Investors"}
+            </button>
               </div>
               <div>
                 <div className="row contentCenter">
@@ -145,7 +155,7 @@ const FavInvestorList = () => {
                           totalAmount={items?.investor?.invested_amount}
                           lastInvest={0}
                           favourite={items?.status}
-                          getInvestors={getInvestors}
+                          // getInvestors={getInvestors}
                         />
                       </div>
                     ))

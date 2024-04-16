@@ -70,7 +70,7 @@ const NavHeader2 = () => {
     userData?.user_type === "business" && (navItems = [
         { id: "1", items: "Selling Startups", path: 'sell-business' },
         { id: "2", items: t("INVESTOR_LIST"), path: '/investor-list' },
-        { id: "3", items: t("Favorite_Investor_List"), path: '/fav-investor' },
+        // { id: "3", items: t("Favorite_Investor_List"), path: '/fav-investor' },
         { id: "4", items: t("NDA_CONTRACT"), path: "/Initial-contract" },
         { id: "5", items: t("Bus_CONTRACT"), path: "/business-contract" },
     ])

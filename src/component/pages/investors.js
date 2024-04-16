@@ -14,6 +14,7 @@ import VerifiedIcon from "../assests/svg/VerifiedIcon.js";
 import CustomCard from "./pagesComponent/customCard.js";
 import InvestorsData from "./pagesComponent/investorsData.js";
 import { useLocation } from "react-router-dom";
+import ProcessWork from "../assests/svg/ProcessWork.js";
 
 const Investors = () => {
   const headings = [
@@ -40,10 +41,9 @@ const Investors = () => {
     }
   }, [location.hash]);
   const scrollToOurValues = () => {
-    // if (ourValuesRef.current) {
-    //   ourValuesRef.current.scrollIntoView({ behavior: "smooth" });
-    // }
-    window.scrollTo(0, 50000);
+    if (ourValuesRef.current) {
+      ourValuesRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
   const scrollToMain = () => {
     if (mainRef.current) {
@@ -130,7 +130,54 @@ const Investors = () => {
             </div>
           </section>
           <section className="margin-bottom-content" ref={ourValuesRef} id="our-values">
-          <OurValues headings={headings} paragraphs={paragraphs} topHeader={"Why You Should Register?"} />
+          {/* <OurValues headings={headings} paragraphs={paragraphs} topHeader={"Why You Should Register?"} /> */}
+          <div className=" pt-2">
+              <div className="col-lg-12 image-styling-center-2 resp-img-width-2">
+                <div className="mx-3" style={{ display: "contents" }}>
+                  <ProcessWork />
+                </div>
+              </div>
+              <div className="resp-process-work">
+                <div className="row">
+                  <div className="col-md-6 resp-margin-bottom">
+                    <div
+                      className="research_main hori-s-mar"
+                      style={{ minHeight: "325px" }}
+                    >
+                      <div className="d-flex gap-3 align-items-baseline research">
+                        <span
+                          style={{ fontSize: "1.1rem", marginLeft: "50px" }}
+                        >
+                          For Startups
+                        </span>
+                      </div>
+                      <ul className="mt-2 ps-5 pe-lg-5 ms-1">
+                        <li>{t("b1")}</li>
+                        <li>{t("b3")}</li>
+                        <li>{t("b4")}</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="research_main hori-s-mar">
+                      <div className="d-flex gap-3 align-items-baseline research">
+                        <span
+                          style={{ fontSize: "1.1rem", paddingLeft: "50px" }}
+                        >
+                          {t("For_Investors")}
+                        </span>
+                      </div>
+                      <ul className="mt-2 ps-5 ms-1 pe-lg-5">
+                        <li>{t("In1")}</li>
+                        <li>{t("In2")}</li>
+                        <li>{t("In3")}</li>
+                        <li>{t("In4")}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
         </Container>
         <Footer />

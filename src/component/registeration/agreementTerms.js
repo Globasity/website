@@ -13,6 +13,7 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
   const { t } = useTranslation();
   // Create a state variable to store the checkbox value
   const [isChecked, setIsChecked] = useState(false);
+  const [expand, setExpand] = useState(true);
   const [IsLoading, setIsLoading] = useState(false);
   const [paymentLink, setPaymentLink] = useState("");
   const [newWindow, setNewWindow] = useState(null);
@@ -177,6 +178,14 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
     }
   };
 
+  const handleToggle = () => {
+    if (expand) {
+      setExpand(false);
+    } else {
+      setExpand(true);
+    }
+  };
+
   return (
     <div>
       <Container fluid="md">
@@ -194,6 +203,7 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
             </div>
             <div className="mt-4">
               <div className="fs_09" style={{ textAlign: "justify" }}>
+                {expand ? (
                 <ul className="ps-4">
                   <li className="mb-2">
                     Users agree to abide by Globasity's service agreement for
@@ -208,12 +218,33 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
                   </li>
                   <li className="mb-2">
                     Payment of the finder's fee is due upon successful
-                    transactions.
+                    transactions. <span className="popins_semibold fs_09 my-2" style={{cursor:'pointer', }} onClick={handleToggle}>View More Detail</span>
                   </li>
                 </ul>
+                ):(
+                  <ul className="ps-4">
+                  <li className="mb-3">
+                    Users agree to abide by Globasity's service agreement for platform usage, including but not limited to compliance with community guidelines, data privacy policies, and any other terms and conditions set forth by Globasity.
+                  </li>
+                  <li className="mb-3">
+                    A finder's fee is applicable for successful investor-startup connections facilitated through Globasity's platform. This fee serves as compensation for the matchmaking services provided by Globasity.
+                  </li>
+                  <li className="mb-3">
+                    The fee structure for finder's fees is outlined in the agreement between users and Globasity and may vary based on factors such as the size and complexity of the investment or partnership opportunity.
+                  </li>
+                  <li className="mb-3">
+                    Payment of the finder's fee is due upon successful transactions resulting from connections made through Globasity's platform. This fee is payable to Globasity as outlined in the agreement and serves to support the ongoing operation and development of the platform.
+                  </li>
+                  <li className="mb-3">
+                    Users acknowledge that Globasity reserves the right to modify the finder's fee structure and service agreement terms at its discretion. Any changes will be communicated to users through platform notifications or direct communication channels.
+                    <span className="popins_semibold fs_09 my-2" style={{cursor:'pointer',marginLeft:"10px"}} onClick={handleToggle}>Shrink View</span>
+                  </li>
+                </ul>
+                
+                )}
               </div>
-
-              <Form className="my-4" onSubmit={handleSubmit}>
+             
+              <Form onSubmit={handleSubmit}>
                 <Form.Check
                   label={
                     <>

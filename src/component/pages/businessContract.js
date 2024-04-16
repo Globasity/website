@@ -74,7 +74,7 @@ const BusinessContract = () => {
             <Container fluid="lg">
               <div className="mb-5">
                 <h5 className="popins_semibold text-center mb-0">
-                  {t("Bus_CONTRACT")}
+                  Startup Contract
                 </h5>
                 <div className="fs_08 popins_light text-center">
                   {t("CONTRACTS_DETAIL")}

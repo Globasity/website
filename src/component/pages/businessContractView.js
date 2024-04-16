@@ -656,7 +656,7 @@ const BusinessContractView = () => {
                       <li>
                         The Company operates in the field of{" "}
                         {contractInform?.field} and wishes to raise capital for
-                        expanding its business activities as detailed in the
+                        expanding its startup activities as detailed in the
                         Investment Memorandum.
                       </li>
                       <p className="my-1 popins_semibold">And Whereas:</p>
