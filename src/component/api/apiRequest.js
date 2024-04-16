@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const API_URL = 'http://localhost/globasity/api.php/'
+const API_URL = 'https://globasity.com/api/api.php/'
 export const body = new FormData()
 export const apiRequest = async ({ body }) => {
   // ** Store Vars
@@ -19,7 +19,7 @@ export const apiRequest = async ({ body }) => {
 export const apiRequestEmail = async ({ body }) => {
   // ** Store Vars
   return await axios
-    .post('http://localhost/globasity/api.php/', body, {
+    .post('https://globasity.com/api/api.php/', body, {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
     .then((res) => {
