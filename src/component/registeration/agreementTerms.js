@@ -219,7 +219,10 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
             </div>
             <div className="mt-4">
               <div className="term-conditions">
-                <a onClick={() => setShow(true)}>
+                {
+                // eslint-disable-next-line
+                <a
+                 onClick={() => setShow(true)}>
                   <Button
                     type="inverse"
                     padding=".5rem 1.7rem"
@@ -227,6 +230,7 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
                     content={"View Agreement"}
                   />
                 </a>
+                }
               </div>
               {/* <div className="fs_09" style={{ textAlign: "justify" }}>
                 {expand ? (
