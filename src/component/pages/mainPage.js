@@ -46,6 +46,8 @@ import MainSlider from "./pagesComponent/mainSlider";
 import DnbLogo from "../assests/svg/dnbLogo";
 import arnonLogo from "../assests/png/arnonLogo.png";
 import ProcessWork from "../assests/svg/ProcessWork";
+import MainToggle from "./pagesComponent/mainToggle";
+import TextAnimation from "./pagesComponent/textAnimation";
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -56,7 +58,12 @@ const MainPage = () => {
     { title: "Research", icon: <ResearchIcon color={"#212529"} /> },
     { title: "Identity", icon: <IdentityIcon color={"#212529"} /> },
   ];
-
+  const textArray = [
+    "A New World of Connecting Small Startups & Investors.",
+    "Empowering Small Businesses to Thrive with Investor Support.",
+    "Conne Entrepreneurs with the Capital they Need to Succeed.",
+  ];
+  const duration = 3000;
   const paragraphs = ["Insights_detail", "Research_detail", "Identity_detail"];
   return (
     <div>
@@ -75,7 +82,10 @@ const MainPage = () => {
                     <div className="d-flex gap-2 ">
                       <div className="banner_col_1">
                         <h6 className="reponsive-font">
-                          A New World of Connecting Small Startups & Investors.
+                          <TextAnimation
+                            textArray={textArray}
+                            duration={duration}
+                          />
                         </h6>
                         {/* <p> {t("Subheadline")} </p> */}
                         {isLogin === false && (
@@ -221,53 +231,7 @@ const MainPage = () => {
                 </div>
               </div>
             </div> */}
-            <div className=" pt-2">
-              <div className="col-lg-12 image-styling-center-2 resp-img-width-2">
-                <div className="mx-3" style={{ display: "contents" }}>
-                  <ProcessWork />
-                </div>
-              </div>
-              <div className="resp-process-work">
-                <div className="row">
-                  <div className="col-md-6 resp-margin-bottom">
-                    <div
-                      className="research_main hori-s-mar"
-                      style={{ minHeight: "325px" }}
-                    >
-                      <div className="d-flex gap-3 align-items-baseline research">
-                        <span
-                          style={{ fontSize: "1.1rem", marginLeft: "50px" }}
-                        >
-                          For Startups
-                        </span>
-                      </div>
-                      <ul className="mt-2 ps-5 pe-lg-5 ms-1">
-                        <li>{t("b1")}</li>
-                        <li>{t("b3")}</li>
-                        <li>{t("b4")}</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="research_main hori-s-mar">
-                      <div className="d-flex gap-3 align-items-baseline research">
-                        <span
-                          style={{ fontSize: "1.1rem", paddingLeft: "50px" }}
-                        >
-                          {t("For_Investors")}
-                        </span>
-                      </div>
-                      <ul className="mt-2 ps-5 ms-1 pe-lg-5">
-                        <li>{t("In1")}</li>
-                        <li>{t("In2")}</li>
-                        <li>{t("In3")}</li>
-                        <li>{t("In4")}</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <MainToggle />
           </section>
           {/* <section className="margin-bottom-content-more">
             <div className="row mx-0" style={{ flexWrap: "wrap-reverse" }}>
@@ -405,7 +369,7 @@ const MainPage = () => {
               topHeader={t("Revolutionizing_Financing")}
             />
           </section>
-          <section className="margin-bottom-content">
+          <section className="margin-bottom-content-special">
             <h3 className="main-headings display-center popins_semibold">
               Tursted Partners <VerifiedIcon />
             </h3>

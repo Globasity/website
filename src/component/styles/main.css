@@ -77,6 +77,10 @@
   width: 15rem;
 }
 
+.btn-outline-sample{
+  background-color: #1877f2 !important;
+}
+
 .btn1 {
   flex-wrap: nowrap;
   display: flex;
@@ -1399,6 +1403,10 @@ font-weight: 600; */
   margin-bottom: 5rem;
 }
 
+.margin-bottom-content-special {
+  margin-bottom: 2rem;
+}
+
 .margin-bottom-content-more {
   margin-bottom: 7rem;
 }
@@ -1456,6 +1464,9 @@ font-weight: 600; */
   .resp-process-work{
     display: block !important;
   }
+  .resp-button-none{
+    display: none !important;
+  }
 }
 
 .resp-process-work{
@@ -1474,6 +1485,11 @@ font-weight: 600; */
 
 .margin-s-b {
   margin-bottom: -15px !important;
+}
+
+.hover-toggle:hover{
+  background-color: rgba(255, 190, 22, 0.15) !important;
+  color: black;
 }
 
 .margin-s-t {

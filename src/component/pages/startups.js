@@ -61,13 +61,13 @@ const Startups = () => {
     setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
   };
 
-// eslint-disable-next-line
+  // eslint-disable-next-line
   const headings = [
     { title: "Insights", icon: <InsightsIcon color={"#212529"} /> },
     { title: "Research", icon: <ResearchIcon color={"#212529"} /> },
     { title: "Identity", icon: <IdentityIcon color={"#212529"} /> },
   ];
-// eslint-disable-next-line
+  // eslint-disable-next-line
   const paragraphs = ["Insights_detail", "Research_detail", "Identity_detail"];
   useEffect(() => {
     if (location.hash === "#ourValues") {
@@ -89,8 +89,12 @@ const Startups = () => {
     }
   };
   return (
-    <div >
-      <div style={{position:'absolute', top:'0px'}} id="main" ref={mainRef}></div>
+    <div>
+      <div
+        style={{ position: "absolute", top: "0px" }}
+        id="main"
+        ref={mainRef}
+      ></div>
       <div className="main">
         <Container fluid="xxl" className="px-0">
           <section className="px-3">
@@ -221,13 +225,17 @@ const Startups = () => {
               )}
             </div>
           </section>
-          <section className="margin-bottom-content" ref={ourValuesRef} id="our-values">
-              {/* <OurValues
-                headings={headings}
-                paragraphs={paragraphs}
-                topHeader={"Why You Should Register?"}
-              /> */}
-                        <div className=" pt-2">
+          <section
+            className="margin-bottom-content-special"
+            // ref={ourValuesRef}
+            id="our-values"
+          >
+            <div className=" pt-2 margin-bottom-content">
+              <div>
+                <h3 className="main-headings display-center popins_semibold">
+                  How to Start?
+                </h3>
+              </div>
               <div className="col-lg-12 image-styling-center-2 resp-img-width-2">
                 <div className="mx-3" style={{ display: "contents" }}>
                   <ProcessWork />
@@ -235,9 +243,9 @@ const Startups = () => {
               </div>
               <div className="resp-process-work">
                 <div className="row">
-                  <div className="col-md-6 resp-margin-bottom">
+                  <div className="col-md-12 resp-margin-bottom">
                     <div
-                      className="research_main hori-s-mar"
+                      className="research_main hori-s-mar mx-3"
                       style={{ minHeight: "325px" }}
                     >
                       <div className="d-flex gap-3 align-items-baseline research">
@@ -248,32 +256,39 @@ const Startups = () => {
                         </span>
                       </div>
                       <ul className="mt-2 ps-5 pe-lg-5 ms-1">
-                        <li>{t("b1")}</li>
-                        <li>{t("b3")}</li>
-                        <li>{t("b4")}</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="research_main hori-s-mar">
-                      <div className="d-flex gap-3 align-items-baseline research">
-                        <span
-                          style={{ fontSize: "1.1rem", paddingLeft: "50px" }}
-                        >
-                          {t("For_Investors")}
-                        </span>
-                      </div>
-                      <ul className="mt-2 ps-5 ms-1 pe-lg-5">
-                        <li>{t("In1")}</li>
-                        <li>{t("In2")}</li>
-                        <li>{t("In3")}</li>
-                        <li>{t("In4")}</li>
+                        <li>
+                          Submit your startup profile and key business details
+                          through our online application.
+                        </li>
+                        <li>
+                          Our team conducts thorough due diligence on your
+                          startup, including legal review, business analysis and
+                          founder interviews.
+                        </li>
+                        <li>
+                          Once approved, your startup is featured on the
+                          Globasity platform and matched with relevant
+                          investors.
+                        </li>
+                        <li>
+                          Connect directly with interested investors, negotiate
+                          terms, and close your investment round through
+                          Globasity.
+                        </li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div 
+              ref={ourValuesRef}
+            ></div>
+            <OurValues
+              headings={headings}
+              paragraphs={paragraphs}
+              topHeader={"Why You Should Register?"}
+            />
           </section>
         </Container>
         <Footer />

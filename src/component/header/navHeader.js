@@ -67,7 +67,14 @@ const NavHeader = () => {
     { id: "7", items: "investors", path: "/investors" },
     // { id: "3", items: t("Pricing"), path: "/pricing" },
     { id: "5", items: t("Contact"), path: "/contact" },
-    // { id: "2", items: t("About_us"), path: "/about-us" },
+  ];
+
+  const navItems2 = [
+    { id: "2", items: t("Home"), path: "/" },
+    { id: "3", items: "Startups", path: "/startups" },
+    { id: "4", items: "investors", path: "/investors" },
+    { id: "5", items: t("Contact"), path: "/contact" },
+    { id: "1", items: "Login", path: "/login" },
   ];
   const [hoveredItemId, setHoveredItemId] = useState(null);
   const [show, setShow] = useState(false);
@@ -87,10 +94,10 @@ const NavHeader = () => {
   const handleMouseLeave = () => {
     setHoveredItemId(null);
   };
-  const buttonContent =
-    location.pathname === "/startups" || location.pathname === "/investors"
-      ? "Register"
-      : "Login";
+  // const buttonContent =
+  //   location.pathname === "/startups" || location.pathname === "/investors"
+  //     ? "Register"
+  //     : "Login";
   const selectedPagePath = location.pathname;
   const isStartups = selectedPagePath === "/startups";
   const isInvestors = selectedPagePath === "/investors";
@@ -115,23 +122,38 @@ const NavHeader = () => {
             </Link>
           </Navbar.Brand>
           <Nav
+            className="order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1 resp-button-none"
+            style={{ marginRight: "7px" }}
+          >
+            {/*<span className='xs_none'> <Language login={false} /></span> */}
+            <Link
+              to={
+                "/login"
+              }
+            >
+              <Button
+                type="inverse"
+                padding=".5rem 1.7rem"
+                fs="14px"
+                content={"Login"}
+              />
+            </Link>
+          </Nav>
+          <Nav
             className="order_3 flex-row align-items-center ms-lg-0 ms-auto mb-1"
             style={{ gap: "10px" }}
           >
             {/*<span className='xs_none'> <Language login={false} /></span> */}
             <Link
               to={
-                location.pathname === "/startups" ||
-                location.pathname === "/investors"
-                  ? "/sign-up"
-                  : "/login"
+                "/sign-up"
               }
             >
               <Button
                 type="header"
                 padding=".5rem 1.7rem"
                 fs="14px"
-                content={buttonContent}
+                content={"Register"}
               />
             </Link>
           </Nav>
@@ -256,7 +278,7 @@ const NavHeader = () => {
             >
               <Offcanvas.Header closeButton></Offcanvas.Header>
               <Nav className="nav_link fs_10 justify-content-center align-items-center  gap-3">
-                {navItems.map((items) => (
+                {navItems2.map((items) => (
                   <NavLink
                     className={""}
                     onClick={() => handleHover(items.id)}
