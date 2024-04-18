@@ -61,7 +61,7 @@ const MainPage = () => {
   const textArray = [
     "A New World of Connecting Small Startups & Investors.",
     "Empowering Small Businesses to Thrive with Investor Support.",
-    "Conne Entrepreneurs with the Capital they Need to Succeed.",
+    "Linking Entrepreneurs with the Capital they Need to Succeed.",
   ];
   const duration = 3000;
   const paragraphs = ["Insights_detail", "Research_detail", "Identity_detail"];
