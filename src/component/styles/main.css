@@ -396,6 +396,10 @@ ol > li::marker {
   margin-bottom: 2rem;
 }
 
+.mb-1-rem{
+  margin-bottom: 1rem;
+}
+
 
 .banner_main {
   /* background-color: var(--light); */

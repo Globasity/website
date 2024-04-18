@@ -9,12 +9,26 @@ import { toast } from "react-toastify";
 import NotifySnackbar from "../snackbar/notiySnackbar";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../redux/loginForm";
 import { countries } from "countries-list";
 
-const CreateBusiness = ({ onNextStep }) => {
+const CreateBusiness = ({
+  profileImage,
+  profileBanner,
+  category,
+  brief,
+  description,
+  socialEmail,
+  socialLinkedin,
+  socialWebsite,
+  socialTwitter,
+  socialFacebook,
+}) => {
   const userData = JSON.parse(
     window.localStorage.getItem("globasity_user_data")
   );
+  const dispatch = useDispatch();
   const [businessImages, setBusinessImages] = useState([]);
   const [selectedImg, setSelectedImg] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +55,57 @@ const CreateBusiness = ({ onNextStep }) => {
   const [businessStatus, setBusinessStatus] = useState([]);
   const [raisedAmount, setRaisedAmount] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const handleSkipUpdate = () => {
+    setIsLoading(true);
+    const formData = {
+      image: profileImage,
+      banner: profileBanner,
+      category: category,
+      brief: brief,
+      description: description,
+      socialEmail: socialEmail,
+      socialLinkedin: socialLinkedin,
+      socialWebsite: socialWebsite,
+      socialTwitter: socialTwitter,
+      socialFacebook: socialFacebook,
+    };
+    const body = new FormData();
+    body.append("table_name", "users");
+    body.append("type", "update_data");
+    body.append("id", userData?.user_id);
+    body.append("image", formData?.image);
+    body.append("banner", formData?.banner);
+    body.append("category", formData?.category);
+    body.append("brief", formData?.brief);
+    body.append("description", formData?.description);
+    body.append("socialEmail", formData?.socialEmail);
+    body.append("socialLinkedin", formData?.socialLinkedin);
+    body.append("socialWebsite", formData?.socialWebsite);
+    body.append("socialTwitter", formData?.socialTwitter);
+    body.append("socialFacebook", formData?.socialFacebook);
+    // body.append('platform', 3)
+    apiRequest({ body })
+      .then((result) => {
+        if (result.result) {
+          toast.success(
+            "Please be patient, as the activation process may require up to 24 hours."
+          );
+          setIsLoading(false);
+          if (userData?.is_active === "true") {
+            dispatch(setLogin(true));
+            navigate("/");
+          } else {
+            navigate("/wait-for-login");
+          }
+        } else {
+          setIsLoading(false);
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.log(err);
+      });
+  };
   const handleAmountChange = (event) => {
     let value = event.target.value;
     // Ensure the value is a number
@@ -192,6 +257,7 @@ const CreateBusiness = ({ onNextStep }) => {
     }
   };
   const handleSubmit = (e) => {
+    handleSkipUpdate();
     e.preventDefault();
     setIsLoading(true);
     const form = e.target;
@@ -210,7 +276,6 @@ const CreateBusiness = ({ onNextStep }) => {
     const funding_amount = form.elements.funding_amount.value;
     const formData = {
       user_id: userData.user_id,
-      name: name,
       images: JSON.stringify(businessImages),
       location: location,
       since: since,
@@ -235,7 +300,6 @@ const CreateBusiness = ({ onNextStep }) => {
     body.append("table_name", "business");
     body.append("type", "add_data");
     body.append("user_id", formData.user_id);
-    body.append("name", formData.name);
     body.append("images", formData.images);
     body.append("location", formData.location);
     body.append("since", formData.since);
@@ -314,13 +378,12 @@ const CreateBusiness = ({ onNextStep }) => {
         <Container fluid="xxl" className="px-0">
           <section className="px-sm-3 d-flex align-items-center justify-content-center">
             <div className="login_card">
-              <div
-                className="fs_09 ms-auto popins_medium"
-                onClick={() => navigate("/wait-for-login")}
-                style={{ color: "#9cd161", cursor: "pointer" }}
+              <button
+                className="fs_09 ms-auto btn bg-white text-danger"
+                onClick={handleSkipUpdate}
               >
                 {t("SKIP")}
-              </div>
+              </button>
               <div>
                 <div className="heading text-center">
                   {t("HEAD_C_BUSINESS")}
@@ -442,9 +505,7 @@ const CreateBusiness = ({ onNextStep }) => {
                     </div>
                   </Form.Group>
                   <Form.Group controlId="location">
-                    <Form.Label className="ps-2 mb-2">
-                      Location
-                    </Form.Label>
+                    <Form.Label className="ps-2 mb-2">Location</Form.Label>
                     <Form.Select required>
                       <option value="">Location</option>
                       {Object.keys(countries).map((countryCode) => (
@@ -463,7 +524,7 @@ const CreateBusiness = ({ onNextStep }) => {
                       type="date"
                       placeholder="Enter Since"
                       className="fs_09"
-                      style={{paddingRight:'15px'}}
+                      style={{ paddingRight: "15px" }}
                     />
                   </Form.Group>
                   <Form.Group controlId="type">

@@ -12,8 +12,14 @@ import { useTranslation } from "react-i18next";
 const InvestmentInfo = ({
   profileImage,
   profileBanner,
-  socialMediaLink,
-  shortDescription,
+  category,
+  brief,
+  description,
+  socialEmail,
+  socialLinkedin,
+  socialWebsite,
+  socialTwitter,
+  socialFacebook
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const userData = JSON.parse(
@@ -88,9 +94,15 @@ const InvestmentInfo = ({
     const maxAmount = formData.maxAmount;
     const formData2 = {
       image: profileImage,
-      social_media: socialMediaLink,
       banner: profileBanner,
-      short_description: shortDescription,
+      category: category,
+      brief: brief,
+      description: description,
+      socialEmail : socialEmail,
+      socialLinkedin : socialLinkedin,
+      socialWebsite : socialWebsite,
+      socialTwitter : socialTwitter,
+      socialFacebook : socialFacebook,
       company_name: company ? company : "",
       company_description: desc ? desc : "",
       invested_amount: investAmount ? investAmount : "",
@@ -102,9 +114,15 @@ const InvestmentInfo = ({
     body.append("table_name", "users");
     body.append("id", userData?.user_id);
     body.append("image", formData2?.image);
-    body.append("social_media", formData2?.social_media);
     body.append("banner", formData2?.banner);
-    body.append("short_description", formData2?.short_description);
+    body.append("category", formData2?.category);
+    body.append("brief", formData2?.brief);
+    body.append("description", formData2?.description);
+    body.append("socialEmail", formData2?.socialEmail);
+    body.append("socialLinkedin", formData2?.socialLinkedin);
+    body.append("socialWebsite", formData2?.socialWebsite);
+    body.append("socialTwitter", formData2?.socialTwitter);
+    body.append("socialFacebook", formData2?.socialFacebook);
     // body.append('id_front', formData2.id_front)
     // body.append('id_back', formData2.id_back)
     // body.append('id_number', formData2.id_number)
@@ -177,9 +195,15 @@ const InvestmentInfo = ({
       // id_front: id_front,
       // id_back: id_back,
       // id_number: id_Number,
-      social_media: socialMediaLink,
       banner: profileBanner,
-      short_description: shortDescription,
+      category: category,
+      brief: brief,
+      description: description,
+      socialEmail : socialEmail,
+      socialLinkedin : socialLinkedin,
+      socialWebsite : socialWebsite,
+      socialTwitter : socialTwitter,
+      socialFacebook : socialFacebook,
     };
     const body = new FormData();
     body.append("table_name", "users");
@@ -187,8 +211,14 @@ const InvestmentInfo = ({
     body.append("id", userData?.user_id);
     body.append("image", formData?.image);
     body.append("banner", formData?.banner);
-    body.append("social_media", formData?.social_media);
-    body.append("short_description", formData?.short_description);
+    body.append("category", formData?.category);
+    body.append("brief", formData?.brief);
+    body.append("description", formData?.description);
+    body.append("socialEmail", formData?.socialEmail);
+    body.append("socialLinkedin", formData?.socialLinkedin);
+    body.append("socialWebsite", formData?.socialWebsite);
+    body.append("socialTwitter", formData?.socialTwitter);
+    body.append("socialFacebook", formData?.socialFacebook);
     // body.append('id_front', formData.id_front)
     // body.append('id_back', formData.id_back)
     // body.append('id_number', formData.id_number)
