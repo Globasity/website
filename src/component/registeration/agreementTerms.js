@@ -7,11 +7,14 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { apiRequest } from "../api/apiRequest";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-feather";
+import TermConditionModal from "../pages/pagesComponent/term&conditionModal";
+import Button from "../pages/pagesComponent/button";
 
 const AgreementTerms = ({ onNextStep, onPrevStep }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  // Create a state variable to store the checkbox value
+  const [show, setShow] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [expand, setExpand] = useState(true);
   const [IsLoading, setIsLoading] = useState(false);
@@ -185,10 +188,23 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
       setExpand(true);
     }
   };
+  const terms = [
+    t("terms1"),
+    t("terms2"),
+    t("terms3"),
+    t("terms4"),
+    t("terms5"),
+  ];
 
   return (
     <div>
       <Container fluid="md">
+        <TermConditionModal
+          show={show}
+          setShow={setShow}
+          data={terms}
+          title={t("TERM_AND_COND")}
+        />
         <section className="px-sm-3 px-1 d-flex align-items-center justify-content-center">
           <div className="login_card position-relative    ">
             <div className="me-auto" onClick={onPrevStep}>
@@ -202,7 +218,17 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
               <p className="fs_08 text-center popins_light">{t("com_des")}</p>
             </div>
             <div className="mt-4">
-              <div className="fs_09" style={{ textAlign: "justify" }}>
+              <div className="term-conditions">
+                <a onClick={() => setShow(true)}>
+                  <Button
+                    type="inverse"
+                    padding=".5rem 1.7rem"
+                    fs="14px"
+                    content={"View Agreement"}
+                  />
+                </a>
+              </div>
+              {/* <div className="fs_09" style={{ textAlign: "justify" }}>
                 {expand ? (
                 <ul className="ps-4">
                   <li className="mb-2">
@@ -242,8 +268,8 @@ const AgreementTerms = ({ onNextStep, onPrevStep }) => {
                 </ul>
                 
                 )}
-              </div>
-             
+              </div> */}
+
               <Form onSubmit={handleSubmit}>
                 <Form.Check
                   label={
