@@ -377,10 +377,10 @@ const MainPage = () => {
               <div className="row mx-3">
                 <div
                   className="col-lg-6"
-                  style={{ padding: "10px 10px 10px 0px" }}
+
                 >
                   <div
-                    className="image-styling-center resp-img-width"
+                    className="image-styling-center resp-img-width mb-3"
                     style={{ minHeight: "250px" }}
                   >
                     <div className="display-contents">
@@ -390,9 +390,9 @@ const MainPage = () => {
                 </div>
                 <div
                   className="col-lg-6"
-                  style={{ padding: "10px 0px 10px 10px" }}
+                  
                 >
-                  <div className="image-styling-center resp-img-width">
+                  <div className="image-styling-center resp-img-width mb-3">
                     <div className="display-contents">
                       <img src={arnonLogo} alt="heart" />
                     </div>

@@ -70,7 +70,7 @@ function MainToggle() {
           <div className="row">
             <div className="col-md-6 resp-margin-bottom">
               <div
-                className="research_main hori-s-mar"
+                className="research_main hori-s-mar mx-3"
                 style={{ minHeight: "325px" }}
               >
                 <div className="d-flex gap-3 align-items-baseline research">
@@ -101,7 +101,7 @@ function MainToggle() {
             </div>
             <div className="col-md-6">
               <div
-                className="research_main hori-s-mar"
+                className="research_main hori-s-mar mx-3"
                 style={{ minHeight: "400px" }}
               >
                 <div className="d-flex gap-3 align-items-baseline research">
