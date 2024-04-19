@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Form, Spinner } from "react-bootstrap";
 import { ArrowLeft, Plus, Image, User } from "react-feather";
 import { apiRequest, apiRequestFile } from "../api/apiRequest";
@@ -29,6 +29,10 @@ const Verification = ({
   const [messageType, setMessageType] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation();
+  const [businessType, setBusinessType] = useState([]);
+  let userLangauge = JSON.parse(
+    window.localStorage.getItem("globasity_language")
+  );
   const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;
@@ -83,6 +87,21 @@ const Verification = ({
         console.log(err);
       });
   };
+  const getBusinessType = () => {
+    const body = new FormData();
+    body.append("table_name", "business_types");
+    body.append("type", "get_data");
+    apiRequest({ body })
+      .then((result) => {
+        setBusinessType(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getBusinessType();
+  }, []);
   // Event handler to handle file selection
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -181,25 +200,34 @@ const Verification = ({
               <ArrowLeft className="leftArrow" />
             </div>
             <div>
-              <div className="heading text-center">Your Identity</div>
+              <div className="heading text-center">Your Information</div>
               <div className="fs_07 text-center">
-                Please upload the following
+                Please fill the following
               </div>
             </div>
             <Form className="w-100 mt-4" onSubmit={handleSubmit}>
               <Form.Group controlId="category" className="mb-1-rem">
                 <Form.Label className="custom-label">Category*</Form.Label>
                 <Form.Select required onChange={handleCategory}>
-                  <option value="">Please select your interest</option>
-                  <option value="Enterprise Software">
-                    Enterprise Software
-                  </option>
-                  <option value="Fintech">Fintech</option>
-                  <option value="Healthcare">Healthcare</option>
-                  <option value="E-commerce">E-commerce</option>
-                  <option value="Artificial Intelligence">
-                    Artificial Intelligence
-                  </option>
+                  <option value="">{t("PLACE_B_TYPE")}</option>
+                  {businessType?.length > 0 &&
+                    businessType?.map(
+                      (item) =>
+                        userLangauge === "en" && (
+                          <option
+                            key={item.id}
+                            value={
+                              userLangauge === "en"
+                                ? item.name_eng
+                                : item.name_heb
+                            }
+                          >
+                            {userLangauge === "en"
+                              ? item.name_eng
+                              : item.name_heb}
+                          </option>
+                        )
+                    )}
                 </Form.Select>
               </Form.Group>
               <Form.Group controlId="brief" className="mb-1-rem">
@@ -308,6 +336,7 @@ const Verification = ({
               </div>
               <Form.Group controlId="socialEmail" className="mb-1-rem">
                 <Form.Control
+                  required
                   type="text"
                   placeholder="Email"
                   onChange={handleSocialEmail}

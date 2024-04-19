@@ -55,6 +55,11 @@ const CreateBusiness = ({
   const [businessStatus, setBusinessStatus] = useState([]);
   const [raisedAmount, setRaisedAmount] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const AdminAlert = () => {
+    const body = new FormData();
+    body.append("type", "admin_alert");
+    apiRequest({ body });    
+  };
   const handleSkipUpdate = () => {
     setIsLoading(true);
     const formData = {
@@ -96,6 +101,7 @@ const CreateBusiness = ({
             navigate("/");
           } else {
             navigate("/wait-for-login");
+            AdminAlert();
           }
         } else {
           setIsLoading(false);

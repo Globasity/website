@@ -44,7 +44,7 @@ const BusinessDetail = lazy(() => import('./component/pages/businessDetail'))
 const CreateBusiness = lazy(() => import('./component/registeration/createBusiness'))
 const ViewContract = lazy(() => import('./component/pages/viewContract'))
 const InvestorDetail = lazy(() => import('./component/pages/investorDetail'))
-const MyBusiness = lazy(() => import('./component/pages/myBusiness'))
+const MyBusinessPage = lazy(() => import('./component/pages/myBusinessPage'))
 const WaitForLogin = lazy(() => import('./component/snackbar/waitForLogin'))
 const BusinessContractView = lazy(() => import('./component/pages/businessContractView'))
 const Notification = lazy(() => import('./component/pages/notification'))
@@ -245,10 +245,11 @@ const App = () => {
           <Route path='/business-contract-view' element={!isLogin ? (<Navigate replace to="/login" />) : <BusinessContractView />} ></Route>
           {userData?.user_type === "business" &&
             (<>
-              <Route path='/create-business' element={!isLogin ? (<Navigate replace to="/login" />) : <CreateBusiness />} ></Route>
+              {/* <Route path='/create-business' element={!isLogin ? (<Navigate replace to="/login" />) : <CreateBusiness />} ></Route> */}
               <Route path='/investor-list' element={!isLogin ? (<Navigate replace to="/login" />) : <InvestorList />} ></Route>
               <Route path='/investor-detail' element={!isLogin ? (<Navigate replace to="/login" />) : <InvestorDetail />} ></Route>
-              <Route path='/my-business' element={!isLogin ? (<Navigate replace to="/login" />) : <MyBusiness />} ></Route>
+              {/* <Route path='/my-business' element={!isLogin ? (<Navigate replace to="/login" />) : <MyBusiness />} ></Route> */}
+              <Route path='/my-startup' element={!isLogin ? (<Navigate replace to="/login" />) : <MyBusinessPage />} ></Route>
             </>)}
 
           <Route path="*" element={<NoMatch />} />

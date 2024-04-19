@@ -96,6 +96,9 @@ const InvestorDetail = () => {
                                                         <span className='popins_semibold fs_09 me-3'>{t("Company_Name")}: </span><span> {investors?.company_name}</span>
                                                     </div>
                                                     <div>
+                                                        <span className='popins_semibold fs_09 me-3'>Interest: </span><span> {investors?.category}</span>
+                                                    </div>
+                                                    <div>
                                                         <span className='popins_semibold fs_09 me-3'>{t("Min_Invest_Am")}: </span><span>    {investors?.min_investing_amount}$</span>
                                                     </div>
                                                     <div>

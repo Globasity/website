@@ -80,6 +80,12 @@ const InvestmentInfo = ({
     }
   };
 
+  const AdminAlert = () => {
+    const body = new FormData();
+    body.append("type", "admin_alert");
+    apiRequest({ body });    
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (parseInt(formData.minAmount) > parseInt(formData.maxAmount)) {
@@ -144,6 +150,7 @@ const InvestmentInfo = ({
             navigate("/");
           } else {
             navigate("/wait-for-login");
+            AdminAlert();
           }
         } else {
           setIsLoading(false);
@@ -234,6 +241,7 @@ const InvestmentInfo = ({
             navigate("/");
           } else {
             navigate("/wait-for-login");
+            AdminAlert();
           }
         } else {
           setIsLoading(false);
