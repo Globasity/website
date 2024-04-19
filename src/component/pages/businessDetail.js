@@ -275,12 +275,12 @@ const BusinessDetail = () => {
             </div>
             <div>
               <div className="d-flex gap-3 ps-1 flex-wrap mb-3" style={{ marginTop: "3rem" }}>
-                <h5 className="popins_semibold ">Business Name:</h5>
+                <h5 className="popins_semibold ">Startup Name:</h5>
                 <h5 className="width2" style={{ wordWrap: "break-word" }}>{businessData?.name}</h5>
               </div>
               <div
                 className="border p-4 rounded-3   shadow1">
-                <h6 className="popins_semibold mb-2">{t("BUSINESS_DESC")}</h6>
+                <h6 className="popins_semibold mb-2">Description</h6>
                 <p className="text_secondary" style={{ fontSize: "0.85rem", wordWrap: "break-word" }}>
                   {businessData?.description}
                 </p>
@@ -289,7 +289,7 @@ const BusinessDetail = () => {
                 <Accordion className="text-center border-0 w-100">
                   <Accordion.Item eventKey="0" className=" border-0">
                     <Accordion.Header className="border-0 popins_semibold fs_10">
-                      {t("Business_Information")}
+                      Basic Information
                     </Accordion.Header>
                     <Accordion.Body className="border-0 pt-0 ">
                       <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">{t("CompanyName")}: <div className=" popins_regular"> {businessData?.company_name} </div> </div>
