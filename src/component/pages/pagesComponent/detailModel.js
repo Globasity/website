@@ -2,9 +2,18 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 // eslint-disable-next-line
 import Modal from "react-bootstrap/Modal";
-import { Facebook, Linkedin, Twitter, Mail } from "react-feather";
+import { Facebook, Linkedin, Twitter } from "react-feather";
 
-const DetailModel = ({ handleClose, header, detail, logo, type, facebook, linkedin, twitter }) => {
+const DetailModel = ({
+  handleClose,
+  header,
+  detail,
+  logo,
+  type,
+  facebook,
+  linkedin,
+  twitter,
+}) => {
   const { t } = useTranslation();
   const handleClick = () => {
     handleClose();
@@ -28,17 +37,17 @@ const DetailModel = ({ handleClose, header, detail, logo, type, facebook, linked
               style={{ listStyle: "none" }}
             >
               <li className="fb">
-                <a href={facebook} target="_blank">
+                <a href={facebook} target="_blank" rel="noreferrer">
                   <Facebook className="img_icon text-white" />
                 </a>
               </li>
               <li className="ins">
-                <a href={linkedin} target="_blank">
+                <a href={linkedin} target="_blank" rel="noreferrer">
                   <Linkedin className="img_icon text-white" />
                 </a>
               </li>
               <li className="twitter">
-                <a href={twitter} target="_blank">
+                <a href={twitter} target="_blank" rel="noreferrer">
                   <Twitter className="img_icon text-white" />
                 </a>
               </li>
