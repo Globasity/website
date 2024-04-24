@@ -108,7 +108,11 @@ const Investors = () => {
                     image={card.image}
                     href={card.href}
                     title={card.title}
+                    type={card.type}
                     description={card.description}
+                    facebook={card.facebook}
+                    linkedin={card.linkedin}
+                    twitter={card.twitter}
                   />
                 </div>
               ))}

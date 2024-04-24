@@ -829,6 +829,14 @@ ol > li::marker {
   padding: 3rem 3rem 0.1rem 3rem;
 }
 
+.header-type{
+  background-color: rgba(255, 190, 22, 0.15);
+  border-radius: 100px;
+  margin-left: 14px;
+  font-size: 18px;
+  padding: 4px 18px;
+}
+
 .hey {
   padding-right: 7rem;
   color: var(--primary);
@@ -2532,6 +2540,10 @@ footer {
 
 .social-icons .twitter {
   background-color: #1da1f2;
+}
+
+.social-icons .mail {
+  background-color: #1877f2;
 }
 
 .social-icons .twitter svg {
