@@ -788,6 +788,7 @@ ol > li::marker {
   box-shadow: none !important;
   background-color: var(--white);
   transition: border-color 0.5s, background-color 0.5s;
+  cursor: pointer;
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -832,8 +833,10 @@ ol > li::marker {
 .header-type{
   background-color: rgba(255, 190, 22, 0.15);
   border-radius: 100px;
-  margin-left: 14px;
-  font-size: 18px;
+  font-size: 16px;
+  text-align: center;
+  margin: auto 12px;
+  font-weight: 500;
   padding: 4px 18px;
 }
 

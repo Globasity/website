@@ -8,7 +8,7 @@ const StartupsData = [
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Reo Techs",
     description:
-      "Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president. Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.",
+      "Reo Techs, an American Company, co-founded Napster and served as Facebook's first president. Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.",
     linkedin: "https://linkedin.com",
     facebook: "https://facebook.com",
     twitter: "https://twitter.com",
@@ -20,7 +20,7 @@ const StartupsData = [
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Smart Logs",
     description:
-      "Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president. Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.",
+      "Smart Logs, an American startup, co-founded Napster and served as Facebook's first president. Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.",
     linkedin: "https://linkedin.com",
     facebook: "https://facebook.com",
     twitter: "https://twitter.com",
@@ -32,7 +32,7 @@ const StartupsData = [
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Chicken Chicks",
     description:
-      "Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president. Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.",
+      "Chicken Chicks, an American food chain, co-founded Napster and served as Facebook's first president. Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.Sean Parker, an American entrepreneur, co-founded Napster and served as Facebook's first president.",
     linkedin: "https://linkedin.com",
     facebook: "https://facebook.com",
     twitter: "https://twitter.com",
