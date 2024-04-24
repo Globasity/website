@@ -48,11 +48,18 @@ import arnonLogo from "../assests/png/arnonLogo.png";
 import ProcessWork from "../assests/svg/ProcessWork";
 import MainToggle from "./pagesComponent/mainToggle";
 import TextAnimation from "./pagesComponent/textAnimation";
+import HeroSlider from "./pagesComponent/heroSlider";
 
 const MainPage = () => {
   const { t } = useTranslation();
   const isLogin = useSelector((state) => state.auth.isLogin);
   const logos = [Logo1, Logo2, Logo3];
+  const images = [
+    Logo1,
+    Logo2,
+    Logo3
+    // Add more image URLs as needed
+  ];
   const headings = [
     { title: "Insights", icon: <InsightsIcon color={"#212529"} /> },
     { title: "Research", icon: <ResearchIcon color={"#212529"} /> },
@@ -67,12 +74,14 @@ const MainPage = () => {
   const paragraphs = ["Insights_detail", "Research_detail", "Identity_detail"];
   return (
     <div>
+            {/* <Carousel.Item> */}                 
+
       <div className="main" id="main">
         <Container fluid="xxl" className="px-0 position-relative">
           <section className="px-0 position-relative margin-bottom-content">
             {/* <Carousel fade  slide> */}
-            {/* <Carousel.Item> */}
-            <section className="px-3">
+            <HeroSlider />
+            {/* <section className="px-3">
               <div className="pt-5 banner_main px-xl-5 px-lg-4 px-3">
                 <div
                   className="banner_grid"
@@ -82,12 +91,8 @@ const MainPage = () => {
                     <div className="d-flex gap-2 ">
                       <div className="banner_col_1">
                         <h6 className="reponsive-font">
-                          <TextAnimation
-                            textArray={textArray}
-                            duration={duration}
-                          />
+                           A New World of Connecting Small Startups & Investors.
                         </h6>
-                        {/* <p> {t("Subheadline")} </p> */}
                         {isLogin === false && (
                           <div style={{ textAlign: "center" }}>
                             <Link to={"/sign-up"}>
@@ -115,7 +120,7 @@ const MainPage = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
             {/* </Carousel.Item>
                         <Carousel.Item>
                             <section className="px-3">
