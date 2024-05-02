@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import HeroMain from "./../../assests/svg/HeroMain";
 import HeroMain2 from "./../../assests/svg/HeroMain2";
 import HeroMain3 from "./../../assests/svg/HeroMain3";
+import InvestorsIcon from "../../assests/svg/investorsIcon";
 
 function HeroSlider() {
   const isLogin = useSelector((state) => state.auth.isLogin);
@@ -17,41 +18,34 @@ function HeroSlider() {
     <Carousel>
       <Carousel.Item interval={3000}>
         <section className="px-3">
-          <div className="pt-5 banner_main px-xl-5 px-lg-4 px-3">
-            <div
-              className="banner_grid"
-              style={{ display: "flex", flexDirection: "column" }}
-            >
-              <div className="width5">
-                <div className="d-flex gap-2 ">
-                  <div className="banner_col_1">
-                    <h6 className="reponsive-font">
-                      A New World of Connecting Small Startups & Investors.
-                    </h6>
-                    {isLogin === false && (
-                      <div style={{ textAlign: "center" }}>
-                        <Link to={"/sign-up"}>
-                          <Button
-                            padding=".84rem 1.7rem"
-                            fs="0.9rem"
-                            content={t("Get_Started")}
-                          />
-                        </Link>
-                      </div>
-                    )}
+          <div className="pt-5 banner_main px-3">
+            <div className="row special-padding">
+              <div className="col-md-6 mb-5">
+                <h6 className="hero-font text-center">
+                  A New World of Connecting Small Startups & Investors.
+                </h6>
+                {isLogin === false && (
+                  <div className="d-flex justify-content-center">
+                    <Link to={"/sign-up"}>
+                      <Button
+                        padding=".84rem 1.7rem"
+                        fs="0.9rem"
+                        content={t("Get_Started")}
+                      />
+                    </Link>
                   </div>
+                )}
+              </div>{" "}
+              <div className="col-md-6 col-sm-12">
+                <div
+                  style={{
+                    width: "-webkit-fill-available",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <HeroMain />
                 </div>
-              </div>
-              <div
-                className="h-100"
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "-webkit-fill-available",
-                }}
-              >
-                <HeroMain />
               </div>
             </div>
           </div>
@@ -59,42 +53,34 @@ function HeroSlider() {
       </Carousel.Item>
       <Carousel.Item interval={3000}>
         <section className="px-3">
-          <div className="pt-5 banner_main px-xl-5 px-lg-4 px-3">
-            <div
-              className="banner_grid"
-              style={{ display: "flex", flexDirection: "column" }}
-            >
-              <div className="width5">
-                <div className="d-flex gap-2 ">
-                  <div className="banner_col_1">
-                    <h6 className="reponsive-font">
-                      Empowering Small Businesses to Thrive with Investor
-                      Support.
-                    </h6>
-                    {isLogin === false && (
-                      <div style={{ textAlign: "center" }}>
-                        <Link to={"/sign-up"}>
-                          <Button
-                            padding=".84rem 1.7rem"
-                            fs="0.9rem"
-                            content={t("Get_Started")}
-                          />
-                        </Link>
-                      </div>
-                    )}
+          <div className="pt-5 banner_main px-3">
+            <div className="row special-padding">
+              <div className="col-md-6 mb-5">
+                <h6 className="hero-font text-center">
+                  Empowering Small Businesses to Thrive with Investor Support.
+                </h6>
+                {isLogin === false && (
+                  <div className="d-flex justify-content-center">
+                    <Link to={"/sign-up"}>
+                      <Button
+                        padding=".84rem 1.7rem"
+                        fs="0.9rem"
+                        content={t("Get_Started")}
+                      />
+                    </Link>
                   </div>
-                </div>
+                )}
               </div>
-              <div
-                className="h-100"
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "-webkit-fill-available",
-                }}
-              >
-                <HeroMain2 />
+              <div className="col-md-6 col-sm-12">
+                <div
+                  style={{
+                    width: "-webkit-fill-available",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <HeroMain2 />
+                </div>
               </div>
             </div>
           </div>
@@ -102,42 +88,34 @@ function HeroSlider() {
       </Carousel.Item>
       <Carousel.Item interval={3000}>
         <section className="px-3">
-          <div className="pt-5 banner_main px-xl-5 px-lg-4 px-3">
-            <div
-              className="banner_grid"
-              style={{ display: "flex", flexDirection: "column" }}
-            >
-              <div className="width5">
-                <div className="d-flex gap-2 ">
-                  <div className="banner_col_1">
-                    <h6 className="reponsive-font">
-                      Linking Entrepreneurs with the Capital they Need to
-                      Succeed.
-                    </h6>
-                    {isLogin === false && (
-                      <div style={{ textAlign: "center" }}>
-                        <Link to={"/sign-up"}>
-                          <Button
-                            padding=".84rem 1.7rem"
-                            fs="0.9rem"
-                            content={t("Get_Started")}
-                          />
-                        </Link>
-                      </div>
-                    )}
+          <div className="pt-5 banner_main px-3">
+            <div className="row special-padding">
+              <div className="col-md-6 mb-5">
+                <h6 className="hero-font text-center">
+                  Linking Entrepreneurs with the Capital they Need to Succeed.
+                </h6>
+                {isLogin === false && (
+                  <div className="d-flex justify-content-center">
+                    <Link to={"/sign-up"}>
+                      <Button
+                        padding=".84rem 1.7rem"
+                        fs="0.9rem"
+                        content={t("Get_Started")}
+                      />
+                    </Link>
                   </div>
-                </div>
+                )}
               </div>
-              <div
-                className="h-100"
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "-webkit-fill-available",
-                }}
-              >
-                <HeroMain3 />
+              <div className="col-md-6 col-sm-12">
+                <div
+                  style={{
+                    width: "-webkit-fill-available",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <HeroMain3 />
+                </div>
               </div>
             </div>
           </div>
