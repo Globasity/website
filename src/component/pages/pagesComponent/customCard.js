@@ -14,16 +14,19 @@ function CustomCard({ image, title, description, type, linkedin, facebook, twitt
     }
     return description;
   }
-  const truncatedDescription = truncateDescription(description, 13);
+  const truncatedDescription = truncateDescription(description, 10);
   return (
     <>
       {/* eslint-disable-next-line */}
       <a onClick={handleShow} className="text-dec-none">
-        <div className="custom-card">
+        <div className="custom-card p-3">
           <img src={image} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="popins_semibold">{title}</h5>
-            <p className="poppins_regular">{truncatedDescription}</p>
+            <div className="d-flex align-items-center justify-content-between mb-2">
+            <div className="popins_semibold head-design">{title}</div>
+            <div className="popins_semibold type-design">{type}</div>
+            </div>
+            <div className="poppins_regular desc-design">{truncatedDescription}</div>
           </div>
         </div>
       </a>

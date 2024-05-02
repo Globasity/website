@@ -789,13 +789,15 @@ ol > li::marker {
 }
 
 .custom-card {
-  border: 2px solid var(--light);
+  border: 2px solid white;
+  background-color: white;
   border-radius: 15px;
   width: 100%;
   box-shadow: none !important;
   background-color: var(--white);
   transition: border-color 0.5s, background-color 0.5s;
   cursor: pointer;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .060) !important;
 }
 
 .carousel-control-next-icon,
@@ -804,7 +806,24 @@ ol > li::marker {
 }
 
 .custom-card > img {
-  border-radius: 14px 14px 0px 0px;
+  border-radius: 15px;
+}
+
+.type-design{
+  background-color: var(--yellow);
+  color: white;
+  padding: 1px 10px;
+  font-size: 16px !important;
+  border-radius: 100px;
+}
+
+.head-design{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.desc-design{
+  color: #6c757d;
 }
 
 .custom-card:hover {
@@ -822,7 +841,7 @@ ol > li::marker {
 }
 
 .card-body {
-  padding: 20px 15px 15px 15px;
+  padding: 14px 0px;
 }
 
 .card-body > h5 {

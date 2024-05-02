@@ -194,7 +194,7 @@ const Startups = () => {
                 .map((card) => (
                   <div
                     key={card.id}
-                    className="col-lg-4 col-md-4 col-sm-4 col-12 mb-3"
+                    className="col-lg-4 col-md-4 col-sm-4 col-12 mb-4"
                   >
                     <CustomCard
                       image={card.image}
