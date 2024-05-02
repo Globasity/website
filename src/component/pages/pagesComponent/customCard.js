@@ -22,9 +22,9 @@ function CustomCard({ image, title, description, type, linkedin, facebook, twitt
         <div className="custom-card p-3">
           <img src={image} className="card-img-top" alt="..." />
           <div className="card-body">
-            <div className="d-flex align-items-center justify-content-between mb-2">
+            <div className="d-flex align-items-center justify-content-between mb-2 flex-resp-card">
             <div className="popins_semibold head-design">{title}</div>
-            <div className="popins_semibold type-design">{type}</div>
+            <div className="popins_semibold type-design text-center">{type}</div>
             </div>
             <div className="poppins_regular desc-design">{truncatedDescription}</div>
           </div>

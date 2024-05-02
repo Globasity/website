@@ -871,7 +871,6 @@ ol > li::marker {
   padding: 0px 1.5rem 1.5rem;
   position: relative;
   top: -60px;
-  left: 15px;
 }
 
 .custom-border {
@@ -986,6 +985,13 @@ ol > li::marker {
   }
 }
 
+@media screen and (max-width: 1100px) {
+  .flex-resp-card {
+    gap: 7px;
+    flex-direction: column !important;
+  }
+}
+
 @media screen and (max-width: 1037px) {
   .contact_banner > h5 {
     width: 60% !important;
@@ -1086,6 +1092,24 @@ ol > li::marker {
     line-height: 43px;
   }
 
+  .flex-resp {
+    flex-direction: column !important;
+    gap: 30px;
+  }
+
+  .resp-gap {
+    gap: 10px;
+  }
+
+  .align-resp {
+    align-items: center !important;
+  }
+
+  .resp-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .about_page_btns > button {
     padding: 8px 22px !important;
 

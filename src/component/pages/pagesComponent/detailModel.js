@@ -32,24 +32,27 @@ const DetailModel = ({
         ></a>
         <div className="header-card-design popins_semibold">{header}</div>
       </Modal.Header>
-      <div style={{ height: "397px" }}>
+      <div>
         <div className="p-4 image-card-detail">
           <img src={image} className="card-img-top image-custom" alt="..." />
         </div>
-        <div className="logo-position image-card-detail">
-          <div className="d-flex">
-            <img
-              src={logo}
-              className="card-img-top image-custom logo-design"
-              alt="..."
-            />
-            <div className="d-flex justify-content-between w-100 align-items-end mx-3">
-              <div>
-                <div className="popins_semibold head-design mb-1">{header}</div>
-                <div className="popins_semibold">
-                  <span className="type-design">{type}</span>
-                </div>
+        <div className="logo-position image-card-detail d-flex justify-content-between align-items-end mx-3 flex-resp align-resp">
+          <div className="d-flex gap-3 flex-resp">
+            <div className="resp-center">
+              <img
+                src={logo}
+                className="card-img-top image-custom logo-design"
+                alt="..."
+              />
+            </div>
+            <div className="d-flex justify-content-end flex-column resp-center resp-gap">
+              <div className="popins_semibold head-design mb-2">{header}</div>
+              <div className="popins_semibold">
+                <span className="type-design">{type}</span>
               </div>
+            </div>
+          </div>
+      
               <div>
                 <ul
                   className="social-icons align-items-center justify-content-center"
@@ -70,15 +73,9 @@ const DetailModel = ({
                       <Twitter className="img_icon text-white" />
                     </a>
                   </li>
-                  {/* <li className="mail">
-                <a href={twitter} target="_blank">
-                  <Mail className="img_icon text-white" />
-                </a>
-              </li> */}
                 </ul>
               </div>
-            </div>
-          </div>
+         
         </div>
       </div>
       <Modal.Body className="modal-body-custom">
