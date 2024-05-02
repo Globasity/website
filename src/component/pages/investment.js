@@ -32,7 +32,27 @@ const Investment = () => {
     ]
     return (
         <>
-
+            <Container fluid="xxl" className="px-0">
+                <section className='mt-5'>
+                    <Container fluid="lg">
+                        <div className='mb-5'>
+                        <h5 className='popins_semibold text-center mb-0'>
+                            Investment
+                        </h5>
+                        <div className='fs_08 popins_light text-center'>Your investment business</div>
+                        </div>
+                        <div>
+                            <div className='row contentCenter'>
+                                {detail.map((items, index) => (
+                                    <div key={index} className='col-xl-4 col-lg-5 col-md-6 col-sm-9  p-2'>
+                                        <InvestmentCard name={items.name} profile={items.profile} description={items.description} amountPer={items.amountPer}  />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </Container>
+                </section>
+            </Container>
         </>
     )
 }
