@@ -198,9 +198,11 @@ const Startups = () => {
                   >
                     <CustomCard
                       image={card.image}
+                      logo={card.logo}
                       href={card.href}
                       title={card.title}
                       type={card.type}
+                      brief={card.brief}
                       description={card.description}
                       facebook={card.facebook}
                       linkedin={card.linkedin}
@@ -285,9 +287,7 @@ const Startups = () => {
                 </div>
               </div>
             </div>
-            <div 
-              ref={ourValuesRef}
-            ></div>
+            <div ref={ourValuesRef}></div>
             <OurValues
               headings={headings}
               paragraphs={paragraphs}

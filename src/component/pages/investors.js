@@ -106,7 +106,9 @@ const Investors = () => {
                 >
                   <CustomCard
                     image={card.image}
+                    logo={card.logo}
                     href={card.href}
+                    brief={card.brief}
                     title={card.title}
                     type={card.type}
                     description={card.description}

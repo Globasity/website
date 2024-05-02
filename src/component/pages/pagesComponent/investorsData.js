@@ -1,9 +1,12 @@
 import sampleimg from "../../assests/png/sampleimg.png";
+import logo from "../../assests/png/clogo.png";
 
 const InvestorsData = [
   {
     id: 1,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Sean Parker",
     type: "Artificial Intelligence",
@@ -16,6 +19,8 @@ const InvestorsData = [
   {
     id: 2,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Wisdom",
     type: "Food",
@@ -28,6 +33,8 @@ const InvestorsData = [
   {
     id: 3,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Sean Parker",
     type: "Artificial Intelligence",
@@ -40,6 +47,8 @@ const InvestorsData = [
   {
     id: 4,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Sean Parker",
     type: "Technology",
@@ -52,6 +61,8 @@ const InvestorsData = [
   {
     id: 5,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Sean Parker",
     type: "Artificial Intelligence",
@@ -64,6 +75,8 @@ const InvestorsData = [
   {
     id: 6,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Sean Parker",
     type: "Artificial Intelligence",
@@ -76,6 +89,8 @@ const InvestorsData = [
   {
     id: 7,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Sean Parker",
     type: "Artificial Intelligence",
@@ -88,6 +103,8 @@ const InvestorsData = [
   {
     id: 8,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Sean Parker",
     type: "Artificial Intelligence",
@@ -100,6 +117,8 @@ const InvestorsData = [
   {
     id: 9,
     image: sampleimg,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Sean Parker",
     type: "Artificial Intelligence",

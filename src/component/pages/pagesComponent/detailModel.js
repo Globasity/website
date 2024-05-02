@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 // eslint-disable-next-line
 import Modal from "react-bootstrap/Modal";
 import { Facebook, Linkedin, Twitter } from "react-feather";
@@ -9,26 +9,86 @@ const DetailModel = ({
   header,
   detail,
   logo,
+  image,
   type,
+  brief,
   facebook,
   linkedin,
   twitter,
 }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const handleClick = () => {
     handleClose();
   };
   return (
     <>
-      <Modal.Header closeButton>
-        <Modal.Title style={{ display: "flex" }}>
-          {header}
-          <span className="header-type">{type}</span>
-        </Modal.Title>
+      <Modal.Header className="mx-3">
+        {/* eslint-disable-next-line */}
+        <a
+          type="button"
+          class="btn-close btn-special"
+          aria-label="Close"
+          onClick={handleClick}
+        ></a>
+        <div className="header-card-design popins_semibold">{header}</div>
       </Modal.Header>
-      <img src={logo} className="card-img-top" alt="..." />
-      <Modal.Body>{detail}</Modal.Body>
-
+      <div style={{ height: "397px" }}>
+        <div className="p-4 image-card-detail">
+          <img src={image} className="card-img-top image-custom" alt="..." />
+        </div>
+        <div className="logo-position image-card-detail">
+          <div className="d-flex">
+            <img
+              src={logo}
+              className="card-img-top image-custom logo-design"
+              alt="..."
+            />
+            <div className="d-flex justify-content-between w-100 align-items-end mx-3">
+              <div>
+                <div className="popins_semibold head-design mb-1">{header}</div>
+                <div className="popins_semibold">
+                  <span className="type-design">{type}</span>
+                </div>
+              </div>
+              <div>
+                <ul
+                  className="social-icons align-items-center justify-content-center"
+                  style={{ listStyle: "none" }}
+                >
+                  <li className="fb">
+                    <a href={facebook} target="_blank" rel="noreferrer">
+                      <Facebook className="img_icon text-white" />
+                    </a>
+                  </li>
+                  <li className="ins">
+                    <a href={linkedin} target="_blank" rel="noreferrer">
+                      <Linkedin className="img_icon text-white" />
+                    </a>
+                  </li>
+                  <li className="twitter">
+                    <a href={twitter} target="_blank" rel="noreferrer">
+                      <Twitter className="img_icon text-white" />
+                    </a>
+                  </li>
+                  {/* <li className="mail">
+                <a href={twitter} target="_blank">
+                  <Mail className="img_icon text-white" />
+                </a>
+              </li> */}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Modal.Body className="modal-body-custom">
+        <div className="px-3">
+          <div className="custom-border-top p-3 popins_semibold">{brief}</div>
+          <div className="custom-border-top"></div>
+          <div className="p-3 desc-design mb-3">{detail}</div>
+        </div>
+      </Modal.Body>
+      {/* 
       <Modal.Footer style={{ justifyContent: "space-between" }}>
         <div>
           <div>
@@ -51,22 +111,11 @@ const DetailModel = ({
                   <Twitter className="img_icon text-white" />
                 </a>
               </li>
-              {/* <li className="mail">
-                <a href={twitter} target="_blank">
-                  <Mail className="img_icon text-white" />
-                </a>
-              </li> */}
             </ul>
           </div>
         </div>
-        <button
-          type="button"
-          onClick={handleClick}
-          className="btn1 fs_09 btn_primary_outline rounded_3 px-3 py-2"
-        >
-          {t("Close")}
-        </button>
-      </Modal.Footer>
+        <span className="header-type">{type}</span>
+      </Modal.Footer> */}
     </>
   );
 };

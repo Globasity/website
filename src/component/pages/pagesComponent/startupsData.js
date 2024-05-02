@@ -1,9 +1,12 @@
 import samplecom from "../../assests/png/samplecom.png";
+import logo from "../../assests/png/clogo.png";
 
 const StartupsData = [
   {
     id: 1,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "IT",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Reo Techs",
@@ -16,6 +19,8 @@ const StartupsData = [
   {
     id: 2,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "IT",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Smart Logs",
@@ -28,6 +33,8 @@ const StartupsData = [
   {
     id: 3,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "Foods",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Chicken Chicks",
@@ -40,6 +47,8 @@ const StartupsData = [
   {
     id: 4,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "Foods",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Burger King",
@@ -52,6 +61,8 @@ const StartupsData = [
   {
     id: 5,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "Foods",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "KFC",
@@ -64,6 +75,8 @@ const StartupsData = [
   {
     id: 6,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "IT",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Facesmart",
@@ -76,6 +89,8 @@ const StartupsData = [
   {
     id: 7,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "Foods",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "McDonalds",
@@ -88,6 +103,8 @@ const StartupsData = [
   {
     id: 8,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "IT",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Fiverr",
@@ -100,6 +117,8 @@ const StartupsData = [
   {
     id: 9,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "Foods",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "AL Camino",
@@ -112,6 +131,8 @@ const StartupsData = [
   {
     id: 10,
     image: samplecom,
+    brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
+    logo: logo,
     type: "Foods",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "El Rolls",

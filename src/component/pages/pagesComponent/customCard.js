@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import DetailModel from "./detailModel";
 import Modal from "react-bootstrap/Modal";
 
-function CustomCard({ image, title, description, type, linkedin, facebook, twitter }) {
+function CustomCard({ image, title, description, type, linkedin, facebook, twitter, logo, brief }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -35,7 +35,9 @@ function CustomCard({ image, title, description, type, linkedin, facebook, twitt
           handleClose={handleClose}
           header={title}
           type={type}
-          logo={image}
+          image={image}
+          logo={logo}
+          brief={brief}
           detail={description}
           linkedin={linkedin}
           facebook={facebook}
