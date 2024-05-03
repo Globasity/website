@@ -985,7 +985,7 @@ ol > li::marker {
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .flex-resp-card {
     gap: 7px;
     flex-direction: column !important;
@@ -1023,6 +1023,10 @@ ol > li::marker {
     font-size: 1px !important;
     white-space: nowrap !important;
   }
+}
+
+.margin-fix{
+  margin-bottom: -55px;
 }
 
 @media screen and (max-width: 765px) {
@@ -1063,6 +1067,14 @@ ol > li::marker {
   }
 }
 
+.font-fix{
+  font-size: 12px !important;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media screen and (max-width: 828px) {
   .creative_team > p {
     font-size: 37px !important;
@@ -1094,7 +1106,7 @@ ol > li::marker {
 
   .flex-resp {
     flex-direction: column !important;
-    gap: 30px;
+    gap: 20px;
   }
 
   .resp-gap {

@@ -36,7 +36,7 @@ const DetailModel = ({
         <div className="p-4 image-card-detail">
           <img src={image} className="card-img-top image-custom" alt="..." />
         </div>
-        <div className="logo-position image-card-detail d-flex justify-content-between align-items-end mx-3 flex-resp align-resp">
+        <div className="logo-position image-card-detail d-flex justify-content-between align-items-end mx-3 flex-resp align-resp margin-fix">
           <div className="d-flex gap-3 flex-resp">
             <div className="resp-center">
               <img
@@ -46,9 +46,9 @@ const DetailModel = ({
               />
             </div>
             <div className="d-flex justify-content-end flex-column resp-center resp-gap">
-              <div className="popins_semibold head-design mb-2">{header}</div>
+              <div className="popins_semibold head-design mb-1">{header}</div>
               <div className="popins_semibold">
-                <span className="type-design">{type}</span>
+                <span className="type-design font-fix">{type}</span>
               </div>
             </div>
           </div>
