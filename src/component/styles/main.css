@@ -1067,6 +1067,14 @@ ol > li::marker {
   }
 }
 
+.head-fix{
+  font-size: 20px !important;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .font-fix{
   font-size: 12px !important;
   display: inline-block;

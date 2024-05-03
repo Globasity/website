@@ -46,7 +46,7 @@ const DetailModel = ({
               />
             </div>
             <div className="d-flex justify-content-end flex-column resp-center resp-gap">
-              <div className="popins_semibold head-design mb-1">{header}</div>
+              <div className="popins_semibold head-design mb-1 head-fix">{header}</div>
               <div className="popins_semibold">
                 <span className="type-design font-fix">{type}</span>
               </div>
