@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Accordion, Container, Modal } from "react-bootstrap";
+import { Accordion, Container, Modal, Spinner } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -9,38 +9,55 @@ import { useState } from "react";
 import { apiRequest } from "../api/apiRequest";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
-import { Download } from "react-feather";
+import { Download, Send } from "react-feather";
 import BackToTop from "./pagesComponent/backToTop";
+import profileAvatar from "../assests/png/profileAvatar.png";
 
 const BusinessDetail = () => {
-  const { state } = useLocation()
-  const [Images, setImages] = useState([])
-  const { businessData, url, status, isfav } = state ? state : {}
-  const userData = JSON.parse(window.localStorage.getItem('globasity_user_data'))
+  const { state } = useLocation();
+  const [Images, setImages] = useState([]);
+  const { businessData, url, status, isfav } = state ? state : {};
+  const userData = JSON.parse(
+    window.localStorage.getItem("globasity_user_data")
+  );
   const [contractData, setContractData] = useState();
-  const [newWindow, setNewWindow] = useState(null)
+  const [newWindow, setNewWindow] = useState(null);
   const [InvestorData, setInvestorData] = useState();
-  const { t } = useTranslation()
-  const [paymentLink, setPaymentLink] = useState('')
-  const [userPaymentInfo, setUserPaymentInfo] = useState('')
-  const [nextBtn, setNextBtn] = useState(false)
-  const [paymentResult, setPaymentResult] = useState(false)
-  const [isLoading, setisLoading] = useState(false)
+  const { t } = useTranslation();
+  const [paymentLink, setPaymentLink] = useState("");
+  const [userPaymentInfo, setUserPaymentInfo] = useState("");
+  const [message, setMessage] = useState("");
+  const [chat, setChat] = useState(false);
+  const [nextBtn, setNextBtn] = useState(false);
+  const [paymentResult, setPaymentResult] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
+  const [isLoadingButton, setIsLoadingButton] = useState(false);
   let childWindow;
 
   const openPaymentPage = (paymentPageLink) => {
-    const childWindow = window.open(paymentPageLink, 'PaymentPage', 'width=600,height=800');
+    const childWindow = window.open(
+      paymentPageLink,
+      "PaymentPage",
+      "width=600,height=800"
+    );
     return childWindow; // Return a reference to the child window
   };
   const handleViewAdd = (investorData2, businessData2, checkMyBus) => {
-    navigate('/view-initial-contract', { state: { investorData: investorData2, businessData: businessData2, investorId: userData?.user_id, checkMyBus: checkMyBus } })
-  }
+    navigate("/view-initial-contract", {
+      state: {
+        investorData: investorData2,
+        businessData: businessData2,
+        investorId: userData?.user_id,
+        checkMyBus: checkMyBus,
+      },
+    });
+  };
   const updateData = async () => {
     const body = new FormData();
-    body.append('table_name', 'users');
-    body.append('type', 'update_data');
-    body.append('id', userData?.user_id);
-    body.append('website_payment_date', "00000-00-00");
+    body.append("table_name", "users");
+    body.append("type", "update_data");
+    body.append("id", userData?.user_id);
+    body.append("website_payment_date", "00000-00-00");
     await apiRequest({ body })
       .then((result) => {
         console.log(result.data);
@@ -50,12 +67,12 @@ const BusinessDetail = () => {
       });
   };
   const payment = async () => {
-    const body = new FormData()
-    body.append('type', 'payment_link')
-    body.append('amount', "5")
-    body.append('name', userData?.user_name)
-    body.append('phone', userData?.phone)
-    body.append('email', userData?.email)
+    const body = new FormData();
+    body.append("type", "payment_link");
+    body.append("amount", "5");
+    body.append("name", userData?.user_name);
+    body.append("phone", userData?.phone);
+    body.append("email", userData?.email);
     // Declare a variable to hold the reference to the child window
 
     await apiRequest({ body })
@@ -63,25 +80,26 @@ const BusinessDetail = () => {
         const data = JSON.parse(result.result);
         const paymentPage = data?.data.payment_page_link;
         setPaymentLink(paymentPage);
-        setNextBtn(true)
+        setNextBtn(true);
         childWindow = openPaymentPage(paymentPage);
-        setNewWindow(childWindow)
-      }).catch((err) => {
+        setNewWindow(childWindow);
+      })
+      .catch((err) => {
         console.log(err);
       });
-  }
+  };
   const fetchData = () => {
     const body = new FormData();
-    body.append('table_name', 'users');
-    body.append('type', 'get_data');
-    body.append('email', userData?.email);
+    body.append("table_name", "users");
+    body.append("type", "get_data");
+    body.append("email", userData?.email);
     apiRequest({ body })
       .then((result) => {
         const parsedGivenDate = new Date(result.data[0].website_payment_date);
         const currentDate = new Date();
         if (parsedGivenDate.toDateString() === currentDate.toDateString()) {
-          setPaymentResult(true)
-          setNextBtn(false)
+          setPaymentResult(true);
+          setNextBtn(false);
           setUserPaymentInfo(result.data);
         }
       })
@@ -90,40 +108,40 @@ const BusinessDetail = () => {
       });
   };
   const addPaymentData = async () => {
-    setisLoading(true)
+    setisLoading(true);
     const body = new FormData();
-    body.append('table_name', 'payments');
-    body.append('type', 'add_data');
-    body.append('user_id', userData?.user_id);
-    body.append('amount', 5);
-    body.append('business_id', businessData?.business_id);
-    body.append('contract_id', 0);
-    body.append('payment_method', 'payplus');
-    body.append('status', 'approved');
-    body.append('payment_type', 'contract');
+    body.append("table_name", "payments");
+    body.append("type", "add_data");
+    body.append("user_id", userData?.user_id);
+    body.append("amount", 5);
+    body.append("business_id", businessData?.business_id);
+    body.append("contract_id", 0);
+    body.append("payment_method", "payplus");
+    body.append("status", "approved");
+    body.append("payment_type", "contract");
     apiRequest({ body })
       .then(async (result) => {
         if (result.result === true) {
-          toast.success("Transaction successfully")
+          toast.success("Transaction successfully");
           if (newWindow && !newWindow.closed) {
             newWindow.close();
           }
-          await updateData()
-          creatContract()
+          await updateData();
+          creatContract();
         }
-        setisLoading(false)
+        setisLoading(false);
       })
       .catch((err) => {
-        toast.error(err)
-        setisLoading(false)
+        toast.error(err);
+        setisLoading(false);
         console.log(err);
       });
-  }
+  };
   useEffect(() => {
     if (paymentResult === true) {
-      addPaymentData()
+      addPaymentData();
     }
-  }, [paymentResult])
+  }, [paymentResult]);
   // Use setInterval to fetch data at regular intervals (e.g., every 5 seconds)
   useEffect(() => {
     if (nextBtn === true) {
@@ -134,28 +152,29 @@ const BusinessDetail = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nextBtn]);
   useEffect(() => {
-    const imgData = (businessData?.images)
-    setImages(imgData)
-  }, [businessData])
+    const imgData = businessData?.images;
+    setImages(imgData);
+  }, [businessData]);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const getInvestors = async () => {
-    const body = new FormData()
-    body.append('table_name', 'users')
-    body.append('type', 'get_data')
-    body.append('id', userData?.user_id)
+    const body = new FormData();
+    body.append("table_name", "users");
+    body.append("type", "get_data");
+    body.append("id", userData?.user_id);
     await apiRequest({ body })
       .then((result) => {
-        handleViewAdd(result.data[0], businessData, businessData)
-        handleClose()
-      }).catch((err) => {
-        console.log(err)
+        handleViewAdd(result.data[0], businessData, businessData);
+        handleClose();
+      })
+      .catch((err) => {
+        console.log(err);
       });
-  }
+  };
   const creatContract = () => {
-    getInvestors()
+    getInvestors();
     // const formData = {
     //   business_id: businessData?.id,
     //   investor_id: userData?.user_id,
@@ -183,53 +202,149 @@ const BusinessDetail = () => {
     //   }).catch((err) => {
     //     console.log(err)
     //   });
-  }
+  };
   const getMyBusiness = async (id, user_business_id, investorId) => {
-    const body = new FormData()
-    body.append('table_name', 'business')
-    body.append('type', 'get_data')
-    body.append('id', id)
-    body.append('user_business', user_business_id)
-    body.append('investor_id', investorId)
+    const body = new FormData();
+    body.append("table_name", "business");
+    body.append("type", "get_data");
+    body.append("id", id);
+    body.append("user_business", user_business_id);
+    body.append("investor_id", investorId);
     await apiRequest({ body })
       .then((result) => {
-        setContractData(result.data[0])
-      }).catch((err) => {
-        console.log(err)
+        setContractData(result.data[0]);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-  }
+  };
   useEffect(() => {
     // getInvestors()
-    getMyBusiness(businessData?.id, isfav ? businessData?.user_id : businessData?.user?.id, userData.user_id)
-  }, [businessData])
-  const navigate = useNavigate()
-  const handleChat = (businessUserId, investorUserId) => {
-    console.log(businessUserId, investorUserId)
-    // navigate("/chat", { state: { businessUserId: businessUserId, investorUserId: investorUserId } })
-  }
+    getMyBusiness(
+      businessData?.id,
+      isfav ? businessData?.user_id : businessData?.user?.id,
+      userData.user_id
+    );
+  }, [businessData]);
+
+  const navigate = useNavigate();
+  const handleChat = async (user_id, to_id) => {
+    setIsLoadingButton(true);
+    const body = new FormData();
+    body.append("type", "check_if_exist");
+    body.append("from_id", user_id);
+    body.append("to_id", to_id);
+    await apiRequest({ body })
+      .then((result) => {
+        setIsLoadingButton(false);
+        if (result.exists) {
+          navigate("/chat");
+        } else {
+          setChat(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const sendMessage = async () => {
+    const body = new FormData();
+    body.append("type", "new_chat_send");
+    body.append("msg", message);
+    body.append("from_id", userData?.user_id);
+    body.append("to_id", businessData.user_id);
+    await apiRequest({ body })
+      .then((result) => {
+        setChat(false);
+        navigate("/chat");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const download = (file) => {
-    if (file === "undefined" || file === "" || file === undefined || file === "null" || file === null) {
-      toast.info("This document not uploaded")
+    if (
+      file === "undefined" ||
+      file === "" ||
+      file === undefined ||
+      file === "null" ||
+      file === null
+    ) {
+      toast.info("This document not uploaded");
     } else {
       const fileUrl = businessData?.url + file;
-      const downloadLink = document.createElement('a');
+      const downloadLink = document.createElement("a");
       downloadLink.href = fileUrl;
-      downloadLink.target = '_blank'; // Open in a new tab or window
+      downloadLink.target = "_blank";
       downloadLink.click();
     }
   };
 
+  const handleMessage = (e) => {
+    setMessage(e.target.value);
+  };
 
   return (
     <>
       <BackToTop />
+      <Modal show={chat} onHide={() => setChat(false)} centered>
+        <Modal.Header closeButton className="border-0">
+          <div>
+            <img
+              src={
+                businessData?.user?.image
+                  ? businessData.url + businessData.user.image
+                  : profileAvatar
+              }
+              className="chat_profile_img"
+            />
+          </div>
+          <div className="ps-3">
+            <h5 className="chat_detail fs_09">{businessData?.user?.name}</h5>
+          </div>
+        </Modal.Header>
+        <Modal.Body>
+          <div className=" position-relative">
+            <div className="   w-100">
+              <div className="d-flex my-3 mx-3">
+                <div className="position-relative w-100 me-1">
+                  <input
+                    type="text"
+                    required
+                    onChange={handleMessage}
+                    className="form-control rounded-3 ps-2 py-2 fs_10 "
+                    placeholder="Try to..."
+                  />
+                </div>
+                <button
+                  className="send_btn rounded-3 bg_darkSec"
+                  onClick={sendMessage}
+                >
+                  <Send
+                    className="text-white p-0 m-0"
+                    style={{ width: "1.2rem" }}
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton className="border-0">
           <h5 className="popins_semibold">{t("Terms_Condition")}</h5>
         </Modal.Header>
-        <Modal.Body className="text-center">{t("Terms_Condition_Business")}</Modal.Body>
+        <Modal.Body className="text-center">
+          {t("Terms_Condition_Business")}
+        </Modal.Body>
         <div className="py-3">
-          <button type='button' onClick={creatContract} className='btn1 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2' >
+          <button
+            type="button"
+            onClick={creatContract}
+            className="btn1 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2"
+          >
             {t("Accept")}
           </button>
         </div>
@@ -238,19 +353,22 @@ const BusinessDetail = () => {
         <section className="my-5">
           <Container fluid="lg">
             <div className="mb-4 ">
-
               <Carousel>
                 {Images?.map((items, index) => (
                   <Carousel.Item key={index}>
                     <img
                       src={url + items}
                       alt="banner"
-                      style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "top" }}
+                      style={{
+                        width: "100%",
+                        height: "500px",
+                        objectFit: "cover",
+                        objectPosition: "top",
+                      }}
                     />
                   </Carousel.Item>
                 ))}
               </Carousel>
-
             </div>
             <div className="parent" style={{ marginTop: "-5rem" }}>
               <div className=" d-flex flex-row gap-3 gap-sm-4 gap-lg-5 justify-content-center flex_wrap2 flex-nowrap">
@@ -275,14 +393,21 @@ const BusinessDetail = () => {
               </div>
             </div>
             <div>
-              <div className="d-flex gap-3 ps-1 flex-wrap mb-3" style={{ marginTop: "3rem" }}>
-                <h5 className="popins_semibold ">Startup Name:</h5>
-                <h5 className="width2" style={{ wordWrap: "break-word" }}>{businessData?.name}</h5>
-              </div>
               <div
-                className="border p-4 rounded-3   shadow1">
+                className="d-flex gap-3 ps-1 flex-wrap mb-3"
+                style={{ marginTop: "3rem" }}
+              >
+                <h5 className="popins_semibold ">Startup Name:</h5>
+                <h5 className="width2" style={{ wordWrap: "break-word" }}>
+                  {businessData?.name}
+                </h5>
+              </div>
+              <div className="border p-4 rounded-3   shadow1">
                 <h6 className="popins_semibold mb-2">Description</h6>
-                <p className="text_secondary" style={{ fontSize: "0.85rem", wordWrap: "break-word" }}>
+                <p
+                  className="text_secondary"
+                  style={{ fontSize: "0.85rem", wordWrap: "break-word" }}
+                >
                   {businessData?.description}
                 </p>
               </div>
@@ -293,13 +418,55 @@ const BusinessDetail = () => {
                       Basic Information
                     </Accordion.Header>
                     <Accordion.Body className="border-0 pt-0 ">
-                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">{t("CompanyName")}: <div className=" popins_regular"> {businessData?.company_name} </div> </div>
-                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">{t("CompanyAddress")}: <div className=" popins_regular"> {businessData?.company_address}  </div></div>
-                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">{t("CompanyNumber")}: <div className=" popins_regular">  {businessData?.company_number}  </div></div>
-                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">{t("Business_Type")}: <div className=" popins_regular">  {businessData?.business_type}  </div></div>
-                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">{t("TITLE_B_STATUS")}: <div className=" popins_regular">  {businessData?.business_status}  </div></div>
-                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">{t("CURRENCY_TYPE")}: <div className=" popins_regular">  {businessData?.currency_type}  </div></div>
-                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">{t("Funding_Amount")}: <div className=" popins_regular">  {businessData?.funding_amount}  </div></div>
+                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">
+                        {t("CompanyName")}:{" "}
+                        <div className=" popins_regular">
+                          {" "}
+                          {businessData?.company_name}{" "}
+                        </div>{" "}
+                      </div>
+                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">
+                        {t("CompanyAddress")}:{" "}
+                        <div className=" popins_regular">
+                          {" "}
+                          {businessData?.company_address}{" "}
+                        </div>
+                      </div>
+                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">
+                        {t("CompanyNumber")}:{" "}
+                        <div className=" popins_regular">
+                          {" "}
+                          {businessData?.company_number}{" "}
+                        </div>
+                      </div>
+                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">
+                        {t("Business_Type")}:{" "}
+                        <div className=" popins_regular">
+                          {" "}
+                          {businessData?.business_type}{" "}
+                        </div>
+                      </div>
+                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">
+                        {t("TITLE_B_STATUS")}:{" "}
+                        <div className=" popins_regular">
+                          {" "}
+                          {businessData?.business_status}{" "}
+                        </div>
+                      </div>
+                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">
+                        {t("CURRENCY_TYPE")}:{" "}
+                        <div className=" popins_regular">
+                          {" "}
+                          {businessData?.currency_type}{" "}
+                        </div>
+                      </div>
+                      <div className="d-flex align-items-sm-center flex-sm-row flex-column popins_semibold gap-3 mb-2">
+                        {t("Funding_Amount")}:{" "}
+                        <div className=" popins_regular">
+                          {" "}
+                          {businessData?.funding_amount}{" "}
+                        </div>
+                      </div>
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
@@ -311,9 +478,33 @@ const BusinessDetail = () => {
                       {t("FINANCIAL_INFO")}
                     </Accordion.Header>
                     <Accordion.Body className="border-0 pt-0 ">
-                      <div className="d-flex align-items-center gap-3 mb-2">{t("Financial_Statement")}: <div style={{ cursor: "pointer" }}> <Download onClick={() => download(businessData?.statement)} /> </div> </div>
-                      <div className="d-flex align-items-center gap-3 mb-2">{t("Business_Certificate")}: <div style={{ cursor: "pointer" }}> <Download onClick={() => download(businessData?.certificate)} /> </div></div>
-                      <div className="d-flex align-items-center gap-3 mb-2">{t("Other_Relevant_Document")}: <div style={{ cursor: "pointer" }}> <Download onClick={() => download(businessData?.other_doc)} /> </div></div>
+                      <div className="d-flex align-items-center gap-3 mb-2">
+                        {t("Financial_Statement")}:{" "}
+                        <div style={{ cursor: "pointer" }}>
+                          {" "}
+                          <Download
+                            onClick={() => download(businessData?.statement)}
+                          />{" "}
+                        </div>{" "}
+                      </div>
+                      <div className="d-flex align-items-center gap-3 mb-2">
+                        {t("Business_Certificate")}:{" "}
+                        <div style={{ cursor: "pointer" }}>
+                          {" "}
+                          <Download
+                            onClick={() => download(businessData?.certificate)}
+                          />{" "}
+                        </div>
+                      </div>
+                      <div className="d-flex align-items-center gap-3 mb-2">
+                        {t("Other_Relevant_Document")}:{" "}
+                        <div style={{ cursor: "pointer" }}>
+                          {" "}
+                          <Download
+                            onClick={() => download(businessData?.other_doc)}
+                          />{" "}
+                        </div>
+                      </div>
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
@@ -325,8 +516,28 @@ const BusinessDetail = () => {
                       {t("Diligence")}
                     </Accordion.Header>
                     <Accordion.Body className="border-0 pt-0 ">
-                      <div className="d-flex align-items-center gap-3 mb-2">{t("Legal_Diligence")}: <div style={{ cursor: "pointer" }}> <Download onClick={() => download(businessData?.legal_diligence)} /> </div> </div>
-                      <div className="d-flex align-items-center gap-3 mb-2">{t("Business_Diligence")}: <div style={{ cursor: "pointer" }}> <Download onClick={() => download(businessData?.business_diligence)} /> </div></div>
+                      <div className="d-flex align-items-center gap-3 mb-2">
+                        {t("Legal_Diligence")}:{" "}
+                        <div style={{ cursor: "pointer" }}>
+                          {" "}
+                          <Download
+                            onClick={() =>
+                              download(businessData?.legal_diligence)
+                            }
+                          />{" "}
+                        </div>{" "}
+                      </div>
+                      <div className="d-flex align-items-center gap-3 mb-2">
+                        {t("Business_Diligence")}:{" "}
+                        <div style={{ cursor: "pointer" }}>
+                          {" "}
+                          <Download
+                            onClick={() =>
+                              download(businessData?.business_diligence)
+                            }
+                          />{" "}
+                        </div>
+                      </div>
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
@@ -345,23 +556,40 @@ const BusinessDetail = () => {
               </div>
             </div>
             {userData?.user_type === "investor" &&
-              (contractData?.nda_created === "no" ?
-                (<div className="pb-5">
-                  <button type='button' onClick={handleShow} className='btn1 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2' >
+              (contractData?.nda_created === "no" ? (
+                <div className="pb-5">
+                  <button
+                    type="button"
+                    onClick={handleShow}
+                    className="btn1 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2"
+                  >
                     {t("BTN_CONTACT_US")}
                   </button>
-                </div>)
-                : <>
-                  {(contractData?.status) === "ongoing" &&
+                </div>
+              ) : (
+                <>
+                  {contractData?.status === "ongoing" && (
                     <div className="text-danger text-center">
                       {t("Bus_process")}
-                    </div>}
-                  {/* {(contractData?.status) === "completed" &&
-                    <button type='button' onClick={() => handleChat(businessData?.id, userData?.user_id)} className='btn1 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2' >
-                      {t("Chat")}
-                    </button>} */}
-                </>)
-            }
+                    </div>
+                  )}
+                  {contractData?.status === "completed" && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleChat(userData?.user_id, businessData.user_id)
+                      }
+                      className="btn1 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2"
+                    >
+                      {isLoadingButton ? (
+                        <Spinner animation="border" size="sm" />
+                      ) : (
+                        "Chat"
+                      )}
+                    </button>
+                  )}
+                </>
+              ))}
           </Container>
         </section>
       </Container>

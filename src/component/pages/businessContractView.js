@@ -45,7 +45,7 @@ const BusinessContractView = () => {
   const [urlnew, setUrlnew] = useState("");
   const [businessFromData, setBusinessFromData] = useState("");
   const [pdf, setPdf] = useState(false);
-  const [businessContract, setBusinessContract] = useState("");
+  const [businessContract, setBusinessContract] = useState(""); 
   const { state } = useLocation();
   const { businessData, url, contractDetail, status, businessCotract } = state
     ? state
@@ -332,6 +332,7 @@ const BusinessContractView = () => {
       generateData();
       navigate(-1);
     }
+
   }, [pdf]);
   const [toChatId, setToChatId] = useState("");
   const checkInitiateChat = (businessUserId, investorUserId) => {

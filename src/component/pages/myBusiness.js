@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 import paper from "../assests/png/paper.png";
 import BackToTop from "./pagesComponent/backToTop";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Send } from "react-feather";
+import profileAvatar from "../assests/png/profileAvatar.png";
 
 const MyBusiness = () => {
   const [pageLoad, setPageLoad] = useState(true);
@@ -21,12 +23,15 @@ const MyBusiness = () => {
   const [isInvestor, setIsInvestor] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoading2, setIsLoading2] = useState(false);
+  const [isLoadingButton, setIsLoadingButton] = useState(false);
   const [checkMyBus, setCheckMyBus] = useState("");
   const [contractData, setContractData] = useState();
   const { state } = useLocation();
   const { investorId, investor, investorData } = state ? state : {};
   const [businessId, setBusinessId] = useState(null);
   const [show, setShow] = useState(false);
+  const [message, setMessage] = useState("");
+  const [chat, setChat] = useState(false);
   // const [investors, setInvestors] = useState([]);
   const handleClose = () => {
     setShow(false);
@@ -34,13 +39,44 @@ const MyBusiness = () => {
   };
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
-  const handleChat = () => {
-    console.log(checkMyBus.user_id, investorData.id)
-    
-    navigate("/chat", {
-      state: { businessData: investorData.id, investorData: investorData.id },
-    });
-    
+  const handleChat = async () => {
+    console.log(checkMyBus.user_id, );
+    setIsLoadingButton(true);
+    const body = new FormData();
+    body.append("type", "check_if_exist");
+    body.append("from_id", checkMyBus.user_id);
+    console.log(investorData)
+    body.append("to_id", investorData.id);
+    await apiRequest({ body })
+      .then((result) => {
+        setIsLoadingButton(false);
+        if (result.exists) {
+          navigate("/chat");
+        } else {
+          setChat(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // navigate("/chat", {
+    //   state: { businessData: checkMyBus, investorData: investorData },
+    // });
+  };
+  const sendMessage = async () => {
+    const body = new FormData();
+    body.append("type", "new_chat_send");
+    body.append("msg", message);
+    body.append("from_id", checkMyBus.user_id);
+    body.append("to_id", investorData.id);
+    await apiRequest({ body })
+      .then((result) => {
+        setChat(false);
+        navigate("/chat");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const { t } = useTranslation();
   const handleBusinessSelect = async (business) => {
@@ -151,6 +187,11 @@ const MyBusiness = () => {
     //         console.log(err)
     //     });
   };
+
+  const handleMessage = (e) => {
+    setMessage(e.target.value);
+  };
+
   return (
     <>
       {pageLoad ? (
@@ -163,6 +204,51 @@ const MyBusiness = () => {
       ) : (
         <>
           <BackToTop />
+          <Modal show={chat} onHide={() => setChat(false)} centered>
+            <Modal.Header closeButton className="border-0">
+              <div>
+                <img
+                  src={
+                    investorData?.image
+                      ? investorData.url + investorData.image
+                      : profileAvatar
+                  }
+                  className="chat_profile_img"
+                />
+              </div>
+              <div className="ps-3">
+                <h5 className="chat_detail fs_09">
+                  {investorData?.name}
+                </h5>
+              </div>
+            </Modal.Header>
+            <Modal.Body>
+              <div className=" position-relative">
+                <div className="   w-100">
+                  <div className="d-flex my-3 mx-3">
+                    <div className="position-relative w-100 me-1">
+                      <input
+                        type="text"
+                        required
+                        onChange={handleMessage}
+                        className="form-control rounded-3 ps-2 py-2 fs_10 "
+                        placeholder="Try to..."
+                      />
+                    </div>
+                    <button
+                      className="send_btn rounded-3 bg_darkSec"
+                      onClick={sendMessage}
+                    >
+                      <Send
+                        className="text-white p-0 m-0"
+                        style={{ width: "1.2rem" }}
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Modal.Body>
+          </Modal>
           <Modal show={show} onHide={handleClose} centered>
             <Modal.Header closeButton className="border-0">
               <h5 className="popins_semibold">{t("Terms_Condition")}</h5>
@@ -178,13 +264,17 @@ const MyBusiness = () => {
                   contractData[0]?.nda_created === "yes" ? (
                     <div className="fs_09 text-center">
                       {t("Already_bus_created")}
-                      {/* <button
+                      <button
                         type="button"
                         onClick={handleChat}
                         className="btn1 mt-4 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2"
                       >
-                        {t("Chat")}
-                      </button> */}
+                        {isLoadingButton ? (
+                          <Spinner animation="border" size="sm" />
+                        ) : (
+                          "Chat"
+                        )}
+                      </button>
                     </div>
                   ) : (
                     <>

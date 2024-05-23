@@ -149,7 +149,7 @@ export default {
     ALREADY_CREATED: 'You already created a startup contract for this business',
     VIEW_CONTRACT: 'View Contract',
     VIEW_BUSINESS: 'View Startup',
-    CREATE_BUS_CONTRACT: "Create Startup Contract",
+    CREATE_BUS_CONTRACT: "Startup Contract",
     optional: "optional",
 
     // //////////// Signing Contracts
