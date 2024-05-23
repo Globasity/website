@@ -33,11 +33,11 @@ const DetailCard = ({ name, amountPer, getAllBusiness,lastId, description, profi
         apiRequest({ body })
             .then((result) => {
                 // console.log(result)
-                if (result.result) {
-                    getAllBusiness(null, true)
-                } else {
-                    getAllBusiness(null, true)
-                }
+                // if (result.result) {
+                //     getAllBusiness(null, true)
+                // } else {
+                //     getAllBusiness(null, true)
+                // }
             }).catch((err) => {
                 console.log(err)
             });

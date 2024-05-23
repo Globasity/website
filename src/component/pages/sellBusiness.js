@@ -29,17 +29,19 @@ const SellBusiness = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [pageLoad, setPageLoad] = useState(true);
   const [display, setDisplay] = useState(true);
+  const [totalCount, setTotalCount] = useState();
   const lastIdRef = useRef();
   const { t } = useTranslation();
-  let userLangauge = JSON.parse(
-    window.localStorage.getItem("globasity_language")
-  );
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    userLangauge = JSON.parse(
-      window.localStorage.getItem("globasity_language")
-    );
-  }, [t]);
+  const userLangauge = "en";
+  // let userLangauge = JSON.parse(
+  //   window.localStorage.getItem("globasity_language")
+  // );
+  // useEffect(() => {
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   userLangauge = JSON.parse(
+  //     window.localStorage.getItem("globasity_language")
+  //   );
+  // }, [t]);
   const getBusinessType = () => {
     const body = new FormData();
     body.append("table_name", "business_types");
@@ -76,6 +78,7 @@ const SellBusiness = () => {
         const count = result?.data?.length;
         setAllBusinessType(result.data);
         setAllBusinessType2(result.data);
+        setTotalCount(result.count);
         setPageLoad(false);
         isLike === false && updateLastId(result?.data[count - 1].id);
       })
@@ -427,7 +430,8 @@ const SellBusiness = () => {
             display &&
             loaderCounts > 0 &&
             (formData.businessStatus === "" || formData.businessType === "") &&
-            allBusinessType?.length >= 10 && (
+            allBusinessType?.length >= 10 &&
+            !(allBusinessType.length == totalCount) && (
               <button
                 button
                 disabled={isLoading}

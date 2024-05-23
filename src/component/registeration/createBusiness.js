@@ -134,15 +134,16 @@ const CreateBusiness = ({
   };
   const { t } = useTranslation();
   const navigate = useNavigate();
-  let userLangauge = JSON.parse(
-    window.localStorage.getItem("globasity_language")
-  );
-  useEffect(() => {
+  // let userLangauge = JSON.parse(
+  //   window.localStorage.getItem("globasity_language")
+  // );
+  const userLangauge = 'en';
+  // useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    userLangauge = JSON.parse(
-      window.localStorage.getItem("globasity_language")
-    );
-  }, [t]);
+    // userLangauge = JSON.parse(
+    //   window.localStorage.getItem("globasity_language")
+    // );
+  // }, [t]);
   const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;

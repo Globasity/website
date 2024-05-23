@@ -39,9 +39,10 @@ const ViewContract = () => {
   const [imageName, setImageName] = useState(null);
   const [newWindow, setNewWindow] = useState(null);
   const { state } = useLocation();
-  let userLangauge = JSON.parse(
-    window.localStorage.getItem("globasity_language")
-  );
+  // let userLangauge = JSON.parse(
+  //   window.localStorage.getItem("globasity_language")
+  // );
+  const userLangauge = 'en';
   const { businessData, url, status } = state ? state : {};
   function generateRandomFilename() {
     const currentDate = new Date();
@@ -54,11 +55,11 @@ const ViewContract = () => {
     filename: `${senderName} contract with ${receiverName}_${generateRandomFilename}.pdf`,
     page: { margin: Margin.MEDIUM },
   });
-  useEffect(() => {
-    userLangauge = JSON.parse(
-      window.localStorage.getItem("globasity_language")
-    );
-  }, [t]);
+  // useEffect(() => {
+  //   userLangauge = JSON.parse(
+  //     window.localStorage.getItem("globasity_language")
+  //   );
+  // }, [t]);
   const handleClose = () => {
     setDigitalSignature(false);
     setUploadFile(false);

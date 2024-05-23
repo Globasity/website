@@ -139,7 +139,7 @@ const InitialContractCard = ({
       />
       <div className="border p-3 rounded-4 shadow1 d-flex flex-column h-100 justify-content-between">
         <div
-          onClick={() => handleViewAdd("/view-contract", businessData)}
+          // onClick={() => handleViewAdd("/view-contract", businessData)}
           className=""
           style={{ cursor: "pointer" }}
         >

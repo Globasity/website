@@ -30,9 +30,10 @@ const Verification = ({
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation();
   const [businessType, setBusinessType] = useState([]);
-  let userLangauge = JSON.parse(
-    window.localStorage.getItem("globasity_language")
-  );
+  const userLangauge = "en";
+  // let userLangauge = JSON.parse(
+  //   window.localStorage.getItem("globasity_language")
+  // );
   const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;

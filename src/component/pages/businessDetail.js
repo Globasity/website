@@ -204,7 +204,8 @@ const BusinessDetail = () => {
   }, [businessData])
   const navigate = useNavigate()
   const handleChat = (businessUserId, investorUserId) => {
-    navigate("/chat", { state: { businessUserId: businessUserId, investorUserId: investorUserId } })
+    console.log(businessUserId, investorUserId)
+    // navigate("/chat", { state: { businessUserId: businessUserId, investorUserId: investorUserId } })
   }
   const download = (file) => {
     if (file === "undefined" || file === "" || file === undefined || file === "null" || file === null) {
@@ -355,10 +356,10 @@ const BusinessDetail = () => {
                     <div className="text-danger text-center">
                       {t("Bus_process")}
                     </div>}
-                  {(contractData?.status) === "completed" &&
+                  {/* {(contractData?.status) === "completed" &&
                     <button type='button' onClick={() => handleChat(businessData?.id, userData?.user_id)} className='btn1 btn2 mx-auto btn2 fs_09 btn_primary rounded_3 px-4 py-2' >
                       {t("Chat")}
-                    </button>}
+                    </button>} */}
                 </>)
             }
           </Container>

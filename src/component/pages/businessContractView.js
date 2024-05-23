@@ -83,12 +83,13 @@ const BusinessContractView = () => {
         orientation: "portrait",
       },
     };
-    toast.info("File Donwloading");
+    toast.info("File Dowloading");
     await generatePDF(pdfRef, options);
   };
-  let userLangauge = JSON.parse(
-    window.localStorage.getItem("globasity_language")
-  );
+  // let userLangauge = JSON.parse(
+  //   window.localStorage.getItem("globasity_language")
+  // );
+  const userLangauge = 'en';
   const formatDate = (inputDate) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(inputDate).toLocaleDateString(undefined, options);
@@ -121,11 +122,11 @@ const BusinessContractView = () => {
         console.log(err);
       });
   };
-  useEffect(() => {
-    userLangauge = JSON.parse(
-      window.localStorage.getItem("globasity_language")
-    );
-  }, [t]);
+  // useEffect(() => {
+  //   userLangauge = JSON.parse(
+  //     window.localStorage.getItem("globasity_language")
+  //   );
+  // }, [t]);
   useEffect(() => {
     businessContractData();
   }, []);

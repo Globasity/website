@@ -18,6 +18,7 @@ import { Margin, usePDF } from "react-to-pdf";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import BackToTop from "./pagesComponent/backToTop";
+import { GiConsoleController } from "react-icons/gi";
 
 const ViewInitialContract = () => {
   const userData = JSON.parse(
@@ -39,17 +40,18 @@ const ViewInitialContract = () => {
   const [receiverEmail, setReceiverEmail] = useState(null);
   const [imageName, setImageName] = useState(null);
   const { state } = useLocation();
-  let userLangauge = JSON.parse(
-    window.localStorage.getItem("globasity_language")
-  );
+  // let userLangauge = JSON.parse(
+  //   window.localStorage.getItem("globasity_language")
+  // );
+  const userLangauge = 'en';
   const { investorData, businessData, investorId, checkMyBus } = state
     ? state
     : {};
-  useEffect(() => {
-    userLangauge = JSON.parse(
-      window.localStorage.getItem("globasity_langauge")
-    );
-  }, [t, userLangauge]);
+  // useEffect(() => {
+  //   userLangauge = JSON.parse(
+  //     window.localStorage.getItem("globasity_langauge")
+  //   );
+  // }, [t, userLangauge]);
   const handleClose = () => {
     setDigitalSignature(false);
     setUploadFile(false);

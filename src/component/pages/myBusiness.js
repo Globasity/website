@@ -10,9 +10,8 @@ import { toast } from "react-toastify";
 import paper from "../assests/png/paper.png";
 import BackToTop from "./pagesComponent/backToTop";
 import CircularProgress from "@mui/material/CircularProgress";
-import CreateBusinessComponent from "./createBusinessComponent";
 
-const MyBusinessPage = () => {
+const MyBusiness = () => {
   const [pageLoad, setPageLoad] = useState(true);
   const userData = JSON.parse(
     window.localStorage.getItem("globasity_user_data")
@@ -22,7 +21,6 @@ const MyBusinessPage = () => {
   const [isInvestor, setIsInvestor] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoading2, setIsLoading2] = useState(false);
-  const [status, setStatus] = useState(false);
   const [checkMyBus, setCheckMyBus] = useState("");
   const [contractData, setContractData] = useState();
   const { state } = useLocation();
@@ -37,9 +35,12 @@ const MyBusinessPage = () => {
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
   const handleChat = () => {
+    console.log(checkMyBus.user_id, investorData.id)
+    
     navigate("/chat", {
-      state: { businessData: checkMyBus, investorData: investorData },
+      state: { businessData: investorData.id, investorData: investorData.id },
     });
+    
   };
   const { t } = useTranslation();
   const handleBusinessSelect = async (business) => {
@@ -107,10 +108,6 @@ const MyBusinessPage = () => {
       .catch((err) => {
         console.log(err);
       });
-  };
-  const checkBusiness = () => {
-    getBusinessType();
-    getAllBusiness();
   };
   useEffect(() => {
     getBusinessType();
@@ -230,7 +227,7 @@ const MyBusinessPage = () => {
                 <div className="mt-5">
                   {isInvestor && (
                     <div className="popins_semibold fs_11 mb-4 text-danger">
-                      {t("Select_Bus")}
+                      Please Select Your Startup
                     </div>
                   )}
                   <div className="row contentCenter">
@@ -297,11 +294,10 @@ const MyBusinessPage = () => {
                       ))
                     ) : (
                       <>
-                        {/* <div className="d-flex justify-content-center flex-column align-items-center">
+                        <div className="d-flex justify-content-center flex-column align-items-center">
                           <img src={paper} alt="" className="paper" />
                           <div className="mt-1">{t("No_Business_Found")}</div>
-                        </div> */}
-                        <CreateBusinessComponent checkBusiness={checkBusiness} />
+                        </div>
                       </>
                     )}
                   </div>
@@ -315,4 +311,4 @@ const MyBusinessPage = () => {
   );
 };
 
-export default MyBusinessPage;
+export default MyBusiness;

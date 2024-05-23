@@ -188,7 +188,7 @@ const BusinessContractCard = ({
                             >
                               {t("VIEW_CONTRACT")}
                             </button>
-                            <button
+                            {/* <button
                               onClick={() =>
                                 handleBusinessCreate(businessData, formInfo)
                               }
@@ -198,7 +198,7 @@ const BusinessContractCard = ({
                                 className=""
                                 style={{ height: "1rem" }}
                               />
-                            </button>
+                            </button> */}
                           </div>
                         </>
                       ) : (
@@ -233,7 +233,7 @@ const BusinessContractCard = ({
                             >
                               {t("VIEW_CONTRACT")}
                             </button>
-                            <button
+                            {/* <button
                               onClick={() =>
                                 handleBusinessCreate(businessData, formInfo)
                               }
@@ -243,7 +243,7 @@ const BusinessContractCard = ({
                                 className=""
                                 style={{ height: "1rem" }}
                               />
-                            </button>
+                            </button> */}
                           </div>
                         </>
                       ) : (

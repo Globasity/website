@@ -66,15 +66,16 @@ const CreateBusinessComponent = ({checkBusiness}) => {
   };
   const { t } = useTranslation();
   const navigate = useNavigate();
-  let userLangauge = JSON.parse(
-    window.localStorage.getItem("globasity_language")
-  );
-  useEffect(() => {
+  const userLangauge = 'en';
+  // let userLangauge = JSON.parse(
+  //   window.localStorage.getItem("globasity_language")
+  // );
+  // useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    userLangauge = JSON.parse(
-      window.localStorage.getItem("globasity_language")
-    );
-  }, [t]);
+  //   userLangauge = JSON.parse(
+  //     window.localStorage.getItem("globasity_language")
+  //   );
+  // }, [t]);
   const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;
