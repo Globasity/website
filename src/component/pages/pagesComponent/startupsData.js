@@ -1,12 +1,22 @@
 import samplecom from "../../assests/png/samplecom.png";
 import logo from "../../assests/png/clogo.png";
+import logo1 from "../../assests/png/clogo1.png";
+import logo2 from "../../assests/png/clogo2.png";
+import logo3 from "../../assests/png/clogo3.png";
+import logo4 from "../../assests/png/clogo4.png";
+import logo5 from "../../assests/png/clogo5.png";
+import background1 from "../../assests/png/clogob1.png";
+import background2 from "../../assests/png/clogob2.png";
+import background3 from "../../assests/png/clogob3.png";
+import background4 from "../../assests/png/clogob4.png";
+import background5 from "../../assests/png/clogob5.png";
 
 const StartupsData = [
   {
     id: 1,
-    image: samplecom,
+    image: background1,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo1,
     type: "Artificial Intelligence",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Reo Techs",
@@ -18,9 +28,9 @@ const StartupsData = [
   },
   {
     id: 2,
-    image: samplecom,
+    image: background2,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo2,
     type: "Construction",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Smart Logs",
@@ -32,9 +42,9 @@ const StartupsData = [
   },
   {
     id: 3,
-    image: samplecom,
+    image: background4,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo4,
     type: "Healthcare",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Chicken Chicks",
@@ -46,9 +56,9 @@ const StartupsData = [
   },
   {
     id: 4,
-    image: samplecom,
+    image: background5,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo5,
     type: "Enterprise Tech",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Burger King",
@@ -60,9 +70,9 @@ const StartupsData = [
   },
   {
     id: 5,
-    image: samplecom,
+    image: background1,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo1,
     type: "E-commerce",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "KFC",
@@ -74,9 +84,9 @@ const StartupsData = [
   },
   {
     id: 6,
-    image: samplecom,
+    image: background2,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo2,
     type: "Cyber Security",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Facesmart",
@@ -88,9 +98,9 @@ const StartupsData = [
   },
   {
     id: 7,
-    image: samplecom,
+    image: background3,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo3,
     type: "Hospitality",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "McDonalds",
@@ -102,9 +112,9 @@ const StartupsData = [
   },
   {
     id: 8,
-    image: samplecom,
+    image: background4,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo4,
     type: "Contraction",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Fiverr",
@@ -116,9 +126,9 @@ const StartupsData = [
   },
   {
     id: 9,
-    image: samplecom,
+    image: background5,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo5,
     type: "Tourism",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "AL Camino",
@@ -130,9 +140,9 @@ const StartupsData = [
   },
   {
     id: 10,
-    image: samplecom,
+    image: background1,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo1,
     type: "Software Development",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "El Rolls",
@@ -144,9 +154,9 @@ const StartupsData = [
   },
   {
     id: 11,
-    image: samplecom,
+    image: background2,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo2,
     type: "Fintech",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "El Rolls",
@@ -158,9 +168,9 @@ const StartupsData = [
   },
   {
     id: 12,
-    image: samplecom,
+    image: background3,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo3,
     type: "Health & Wellness",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "El Rolls",
@@ -172,9 +182,9 @@ const StartupsData = [
   },
   {
     id: 13,
-    image: samplecom,
+    image: background4,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo4,
     type: "Entertainment",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "AL Camino",
@@ -200,9 +210,9 @@ const StartupsData = [
   },
   {
     id: 15,
-    image: samplecom,
+    image: background3,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo3,
     type: "Artificial Intelligence",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Reo Techs",
@@ -214,9 +224,9 @@ const StartupsData = [
   },
   {
     id: 16,
-    image: samplecom,
+    image: background5,
     brief: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut eros, ligula.",
-    logo: logo,
+    logo: logo5,
     type: "Healthcare",
     href: "https://en.wikipedia.org/wiki/Sean_Parker",
     title: "Reo Techs",
