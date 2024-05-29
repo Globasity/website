@@ -431,7 +431,7 @@ const SellBusiness = () => {
             loaderCounts > 0 &&
             (formData.businessStatus === "" || formData.businessType === "") &&
             allBusinessType?.length >= 10 &&
-            !(allBusinessType.length == totalCount) && (
+            !(allBusinessType.length === totalCount) && (
               <button
                 button
                 disabled={isLoading}

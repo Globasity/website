@@ -162,8 +162,20 @@ const Startups = () => {
                       <option value="" className="fs_09">
                         {t("PLACE_B_TYPE")}
                       </option>
-                      <option value="it">IT</option>
-                      <option value="foods">Foods</option>
+                      <option value="Artificial Intelligence">Artificial Intelligence</option>
+                      <option value="Construction">Construction</option>
+                      <option value="Healthcare">Healthcare</option>
+                      <option value="Enterprise Tech">Enterprise Tech</option>
+                      <option value="E-commerce">E-commerce</option>
+                      <option value="Cyber Security">Cyber Security</option>
+                      <option value="Hospitality">Hospitality</option>
+                      <option value="Contraction">Contraction</option>
+                      <option value="Tourism">Tourism</option>
+                      <option value="Software Development">Software Development</option>
+                      <option value="Fintech">Fintech</option>
+                      <option value="Health & Wellness">Health & Wellness</option>
+                      <option value="Entertainment">Entertainment</option>
+                      <option value="Transport & Delivery">Transport & Delivery</option>
                     </Form.Select>
                   </Form.Group>
                 </div>

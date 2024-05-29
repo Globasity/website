@@ -46,36 +46,36 @@ const DetailModel = ({
               />
             </div>
             <div className="d-flex justify-content-end flex-column resp-center resp-gap">
-              <div className="popins_semibold head-design mb-1 head-fix">{header}</div>
+              <div className="popins_semibold head-design mb-1 head-fix">
+                {header}
+              </div>
               <div className="popins_semibold">
                 <span className="type-design font-fix">{type}</span>
               </div>
             </div>
           </div>
-      
-              <div>
-                <ul
-                  className="social-icons align-items-center justify-content-center"
-                  style={{ listStyle: "none" }}
-                >
-                  <li className="fb">
-                    <a href={facebook} target="_blank" rel="noreferrer">
-                      <Facebook className="img_icon text-white" />
-                    </a>
-                  </li>
-                  <li className="ins">
-                    <a href={linkedin} target="_blank" rel="noreferrer">
-                      <Linkedin className="img_icon text-white" />
-                    </a>
-                  </li>
-                  <li className="twitter">
-                    <a href={twitter} target="_blank" rel="noreferrer">
-                      <Twitter className="img_icon text-white" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-         
+          <div>
+            <ul
+              className="social-icons align-items-center justify-content-center"
+              style={{ listStyle: "none" }}
+            >
+              <li className="fb">
+                <a href={facebook} target="_blank" rel="noreferrer">
+                  <Facebook className="img_icon text-white" />
+                </a>
+              </li>
+              <li className="ins">
+                <a href={linkedin} target="_blank" rel="noreferrer">
+                  <Linkedin className="img_icon text-white" />
+                </a>
+              </li>
+              <li className="twitter">
+                <a href={twitter} target="_blank" rel="noreferrer">
+                  <Twitter className="img_icon text-white" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <Modal.Body className="modal-body-custom">

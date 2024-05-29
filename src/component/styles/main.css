@@ -90,6 +90,35 @@
   width: auto;
 }
 
+.plus-company-name {
+  display: flex;
+  gap: 10px;
+  border-radius: 200px;
+  padding: 5px 15px 5px 5px;
+  transition: all 0.2s ease;
+  border: 1px solid var(--light);
+  width: fit-content;
+  background: var(--light);
+  cursor: pointer;
+}
+
+.plus-company-name-active{
+  border: 1px solid var(--yellow) !important;
+  background: var(--yellow);
+} 
+
+.plus-company-name:hover {
+  border-color: var(--yellow);
+}
+
+.bg-img-custom{
+  position: relative;
+    height: 628px;
+    width: 628px;
+    background: url(../assests/svg/bg-globasity.svg) no-repeat center / 628px;
+}
+
+
 .selected_img {
   bottom: 0;
   max-height: 20rem;
@@ -800,6 +829,18 @@ ol > li::marker {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.06) !important;
 }
 
+.custom-card-2 {
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 7px;
+  width: 100%;
+  box-shadow: none !important;
+  background-color: var(--white);
+  transition: border-color 0.5s, background-color 0.5s;
+  cursor: pointer;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.06) !important;
+}
+
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
   filter: invert(1) grayscale(100);
@@ -807,6 +848,10 @@ ol > li::marker {
 
 .custom-card > img {
   border-radius: 15px;
+}
+
+.custom-card-2 > img {
+  border-radius: 7px;
 }
 
 .type-design {
@@ -894,6 +939,75 @@ ol > li::marker {
   border: 2px solid var(--yellow);
   background-color: rgba(255, 190, 22, 0.15);
 }
+
+.card-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px; 
+  margin: auto;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: var(--light);
+}
+
+.card-container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.model-view-special .modal-dialog {
+  position: fixed;
+  top: 0;
+  right:0;
+  margin: 0;
+  height: 100%;
+  overflow-y: auto;
+  animation: slideIn 0.2s forwards;
+}
+
+.model-view-special .modal-content {
+  height: 100%;
+  border-radius: 0; 
+}
+
+.model-view-special .modal-header,
+.model-view-special .modal-body,
+.model-view-special .modal-footer {
+  overflow-y: auto;
+}
+
+.modal{
+  --bs-modal-width: 600px;
+}
+
 .text-dec-none {
   text-decoration: none;
   color: var(--secondary);
@@ -946,6 +1060,30 @@ ol > li::marker {
   font-size: 45px;
   width: 75%;
   line-height: 50px;
+}
+
+.min-height-resp{
+  min-height: 628px;
+}
+
+@media only screen and (max-width: 1305px) {
+  .bottom-margin-resp {
+    margin-bottom: 2rem !important;
+    display: ruby !important;
+    width: 100%;
+  }
+  .bg-img-custom{
+    background: none !important;
+  }
+  .plus-company-name{
+    margin:5px !important;
+  }
+  .min-height-resp, .bg-img-custom{
+    height: auto !important;
+  }
+  .width-100-responsive{
+    width: 100% !important;
+  }
 }
 
 .craft > span {
@@ -1025,7 +1163,7 @@ ol > li::marker {
   }
 }
 
-.margin-fix{
+.margin-fix {
   margin-bottom: -55px;
 }
 
@@ -1067,7 +1205,7 @@ ol > li::marker {
   }
 }
 
-.head-fix{
+.head-fix {
   font-size: 20px !important;
   display: inline-block;
   white-space: nowrap;
@@ -1075,7 +1213,7 @@ ol > li::marker {
   text-overflow: ellipsis;
 }
 
-.font-fix{
+.font-fix {
   font-size: 12px !important;
   display: inline-block;
   white-space: nowrap;
@@ -1543,6 +1681,11 @@ font-weight: 600; */
 
 .secondary-headings {
   font-size: 1.8em;
+  margin: 1rem 0px;
+}
+
+.tertiary-headings {
+  font-size: 1.4em;
   margin: 1rem 0px;
 }
 

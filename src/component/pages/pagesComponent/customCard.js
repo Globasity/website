@@ -3,7 +3,18 @@ import React, { useState } from "react";
 import DetailModel from "./detailModel";
 import Modal from "react-bootstrap/Modal";
 
-function CustomCard({ image, title, description, type, linkedin, facebook, twitter, logo, brief }) {
+function CustomCard({
+  image,
+  title,
+  description,
+  type,
+  linkedin,
+  facebook,
+  twitter,
+  logo,
+  brief,
+  designChange = false,
+}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -17,33 +28,71 @@ function CustomCard({ image, title, description, type, linkedin, facebook, twitt
   const truncatedDescription = truncateDescription(description, 10);
   return (
     <>
-      {/* eslint-disable-next-line */}
-      <a onClick={handleShow} className="text-dec-none">
-        <div className="custom-card p-3">
-          <img src={image} className="card-img-top" alt="..." />
-          <div className="card-body">
-            <div className="d-flex align-items-center justify-content-between mb-2 flex-resp-card">
-            <div className="popins_semibold head-design">{title}</div>
-            <div className="popins_semibold type-design text-center">{type}</div>
+      {designChange ? (
+        <>
+          {/* eslint-disable-next-line */}
+          <a onClick={handleShow} className="text-dec-none">
+            <div className="custom-card-2 card-container">
+              <img
+                src={image}
+                className="card-img-top img-hover-special"
+                alt="..."
+              />
+              <div class="overlay">
+                <div class="text">{title}</div>
+              </div>
             </div>
-            <div className="poppins_regular desc-design">{truncatedDescription}</div>
-          </div>
-        </div>
-      </a>
-      <Modal show={show} onHide={handleClose}>
-        <DetailModel
-          handleClose={handleClose}
-          header={title}
-          type={type}
-          image={image}
-          logo={logo}
-          brief={brief}
-          detail={description}
-          linkedin={linkedin}
-          facebook={facebook}
-          twitter={twitter}
-        />
-      </Modal>
+          </a>
+          <Modal show={show} onHide={handleClose} className="model-view-special">
+            <DetailModel
+              handleClose={handleClose}
+              header={title}
+              type={type}
+              image={image}
+              logo={logo}
+              brief={brief}
+              detail={description}
+              linkedin={linkedin}
+              facebook={facebook}
+              twitter={twitter}
+            />
+          </Modal>
+        </>
+      ) : (
+        <>
+          {/* eslint-disable-next-line */}
+          <a onClick={handleShow} className="text-dec-none">
+            <div className="custom-card p-3">
+              <img src={image} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <div className="d-flex align-items-center justify-content-between mb-2 flex-resp-card">
+                  <div className="popins_semibold head-design">{title}</div>
+                  <div className="popins_semibold type-design text-center">
+                    {type}
+                  </div>
+                </div>
+                <div className="poppins_regular desc-design">
+                  {truncatedDescription}
+                </div>
+              </div>
+            </div>
+          </a>
+          <Modal show={show} onHide={handleClose}>
+            <DetailModel
+              handleClose={handleClose}
+              header={title}
+              type={type}
+              image={image}
+              logo={logo}
+              brief={brief}
+              detail={description}
+              linkedin={linkedin}
+              facebook={facebook}
+              twitter={twitter}
+            />
+          </Modal>
+        </>
+      )}
     </>
   );
 }
