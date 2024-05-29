@@ -984,24 +984,19 @@ ol > li::marker {
 }
 
 .model-view-special .modal-dialog {
-  position: fixed;
+  position: absolute;
   top: 0;
   right:0;
   margin: 0;
-  height: 100%;
-  overflow-y: auto;
+  height: auto;
+  min-height: 100vh !important;
   animation: slideIn 0.2s forwards;
 }
 
 .model-view-special .modal-content {
-  height: 100%;
+  height: auto;
   border-radius: 0; 
-}
-
-.model-view-special .modal-header,
-.model-view-special .modal-body,
-.model-view-special .modal-footer {
-  overflow-y: auto;
+  min-height: 100vh !important;
 }
 
 .modal{
