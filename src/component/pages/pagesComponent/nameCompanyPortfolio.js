@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import IconPlusYellow from "../../assests/svg/iconPlusYellow";
 
 function NameCompanyPortfolio({
@@ -11,47 +11,24 @@ function NameCompanyPortfolio({
   handleSelect,
   active,
 }) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   const handleSendSelected = () => {
     handleSelect(name);
   };
 
-  const shouldApplyPositionStyle = windowWidth > 1305;
-
   return (
     <div
-      className={`plus-company-name ${
+      className={`plus-company-name remove-position ${
         active ? "plus-company-name-active" : ""
       }`}
-      style={
-        shouldApplyPositionStyle
-          ? {
-              position: "absolute",
-              left: left,
-              right: right,
-              bottom: bottom,
-              top: top,
-              opacity: opacity,
-              transition: "all 0.2s ease",
-            }
-          : {
-              opacity: opacity,
-              transition: "all 0.2s ease",
-            }
-      }
+      style={{
+        position: "absolute",
+        left: left,
+        right: right,
+        bottom: bottom,
+        top: top,
+        opacity: opacity,
+        transition: "all 0.2s ease",
+      }}
       onClick={handleSendSelected}
     >
       <div>

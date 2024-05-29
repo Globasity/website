@@ -1084,6 +1084,15 @@ ol > li::marker {
   .width-100-responsive{
     width: 100% !important;
   }
+  .remove-position {
+    position: initial !important;
+    left: initial !important;
+    right: initial !important;
+    bottom: initial !important;
+    top: initial !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
 }
 
 .craft > span {
