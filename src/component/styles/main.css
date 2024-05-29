@@ -1069,7 +1069,8 @@ ol > li::marker {
 @media only screen and (max-width: 1305px) {
   .bottom-margin-resp {
     margin-bottom: 2rem !important;
-    display: ruby !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
     width: 100%;
   }
   .bg-img-custom{
