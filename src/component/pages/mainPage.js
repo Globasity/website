@@ -49,7 +49,6 @@ import ProcessWork from "../assests/svg/ProcessWork";
 import MainToggle from "./pagesComponent/mainToggle";
 import TextAnimation from "./pagesComponent/textAnimation";
 import HeroSlider from "./pagesComponent/heroSlider";
-import PortfolioCompany from "./pagesComponent/portfolioComponent";
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -367,9 +366,6 @@ const MainPage = () => {
                 </div>
               </div>
             </div>
-          </section>
-          <section className="margin-bottom-content">
-            <PortfolioCompany />
           </section>
           <section className="margin-bottom-content">
             <OurValues

@@ -14,6 +14,7 @@ import Footer from "./pagesComponent/footer";
 import StartupsData from "./pagesComponent/startupsData";
 import { useLocation } from "react-router-dom";
 import ProcessWork from "../assests/svg/ProcessWork";
+import PortfolioCompany from "./pagesComponent/portfolioComponent";
 
 const Startups = () => {
   const [formData, setFormData] = useState({ fullName: "", businessType: "" });
@@ -97,7 +98,7 @@ const Startups = () => {
       ></div>
       <div className="main">
         <Container fluid="xxl" className="px-0">
-          <section className="px-3">
+          <section className="px-3 margin-bottom-content">
             <div className="pt-5 banner_main px-3">
               <div className="row ps-md-5 ps-1">
                 <div className="col-md-8 mb-5">
@@ -119,6 +120,9 @@ const Startups = () => {
                 </div>
               </div>
             </div>
+          </section>
+          <section className="margin-bottom-content">
+            <PortfolioCompany />
           </section>
           <section className="px-1 mx-3 pb-5">
             <div>

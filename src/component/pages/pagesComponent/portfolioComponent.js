@@ -27,7 +27,7 @@ function PortfolioCompany() {
     <>
       <div className="row mx-3 min-height-resp">
         <div
-          className="col-lg-6 bg-img-custom bottom-margin-resp"
+          className="col-lg-6 bg-img-custom bottom-margin-resp m-auto"
           style={{
             display: "flex",
             alignContent: "center",
@@ -78,21 +78,21 @@ function PortfolioCompany() {
           />
           <NameCompanyPortfolio
             name={"E-commerce"}
-            top={position ? "200px" : "290px"}
+            top={position ? "170px" : "290px"}
             opacity={position ? "1" : "0.001"}
             handleSelect={handleSelect}
             active={activeName === "E-commerce"}
           />
           <NameCompanyPortfolio
             name={"Contraction"}
-            right={position ? "50px" : "290px"}
+            right={position ? "20px" : "290px"}
             opacity={position ? "1" : "0.001"}
             handleSelect={handleSelect}
             active={activeName === "Contraction"}
           />
           <NameCompanyPortfolio
             name={"Hospitality"}
-            left={position ? "70px" : "290px"}
+            left={position ? "30px" : "290px"}
             opacity={position ? "1" : "0.001"}
             handleSelect={handleSelect}
             active={activeName === "Hospitality"}
@@ -115,7 +115,7 @@ function PortfolioCompany() {
           />
           <NameCompanyPortfolio
             name={"Software Development"}
-            bottom={position ? "200px" : "290px"}
+            bottom={position ? "170px" : "290px"}
             opacity={position ? "1" : "0.001"}
             handleSelect={handleSelect}
             active={activeName === "Software Development"}

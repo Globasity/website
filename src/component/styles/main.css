@@ -1061,7 +1061,7 @@ ol > li::marker {
   min-height: 628px;
 }
 
-@media only screen and (max-width: 1305px) {
+@media only screen and (max-width: 768px) {
   .bottom-margin-resp {
     margin-bottom: 2rem !important;
     display: flex !important;
